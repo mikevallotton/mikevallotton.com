@@ -1,0 +1,21 @@
+{
+  "name": "Mike Vallotton",
+  "short_name": "Mike",
+  "description": "Clear, grounded content on AI-enabled workflows, judgment, quality, and enterprise adoption.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#1b221d",
+  "theme_color": "#1b221d",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

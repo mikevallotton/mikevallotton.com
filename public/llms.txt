@@ -1,0 +1,29 @@
+# Mike Vallotton
+
+> Practical guidance from CTO Mike Vallotton about understanding artificial intelligence, applying it at work, building reliable AI systems, and preserving human judgment.
+
+Canonical site: https://mikevallotton.com
+Author: Mike Vallotton, Chief Technology Officer at Sagepath Reply
+Language: English
+
+## Topics
+
+- [AI Fundamentals](https://mikevallotton.com/ai-fundamentals): How large language models work, how context and iteration affect results, and how to use AI responsibly.
+- [AI and Work](https://mikevallotton.com/ai-and-work): How AI changes workflows, careers, organizations, leadership, and professional skills.
+- [AI Agents](https://mikevallotton.com/ai-agents): What agents are, how they use tools and workflows, where they create value, and why oversight matters.
+- [AI Search and GEO](https://mikevallotton.com/ai-search-and-geo): How AI search changes discovery and what makes information understandable and retrievable.
+- [Software Development and AI](https://mikevallotton.com/software-development-and-ai): How AI changes engineering workflows, developer roles, leadership, and technical judgment.
+- [AI and Thinking](https://mikevallotton.com/ai-and-thinking): How AI affects reasoning, learning, trust, judgment, and critical thinking.
+
+## About
+
+- [About Mike Vallotton](https://mikevallotton.com/about): Mike's progression since 1996 through software engineering, architecture, enterprise digital experience, technology leadership, and applied AI.
+
+## Articles
+
+- [News Investigator Agent](https://mikevallotton.com/articles/news-investigator): Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment.
+
+## Navigation
+
+- [Privacy](https://mikevallotton.com/privacy): Analytics consent, local choice storage, and third-party request disclosures.
+- [XML sitemap](https://mikevallotton.com/sitemap.xml)
