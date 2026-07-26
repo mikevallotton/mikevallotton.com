@@ -66,7 +66,7 @@ export default function PrivacyPage() {
           <h2>Questions</h2>
           <p>
             Privacy questions can be sent through the social and professional
-            links on the <a href="/links">links page</a>.
+            links on <a href="/about">About Mike</a>.
           </p>
         </section>
       </div>
