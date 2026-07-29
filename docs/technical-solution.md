@@ -17,7 +17,7 @@ There is currently no chat feature in the product. The root `AGENTS.md` is the i
 | Motion | GSAP and Lenis, initialized in `components/MotionSystem.js` |
 | Content | JavaScript objects and JSX in route files |
 | Evidence | Central registry and note mappings in `content/evidence.js` |
-| Analytics | Optional, consent-gated Google Analytics through `NEXT_PUBLIC_GA_ID` |
+| Analytics | Optional Google Analytics with a persistent visitor opt-out through `NEXT_PUBLIC_GA_ID` |
 | Verification | ESLint, production build, and a route smoke-test script |
 
 Node.js 20 is required.
@@ -104,10 +104,11 @@ Public-route changes should be reflected across navigation, sitemap, `llms.txt`,
 
 The CSP currently allows the site's own assets, YouTube thumbnails, Google Analytics, inline styles required by the application, and inline scripts used by Next.js. The production policy does not allow `unsafe-eval`; development adds it for React debugging. The static-compatible `unsafe-inline` allowance is a deliberate limitation: replacing it with per-request nonces would require dynamic rendering and give up the site's static optimization. Adding a third-party dependency may require a narrowly scoped CSP update.
 
-Google Analytics does not load or send data until a visitor explicitly accepts
-analytics. The decision is stored locally and can be changed through the footer.
-YouTube thumbnails remain third-party image requests and are disclosed on the
-privacy page.
+Google Analytics loads by default when it is configured. A visitor can turn it
+off through the footer; the choice is stored locally, collection is disabled,
+and the site's Google Analytics cookies are removed. A visitor can change the
+choice later through the same control. YouTube thumbnails remain third-party
+image requests and are disclosed on the privacy page.
 
 The site has no database, login, or required API credentials. `.env.local` must remain private. `.env.example` documents supported configuration.
 

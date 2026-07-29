@@ -45,9 +45,9 @@ Google Analytics is optional:
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
-When configured, analytics remains blocked until the visitor explicitly
-accepts it. YouTube-hosted thumbnails are a separate third-party request and
-are disclosed on the Privacy page.
+When configured, analytics loads by default. Visitors can turn it off at any
+time through the footer privacy choices. YouTube-hosted thumbnails are a
+separate third-party request and are disclosed on the Privacy page.
 
 The Google fonts used through `next/font` are downloaded during the build and
 self-hosted at runtime, so a build requires network access but visitors do not

@@ -1,11 +1,11 @@
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ContentMeta from "../../components/ContentMeta";
 
-const updated = "2026-07-26";
+const updated = "2026-07-29";
 
 export const metadata = {
   title: "Privacy",
-  description: "How mikevallotton.com handles analytics, local consent choices, and third-party video thumbnails.",
+  description: "How mikevallotton.com handles analytics, local privacy choices, and third-party video thumbnails.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         <ContentMeta
           showAuthor={false}
           updated={updated}
-          updatedLabel="July 26, 2026"
+          updatedLabel="July 29, 2026"
           className="mt-5"
         />
       </header>
@@ -31,15 +31,20 @@ export default function PrivacyPage() {
         <section>
           <h2>Google Analytics</h2>
           <p>
-            If Google Analytics is enabled, it does not load or send information
-            to Google until you select “Accept analytics.” I use the resulting
-            reports only to review site traffic and understand which pages are
-            useful. I do not use them for advertising or personalized marketing.
+            When Google Analytics is enabled for this site, it loads by default.
+            It collects information about visits and interactions, including
+            pages viewed, referring pages, approximate location, and browser and
+            device information. Google Analytics uses first-party cookies to
+            distinguish visitors and sessions. I use the resulting reports only
+            to review site traffic and understand which pages are useful. I do
+            not use them for advertising or personalized marketing.
           </p>
           <p>
-            If you decline, no Google Analytics tag is loaded. Your choice is
-            stored in your browser so the site can remember it. You can reopen
-            the privacy choices from the footer and withdraw consent at any time.
+            You can select “Privacy choices” in the footer and turn analytics
+            off at any time. The site stores that choice in your browser, tells
+            Google Analytics to stop collecting analytics data, and removes its
+            analytics cookies for this site. The Google Analytics tag will not
+            load on later visits unless you turn analytics back on.
           </p>
         </section>
 

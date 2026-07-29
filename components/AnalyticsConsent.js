@@ -13,9 +13,9 @@ function readConsent() {
     if (value === `${CONSENT_VERSION}:accepted`) return "accepted";
     if (value === `${CONSENT_VERSION}:declined`) return "declined";
   } catch {
-    // Storage may be unavailable. Treat that as no consent.
+    // Storage may be unavailable. The default still applies for this page.
   }
-  return "unknown";
+  return "accepted";
 }
 
 function writeConsent(value) {
@@ -86,7 +86,6 @@ export default function AnalyticsConsent({ measurementId }) {
   useEffect(() => {
     const stored = readConsent();
     setConsent(stored);
-    setOpen(stored === "unknown");
 
     const handleOpen = () => setOpen(true);
     window.addEventListener(OPEN_EVENT, handleOpen);
@@ -123,20 +122,20 @@ export default function AnalyticsConsent({ measurementId }) {
       aria-live="polite"
     >
       <div>
-        <h2>Help improve this site?</h2>
+        <h2>Analytics privacy choices</h2>
         <p>
           I use Google Analytics to review site traffic and understand which
-          guides are useful. Nothing is sent to Google unless you accept. You
-          can change this choice later from the footer.{" "}
+          guides are useful. Analytics is on unless you turn it off. I do not
+          use it for advertising or personalized marketing.{" "}
           <a href="/privacy">Read the privacy notice.</a>
         </p>
       </div>
       <div className="consent-banner__actions">
         <button type="button" className="btn btn-primary" onClick={() => choose("accepted")}>
-          Accept analytics
+          Keep analytics on
         </button>
         <button type="button" className="btn btn-secondary" onClick={() => choose("declined")}>
-          Decline
+          Turn off analytics
         </button>
       </div>
     </section>

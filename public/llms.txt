@@ -25,5 +25,5 @@ Language: English
 
 ## Navigation
 
-- [Privacy](https://mikevallotton.com/privacy): Analytics consent, local choice storage, and third-party request disclosures.
+- [Privacy](https://mikevallotton.com/privacy): Analytics choices, local preference storage, and third-party request disclosures.
 - [XML sitemap](https://mikevallotton.com/sitemap.xml)
