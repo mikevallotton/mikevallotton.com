@@ -10,7 +10,7 @@ import VideoGrid from "../../components/VideoGrid";
 export const metadata = {
   title: "About Mike Vallotton, CTO and Technology Leader",
   description:
-    "Mike Vallotton is CTO at Sagepath Reply, with technology experience since 1996 spanning software engineering, architecture, enterprise digital experience, and applied AI.",
+    "Mike Vallotton is CTO at Sagepath Reply, with experience in software engineering, architecture, enterprise technology, and applied AI since 1996.",
   alternates: {
     canonical: "/about",
   },

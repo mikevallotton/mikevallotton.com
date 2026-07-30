@@ -22,7 +22,7 @@ const newsInvestigatorAgentUrl =
 const promptDownloadUrl = "/downloads/news-investigator-prompt.txt";
 const published = "2026-07-26";
 const description =
-  "Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and build better judgment without outsourcing what to think.";
+  "Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment without outsourcing it.";
 
 export const metadata = {
   title: "News Investigator Agent: Use AI to Strengthen Your Judgment",

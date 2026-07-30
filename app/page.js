@@ -7,7 +7,7 @@ import TopicsSection from "../components/TopicsSection";
 export const metadata = {
   title: "Practical AI Guidance for Work and Life",
   description:
-    "Clear, practical guidance from CTO Mike Vallotton to help you understand AI, use it effectively, and become more capable at work and in everyday life.",
+    "Practical guidance from CTO Mike Vallotton to help you understand AI, use it effectively, and become more capable at work and in everyday life.",
   alternates: {
     canonical: "/",
   },

@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Mike Vallotton",
   title: "Mike Vallotton | Practical AI Guidance",
   description:
-    "Clear, practical guidance from CTO Mike Vallotton to help people understand AI, use it effectively, and become more capable at work and in everyday life.",
+    "Practical guidance from CTO Mike Vallotton on understanding AI, using it effectively, and building capability at work and in everyday life.",
   shortBio:
     "CTO with three decades in software, architecture, and technology leadership, explaining how AI changes work and human capability.",
   siteUrl: "https://mikevallotton.com",
