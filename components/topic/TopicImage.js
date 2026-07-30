@@ -2,6 +2,7 @@ import Image from "next/image";
 
 export default function TopicImage({
   src,
+  alt = "",
   priority = false,
   variant = "section",
 }) {
@@ -12,10 +13,13 @@ export default function TopicImage({
   };
 
   return (
-    <div className={`topic-artwork topic-artwork--${variant}`} aria-hidden="true">
+    <div
+      className={`topic-artwork topic-artwork--${variant}`}
+      aria-hidden={alt ? undefined : true}
+    >
       <Image
         src={src}
-        alt=""
+        alt={alt}
         fill
         priority={priority}
         sizes={sizes[variant]}
