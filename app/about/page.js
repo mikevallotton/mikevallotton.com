@@ -65,6 +65,14 @@ const videos = [
     description:
       "Executives across industries are actively confronting rapid AI driven shifts in customer behavior, staffing, and digital architecture. Leaders are focused on adapting responsibly, structuring content for AI mediated discovery, and evolving organizations without breaking them.",
   },
+  {
+    title: "Where AI Is Overestimated and Underestimated Today",
+    published: "2026-06-08T00:00:00-08:00",
+    url: "https://youtu.be/11zFeonc7eQ",
+    videoId: "11zFeonc7eQ",
+    description:
+      "Organizations often focus on AI’s current capabilities, but the bigger issue is how it will reshape operations over the next three to five years. Key opportunities and risks emerge in tools, workflows, discovery, software economics, and trust.",
+  },
 ];
 
 export default function AboutPage() {
