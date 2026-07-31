@@ -9,7 +9,7 @@ metadata, structured data, discovery files, components, and styles.
 
 ## Content Types
 
-The site has four distinct public content types.
+The site has five distinct public content types.
 
 ### Topics
 
@@ -37,6 +37,15 @@ resource. They live beneath `/articles/<slug>`.
 An article may relate to one or more topics, but it is not a topic and does not
 inherit the topic-page structure merely because of that relationship.
 
+### Operating Principles
+
+Operating Principles are Mike's durable principles for approaching AI-enabled
+work. Each principle has a top-level route such as `/clarity-before-tools`.
+
+Operating Principles form a coherent collection distinct from general
+Articles. They may relate to one or more Topics, but their canonical content
+type, page structure, and navigation label remain Operating Principles.
+
 ### Utility pages
 
 About, Links, and Privacy support identity, navigation, and site operation.
@@ -58,10 +67,15 @@ one of those content types.
 - Keep stable topic keys short and conceptual; do not derive public URLs from
   them automatically.
 
+Use **Operating Principles** for the content type and **Operating Principle**
+for an individual item published at its canonical top-level route.
+
 ## Code and Asset Organization
 
 - `components/topic/` contains components used by the six topic pages.
 - `components/article/` is reserved for components specific to articles.
+- `components/operating-principle/` contains components specific to Operating
+  Principles.
 - Components shared across content types live directly in `components/` or in
   an appropriately named neutral subdirectory.
 - Topic artwork lives in `public/images/topics/`.
@@ -94,10 +108,12 @@ truth for exact color values. Update this table and the CSS together.
 
 ## Navigation and Relationships
 
-- Primary navigation lists Topics first, then clearly labels other content
-  types such as Articles.
+- Primary navigation lists Topics first, then clearly labels Operating
+  Principles and other content types such as Articles.
 - Topic indexes use the canonical topic order shown in this document.
-- Topic pages may link to related topics and articles.
+- Topic pages may link to related Topics, Operating Principles, and Articles.
+- Operating Principle pages may link to relevant Topics, other principles,
+  Articles, and Downloads.
 - Article pages may link to relevant topics, related articles, and downloads.
 - Link labels name their destination clearly and use canonical topic names.
 - Explicit topic-navigation links use the destination topic's color. Ordinary
@@ -105,6 +121,22 @@ truth for exact color values. Update this table and the CSS together.
   with the `.topic-destination-link` class.
 - Breadcrumbs reflect content type without inventing URL levels that do not
   exist.
+
+### Link Direction Conventions
+
+Use arrows consistently so they communicate the kind of movement a link
+creates:
+
+- Use `→` for internal navigation to another page, including navigation menus,
+  cards, continuation links, and contextual calls to action.
+- Use `↓` for movement to an anchor farther down the current page.
+- Use `↗` only for an external destination or a link that opens a new browsing
+  context.
+- Use a download icon or downward download treatment for file downloads rather
+  than reusing a navigation arrow.
+
+Arrows are supplemental. Keep them `aria-hidden` and give every link meaningful
+visible text that remains understandable without the symbol.
 
 ## Change Checklist
 

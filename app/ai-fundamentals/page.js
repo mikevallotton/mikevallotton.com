@@ -82,6 +82,10 @@ const sections = [
     related: [
       { href: "/ai-agents", label: "Context in agent systems" },
       { href: "/ai-and-work", label: "Applying AI at work" },
+      {
+        href: "/clarity-before-tools",
+        label: "Clarity before tools",
+      },
     ],
     closing:
       "Successful AI users spend less time searching for the perfect prompt and more time building better context.",

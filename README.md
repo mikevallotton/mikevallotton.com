@@ -24,9 +24,9 @@ pages. There is no CMS, database, authentication system, or required server API.
   provide machine-discovery surfaces.
 - `docs/` explains the technical and editorial approach.
 
-The main public content includes six topic pages, an article and downloadable
-prompt, About, Links, and Privacy pages. See `app/sitemap.js` for the canonical
-route inventory.
+The main public content includes six topic pages, five operating principles,
+an article and downloadable prompt, About, Links, and Privacy pages. See
+`app/sitemap.js` for the canonical route inventory.
 
 ## Local development
 

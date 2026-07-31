@@ -19,6 +19,14 @@ Language: English
 
 - [About Mike Vallotton](https://mikevallotton.com/about): Mike's progression since 1996 through software engineering, architecture, enterprise digital experience, technology leadership, and applied AI.
 
+## Operating Principles
+
+- [Clarity Before Tools](https://mikevallotton.com/clarity-before-tools): Define the goal, audience, constraints, context, and standard of success before deciding how AI should help.
+- [Judgment Over Generation](https://mikevallotton.com/judgment-over-generation): Use AI to expand options and accelerate execution while keeping people responsible for tradeoffs and consequences.
+- [Bottlenecks Over Use Cases](https://mikevallotton.com/bottlenecks-over-use-cases): Find useful applications for AI by starting with delays, confusion, handoffs, and repeated rework.
+- [Quality Over Speed](https://mikevallotton.com/quality-over-speed): Pair AI acceleration with clear standards, deliberate iteration, verification, and review.
+- [Systems That Hold Up](https://mikevallotton.com/systems-that-hold-up): Design reliable AI workflows around sound information, ownership, constrained authority, evaluation, and feedback.
+
 ## Articles
 
 - [News Investigator Agent](https://mikevallotton.com/articles/news-investigator): Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment.

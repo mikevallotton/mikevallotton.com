@@ -45,6 +45,36 @@ export default function sitemap() {
       changeFrequency: "monthly",
       lastModified: new Date("2026-07-26"),
     },
+    {
+      path: "/clarity-before-tools",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-07-30"),
+    },
+    {
+      path: "/judgment-over-generation",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-07-30"),
+    },
+    {
+      path: "/bottlenecks-over-use-cases",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-07-30"),
+    },
+    {
+      path: "/quality-over-speed",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-07-30"),
+    },
+    {
+      path: "/systems-that-hold-up",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-07-30"),
+    },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/links", priority: 0.8, changeFrequency: "monthly" },
     {

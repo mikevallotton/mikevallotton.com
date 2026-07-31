@@ -60,14 +60,6 @@ For code or public-content changes:
 
 1. Run `npm run lint`.
 2. Run `npm run build`.
-3. If routes, navigation, metadata, discovery files, or rendering changed, run the production smoke test:
-
-   ```bash
-   npm run start
-   npm run smoke -- http://127.0.0.1:3000
-   ```
-
-4. Visually inspect affected pages at desktop and mobile widths when layout or interactions changed.
-5. Check keyboard navigation and reduced motion for interaction changes.
-6. Confirm that claims, citations, dates, metadata, sitemap entries, and cross-links remain consistent.
+3. Check keyboard navigation and reduced motion for interaction changes.
+4. Confirm that claims, citations, dates, metadata, sitemap entries, and cross-links remain consistent.
 

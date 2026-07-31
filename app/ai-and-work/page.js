@@ -81,6 +81,10 @@ const sections = [
     related: [
       { href: "/ai-agents", label: "Reliable AI agents" },
       { href: "/ai-and-thinking", label: "AI and human judgment" },
+      {
+        href: "/bottlenecks-over-use-cases",
+        label: "Bottlenecks over use cases",
+      },
     ],
     closing: "Technology evolves every week. Organizations evolve over years.",
     videos: [

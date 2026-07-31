@@ -109,6 +109,10 @@ const sections = [
     related: [
       { href: "/ai-and-thinking", label: "Judgment and cognitive offloading" },
       { href: "/ai-agents", label: "Reliable agent systems" },
+      {
+        href: "/quality-over-speed",
+        label: "Quality over speed",
+      },
     ],
     closing:
       "Strong engineering leadership determines whether AI compounds quality or compounds risk.",

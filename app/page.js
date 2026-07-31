@@ -181,7 +181,7 @@ export default function HomePage() {
               href="/about"
               className="mt-7 inline-flex items-center gap-2 border-b-2 border-library-brassText pb-1 text-sm font-semibold text-library-paper no-underline"
             >
-              More about my perspective <span aria-hidden="true">↗</span>
+              More about my perspective <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

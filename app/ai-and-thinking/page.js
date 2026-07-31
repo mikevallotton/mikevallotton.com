@@ -89,7 +89,13 @@ const sections = [
       "As AI makes execution easier, judgment becomes more valuable. People still have to decide what should be built, what matters most, and which tradeoffs are acceptable.",
     body:
       "Judgment develops through experience, feedback, context, and an understanding of consequences. AI can surface information and options, but people remain accountable for choosing a path.",
-    related: [{ href: "/ai-agents", label: "How AI agents pursue goals" }],
+    related: [
+      { href: "/ai-agents", label: "How AI agents pursue goals" },
+      {
+        href: "/judgment-over-generation",
+        label: "Judgment over generation",
+      },
+    ],
     closing:
       "AI changes the economics of execution without changing the importance of human decision-making.",
     videos: [

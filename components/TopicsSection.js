@@ -98,7 +98,7 @@ export default function TopicsSection() {
               <span className="topic-index__link mt-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[.16em] text-library-walnut md:col-start-1">
                 Explore {topic.title}
                 <span aria-hidden="true" className="site-menu__arrow topic-index__link-arrow">
-                  ↗
+                  →
                 </span>
               </span>
             </Link>

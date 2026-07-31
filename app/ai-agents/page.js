@@ -137,6 +137,10 @@ const sections = [
     related: [
       { href: "/ai-and-thinking", label: "Human judgment and oversight" },
       { href: "/ai-search-and-geo", label: "AI-ready information" },
+      {
+        href: "/systems-that-hold-up",
+        label: "Systems that hold up",
+      },
     ],
     closing:
       "Successful agent systems are built around reliable processes, not just powerful models.",

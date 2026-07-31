@@ -58,9 +58,10 @@ Avoid:
 
 ## Content Model
 
-The site distinguishes durable Topics from narrower Articles and from utility
-pages and Downloads. Follow `docs/information-architecture.md` for canonical
-names, routes, relationships, and visual identifiers.
+The site distinguishes durable Topics, Operating Principles, narrower
+Articles, utility pages, and Downloads. Follow
+`docs/information-architecture.md` for canonical names, routes, relationships,
+and visual identifiers.
 
 Each core topic page generally contains:
 

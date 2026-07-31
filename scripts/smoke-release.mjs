@@ -17,6 +17,11 @@ const routes = [
   "/software-development-and-ai",
   "/ai-and-thinking",
   "/articles/news-investigator",
+  "/clarity-before-tools",
+  "/judgment-over-generation",
+  "/bottlenecks-over-use-cases",
+  "/quality-over-speed",
+  "/systems-that-hold-up",
 ];
 
 async function assertStatus(path, expectedStatus) {
