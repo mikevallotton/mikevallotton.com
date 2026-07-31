@@ -127,7 +127,7 @@ export default function HomePage() {
       >
         <div className="grid gap-6 md:grid-cols-[15rem_1fr] md:gap-12">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+            <p className="type-label text-library-walnut">
               Who this is for
             </p>
             <h2 id="audience-title" className="mt-3 text-3xl font-semibold">
@@ -195,7 +195,7 @@ export default function HomePage() {
       >
         <div className="grid gap-6 md:grid-cols-[15rem_1fr] md:gap-12">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+            <p className="type-label text-library-walnut">
               Why now
             </p>
             <h2 id="why-now-title" className="mt-3 text-3xl font-semibold">
@@ -217,7 +217,7 @@ export default function HomePage() {
         className="border-b border-library-parchment py-14 md:py-20"
       >
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+          <p className="type-label text-library-walnut">
             A durable approach
           </p>
           <h2 id="principles-title" className="mt-3 text-3xl font-semibold md:text-4xl">
@@ -234,7 +234,7 @@ export default function HomePage() {
       <section className="py-14 md:py-20">
         <div className="panel -mx-5 grid gap-7 md:-mx-8 md:grid-cols-[1fr_auto] md:items-end lg:-mx-12">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+            <p className="type-label text-library-walnut">
               About Mike
             </p>
             <h2 className="mt-3 max-w-2xl text-3xl font-semibold">

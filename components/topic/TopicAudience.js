@@ -9,7 +9,7 @@ export default function TopicAudience({
       className="grid gap-6 border-b border-library-parchment py-10 md:grid-cols-[1fr_2fr] md:py-12"
     >
       <div>
-        <p className="topic-accent-text text-xs font-semibold uppercase tracking-[0.18em]">
+        <p className="type-label topic-accent-text">
           {eyebrow}
         </p>
         <h2 id="who-this-is-for" className="mt-2 text-2xl font-semibold">

@@ -11,7 +11,7 @@ export default function FurtherReading({
     >
       <div className="grid gap-8 md:grid-cols-[15rem_1fr] md:gap-10">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-library-walnut">
+          <p className="type-label text-library-walnut">
             Evidence base
           </p>
           <h2 id="evidence-title" className="mt-2 text-2xl font-semibold">
@@ -27,7 +27,7 @@ export default function FurtherReading({
               rel="noreferrer"
               className="rounded-xl border border-library-parchment p-5 no-underline transition hover:border-library-walnut"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-library-walnut">
+              <p className="type-label text-library-walnut">
                 {source.publisher}
                 {source.year ? ` · ${source.year}` : ""}
               </p>

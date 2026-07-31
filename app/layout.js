@@ -5,18 +5,30 @@ import MotionSystem from "../components/MotionSystem";
 import PageAtmosphere from "../components/PageAtmosphere";
 import AnalyticsConsent from "../components/AnalyticsConsent";
 import { siteConfig } from "../content/siteConfig";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  IBM_Plex_Serif,
+} from "next/font/google";
 
-const headingFont = Cormorant_Garamond({
+const sansFont = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const serifFont = IBM_Plex_Serif({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-serif",
   display: "swap",
 });
 
-const bodyFont = Source_Sans_3({
+const monoFont = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -82,7 +94,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <html
+      lang="en"
+      className={`${sansFont.variable} ${serifFont.variable} ${monoFont.variable}`}
+    >
       <head>
         <meta name="theme-color" content="#DDE3DA" />
       </head>

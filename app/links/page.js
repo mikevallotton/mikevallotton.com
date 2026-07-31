@@ -31,7 +31,7 @@ export default function LinksPage() {
       <header className="page-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,24rem)] lg:items-center lg:gap-16">
           <div className="page-hero__content reading-surface">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+            <p className="type-label text-library-walnut">
               Practical AI / Clear thinking
             </p>
             <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] sm:text-6xl md:text-7xl">

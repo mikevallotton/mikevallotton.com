@@ -23,7 +23,7 @@ export default function Breadcrumbs({ current, path }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm text-library-muted">
+      <nav aria-label="Breadcrumb" className="type-meta mb-6 text-library-muted">
         <ol className="flex flex-wrap items-center gap-2">
           <li>
             <Link href="/" className="no-underline hover:underline">

@@ -61,7 +61,7 @@ export default function TopicsSection() {
     >
       <div className="grid gap-6 md:grid-cols-[15rem_1fr] md:gap-12">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-library-walnut">
+          <p className="type-label text-library-walnut">
             Topics
           </p>
           <h2 id="topics-title" className="mt-3 text-3xl font-semibold md:text-4xl">

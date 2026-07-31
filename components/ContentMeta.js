@@ -36,7 +36,7 @@ export default function ContentMeta({
   }
 
   return (
-    <p className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-library-muted ${className}`}>
+    <p className={`type-meta flex flex-wrap items-center gap-x-2 gap-y-1 text-library-muted ${className}`}>
       {items.map((item, index) => (
         <span key={item.key} className="contents">
           {index > 0 ? <span aria-hidden="true">·</span> : null}

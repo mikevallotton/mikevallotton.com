@@ -20,14 +20,14 @@ export default function FaqList({ items, className = "", label }) {
   return (
     <div className={`faq-surface ${className}`}>
       {label ? (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-library-walnut">
+        <p className="type-label mb-3 text-library-walnut">
           {label}
         </p>
       ) : null}
       <div className="divide-y divide-library-parchment border-y border-library-parchment">
         {items.map((item) => (
           <details key={item.question} className="group py-1">
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-5 py-5 text-left font-serif text-xl font-semibold leading-snug text-library-ink marker:content-none">
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-5 py-5 text-left font-sans text-xl font-semibold leading-snug text-library-ink marker:content-none">
               <span>{item.question}</span>
               <span
                 aria-hidden="true"

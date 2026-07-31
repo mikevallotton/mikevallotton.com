@@ -13,7 +13,7 @@ There is currently no chat feature in the product. The root `AGENTS.md` is the i
 | Framework | Next.js 15 App Router |
 | UI | React 19 |
 | Styling | Tailwind CSS plus global component styles |
-| Typography | `next/font` with Cormorant Garamond and Source Sans 3 |
+| Typography | `next/font` with IBM Plex Sans, Serif, and Mono |
 | Motion | GSAP and Lenis, initialized in `components/MotionSystem.js` |
 | Content | JavaScript objects and JSX in route files |
 | Evidence | Central registry and note mappings in `content/evidence.js` |
@@ -76,6 +76,16 @@ Most editorial content lives in the corresponding `app/<route>/page.js` file. Th
 ### Styling and motion
 
 Tailwind provides utility classes and design tokens configured in `tailwind.config.mjs`. `app/globals.css` contains the global visual system and component-level styles.
+
+Typography uses one coordinated family with explicit semantic roles:
+
+- IBM Plex Sans is the default for body copy, headings, navigation, and controls.
+- IBM Plex Serif is reserved for pull quotes and limited editorial emphasis.
+- IBM Plex Mono is used for eyebrows, metadata, captions, numbering, and code-like labels.
+
+Reusable `type-*` component classes define the display, title, section, lead,
+body, label, metadata, caption, and quote roles. New pages should use those
+roles before introducing route-specific font sizes, weights, or tracking.
 
 `components/MotionSystem.js` progressively enhances the pages with GSAP and Lenis. Content and navigation must remain usable without animation. Any new motion should respect reduced-motion preferences and must not become a prerequisite for reading or interaction.
 

@@ -9,7 +9,7 @@ export default function EvidenceNote({ note }) {
         data-evidence-note
         className="rounded-xl border border-library-parchment bg-accent-soft/70 p-5 md:p-6"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-library-walnut">
+        <p className="type-label text-library-walnut">
           What the evidence shows
         </p>
         <p className="mt-2 max-w-3xl leading-relaxed text-library-muted">{note.text}</p>

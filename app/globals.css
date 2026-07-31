@@ -184,7 +184,7 @@
   }
   h1, h2, h3, h4 {
     @apply font-sans tracking-tight text-library-ink;
-    font-weight: 650;
+    font-weight: 600;
   }
   ::selection {
     background: var(--violet);
@@ -257,7 +257,43 @@
     box-shadow: 7px 7px 0 rgba(63,124,255,.45);
   }
   .eyebrow {
-    @apply font-mono text-[0.68rem] font-semibold uppercase tracking-[0.24em];
+    @apply font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em];
+    line-height: 1.4;
+  }
+  .type-display {
+    @apply font-sans font-semibold tracking-tight;
+    font-size: clamp(3.5rem, 8vw, 9rem);
+    line-height: .86;
+    letter-spacing: -.055em;
+  }
+  .type-title {
+    @apply font-sans font-semibold tracking-tight;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: .98;
+  }
+  .type-section {
+    @apply font-sans text-3xl font-semibold leading-tight tracking-tight md:text-4xl;
+  }
+  .type-lead {
+    @apply font-sans text-lg font-medium leading-relaxed md:text-xl;
+  }
+  .type-body {
+    @apply font-sans leading-relaxed;
+  }
+  .type-label {
+    @apply font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em];
+    line-height: 1.4;
+  }
+  .type-meta {
+    @apply font-mono text-xs font-medium tracking-wide;
+    line-height: 1.5;
+  }
+  .type-caption {
+    @apply font-mono text-[0.68rem] font-medium tracking-wider;
+    line-height: 1.5;
+  }
+  .type-quote {
+    @apply font-serif text-xl font-medium leading-relaxed md:text-2xl;
   }
 }
 
@@ -311,14 +347,14 @@ body::before {
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 1.15rem;
-  font-weight: 750;
+  font-weight: 700;
   line-height: .86;
   letter-spacing: -.035em;
 }
 .site-header__meta {
   display: flex;
   gap: 2rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: .62rem;
   text-transform: uppercase;
   letter-spacing: .16em;
@@ -432,14 +468,14 @@ body::before {
   border-top: 1px solid rgba(233,233,223,.28);
 }
 .site-menu__number {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: .66rem;
   letter-spacing: .14em;
 }
 .site-menu__label {
   max-width: none;
   font-family: var(--font-sans);
-  font-weight: 620;
+  font-weight: 600;
   font-size: clamp(1.55rem, 1.9vw, 2.2rem);
   line-height: 1;
   letter-spacing: -.04em;
@@ -473,7 +509,7 @@ body::before {
   margin-top: 0;
   color: var(--paper);
   font-family: var(--font-sans);
-  font-weight: 650;
+  font-weight: 600;
   font-size: clamp(3rem, 5.3vw, 6rem);
   line-height: .82;
   letter-spacing: -.06em;
@@ -948,8 +984,9 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   padding: .45rem .7rem;
   color: var(--forest);
   background: var(--cyan);
+  font-family: var(--font-mono);
   font-size: .68rem;
-  font-weight: 750;
+  font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
@@ -972,7 +1009,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
 }
 
 .prompt-block code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   font-size: clamp(.76rem, 1.5vw, .9rem);
   line-height: 1.7;
 }
@@ -1209,7 +1246,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
 }
 .editorial-grid__item h3 {
   font-size: 1.25rem;
-  font-weight: 650;
+  font-weight: 600;
 }
 .editorial-grid__item p {
   max-width: 42rem;
@@ -1235,7 +1272,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   max-width: 9ch;
   margin-top: 1rem;
   font-size: clamp(4.25rem, 9vw, 9rem);
-  font-weight: 680;
+  font-weight: 700;
   line-height: .78;
   letter-spacing: -.065em;
 }
@@ -1243,7 +1280,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   max-width: 40rem;
   margin-top: clamp(2rem, 5vw, 4rem);
   font-size: clamp(1.5rem, 2.25vw, 2.25rem);
-  font-weight: 550;
+  font-weight: 500;
   line-height: 1.12;
   letter-spacing: -.025em;
 }
@@ -1290,7 +1327,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   padding: .55rem .7rem;
   color: white;
   background: var(--ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: .62rem;
   text-transform: uppercase;
   letter-spacing: .14em;
@@ -1477,7 +1514,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
 }
 .links-socials a {
   color: var(--ink);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: .66rem;
   font-weight: 700;
   letter-spacing: .08em;
@@ -1520,7 +1557,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
 }
 .links-featured > a > span > span {
   font-size: 1.5rem;
-  font-weight: 680;
+  font-weight: 700;
   line-height: 1.02;
   letter-spacing: -.035em;
 }
@@ -1558,7 +1595,7 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
 .links-section-heading span {
   padding-bottom: .15rem;
   color: var(--library-muted, #536174);
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
   font-size: .62rem;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1858,7 +1895,7 @@ footer p, footer a { color: var(--paper) !important; }
     max-width: 38rem;
     margin-top: 2rem;
     font-size: clamp(1.35rem, 2vw, 2rem);
-    font-weight: 550;
+    font-weight: 500;
     line-height: 1.15;
     letter-spacing: -.02em;
   }

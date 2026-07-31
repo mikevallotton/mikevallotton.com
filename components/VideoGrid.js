@@ -44,7 +44,7 @@ export function VideoCard({ video }) {
           }`}
         />
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-          <span className="hidden rounded-full border border-library-paper/25 bg-library-ink/20 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-library-paper/80 backdrop-blur sm:inline-flex">
+          <span className="hidden rounded-full border border-library-paper/25 bg-library-ink/20 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.16em] text-library-paper/80 backdrop-blur sm:inline-flex">
             {available ? "Watch video" : "Link pending"}
           </span>
           <span className="ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-library-paper text-library-forest shadow-sm">
@@ -57,7 +57,7 @@ export function VideoCard({ video }) {
         <p className="mt-2 text-sm leading-relaxed text-library-muted">
           {video.description}
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-semibold uppercase tracking-[0.12em] text-library-walnut">
+        <div className="type-label mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-library-walnut">
           <span>{formatPublishedDate(video.published)}</span>
           {!available ? (
             <>

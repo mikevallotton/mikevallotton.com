@@ -22,19 +22,19 @@ export default function TopicHero({
     >
       {image ? <TopicImage {...image} priority variant="hero" /> : null}
       <div className="topic-hero__content reading-surface">
-        <p className="topic-accent-text text-xs font-semibold uppercase tracking-[0.2em]">
+        <p className="type-label topic-accent-text">
           {eyebrow}
         </p>
         <h1
-          className={`mt-5 text-4xl font-semibold leading-[0.98] sm:text-5xl md:text-6xl ${titleClassName}`}
+          className={`type-title mt-5 ${titleClassName}`}
         >
           {title}
         </h1>
-        <p className="mt-7 max-w-3xl text-xl leading-relaxed text-library-ink md:text-2xl">
+        <p className="type-lead mt-7 max-w-3xl !text-xl text-library-ink md:!text-2xl">
           {lead}
         </p>
         <p
-          className={`mt-5 text-base leading-relaxed text-library-muted md:text-lg ${descriptionClassName}`}
+          className={`type-body mt-5 text-base text-library-muted md:text-lg ${descriptionClassName}`}
         >
           {description}
         </p>

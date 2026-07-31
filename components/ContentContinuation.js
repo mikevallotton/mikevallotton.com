@@ -13,7 +13,7 @@ export default function ContentContinuation({
         href={href}
         className="panel group block space-y-4 no-underline transition-transform duration-300 hover:-translate-y-1"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-library-walnut">
+        <p className="type-label text-library-walnut">
           Continue exploring
         </p>
         <h2 className="text-2xl font-semibold">{title}</h2>

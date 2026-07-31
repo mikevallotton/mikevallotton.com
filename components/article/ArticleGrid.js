@@ -43,7 +43,7 @@ export function ArticleCard({ article }) {
           Better information. Better judgment.
         </p>
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-          <span className="hidden rounded-full border border-library-paper/25 bg-library-ink/20 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-library-paper/80 backdrop-blur sm:inline-flex">
+          <span className="hidden rounded-full border border-library-paper/25 bg-library-ink/20 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.16em] text-library-paper/80 backdrop-blur sm:inline-flex">
             Read article
           </span>
           <span className="ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-library-paper text-library-forest shadow-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -52,7 +52,7 @@ export function ArticleCard({ article }) {
         </div>
       </div>
       <div className="flex min-w-0 flex-col justify-center p-4 sm:min-h-[10.5rem] sm:justify-start sm:p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-library-walnut">
+        <p className="type-label text-library-walnut">
           {article.category || "Article"}
         </p>
         <h3 className="mt-2 text-lg font-semibold leading-snug">
@@ -62,7 +62,7 @@ export function ArticleCard({ article }) {
           {article.description}
         </p>
         {article.published ? (
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.12em] text-library-walnut">
+          <p className="type-label mt-4 text-library-walnut">
             {formatPublishedDate(article.published)}
           </p>
         ) : null}

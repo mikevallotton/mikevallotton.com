@@ -15,14 +15,14 @@ export default function TopicSection({ section, faqItems }) {
       <div className="topic-section__content reading-surface max-w-3xl">
         <h2
           id={`${section.id}-title`}
-          className="text-3xl font-semibold leading-tight md:text-4xl"
+          className="type-section"
         >
           {section.title}
         </h2>
-        <p className="mt-5 text-lg font-medium leading-relaxed text-library-ink md:text-xl">
+        <p className="type-lead mt-5 text-library-ink">
           {section.answer}
         </p>
-        <p className="mt-4 max-w-2xl leading-relaxed text-library-muted">
+        <p className="type-body mt-4 max-w-2xl text-library-muted">
           {section.body}
         </p>
         {section.evidence?.map((note) => (
@@ -32,7 +32,7 @@ export default function TopicSection({ section, faqItems }) {
       </div>
       <VideoGrid videos={section.videos} articles={section.articles} />
       {section.closing ? (
-        <blockquote className="reading-surface topic-accent-border mt-9 border-l-2 pl-5 font-serif text-xl font-medium leading-relaxed text-library-ink md:text-2xl">
+        <blockquote className="type-quote reading-surface topic-accent-border mt-9 border-l-2 pl-5 text-library-ink">
           {section.closing}
         </blockquote>
       ) : null}
