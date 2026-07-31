@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { principles } from "../content/principles";
 
@@ -98,7 +99,22 @@ const NAV_SECTIONS = [
   },
 ];
 
+const UTILITY_PAGE_LABELS = {
+  "/about": "About Mike",
+  "/links": "Links",
+  "/privacy": "Privacy",
+};
+
+const PAGE_LABELS = Object.fromEntries([
+  ...NAV_SECTIONS.flatMap((section) => [
+    ...(section.href ? [[section.href, section.label]] : []),
+    ...section.items.map((item) => [item.href, item.label]),
+  ]),
+  ...Object.entries(UTILITY_PAGE_LABELS),
+]);
+
 export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState(0);
   const [activeItem, setActiveItem] = useState(null);
@@ -106,6 +122,7 @@ export default function Header() {
   const headerRef = useRef(null);
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
+  const pageLabel = PAGE_LABELS[pathname] || "AI Fluency";
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 8);
@@ -164,7 +181,7 @@ export default function Header() {
           <span>Vallotton</span>
         </Link>
         <div className="site-header__meta" aria-hidden="true">
-          <span>AI fluency</span>
+          <span>{pageLabel}</span>
         </div>
         <button
           ref={triggerRef}
