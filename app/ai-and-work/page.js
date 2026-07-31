@@ -447,6 +447,7 @@ export default function AiAndWorkPage() {
       breadcrumb="AI and Work"
       hero={{ eyebrow: "AI and Work", title: "How AI Is Changing Work", lead: "AI is changing work primarily by reducing the time required for research, drafting, documentation, planning, and coordination.", description: "The near-term effect is less about entire professions disappearing and more about changing workflows, expectations, team structures, and the skills that create value. This guide separates what is already happening from the changes that will take years to unfold.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#already-changing", startLabel: "Start with what is changing", image: { src: "/images/topics/ai-work-hero.webp", alt: "People work across connected documents, tools, reviews, and decisions while a shared flow reduces coordination friction." } }}
       audience={["Professionals thinking about how AI will change their careers.", "Leaders responsible for adopting AI inside an organization.", "People separating durable changes from short-term hype.", "Anyone deciding which skills will become more valuable."]}
+      sectionTitles={{ audience: "Who this future-of-work guide is for", evidence: "Evidence about AI and work" }}
       
       sections={sections.map((section) => ({ ...section, navTitle: section.title.replace("AI Is ", "").replace("How ", "") }))}
       getFaqItems={(section) => faqGroups.find((group) => group.title === section.title)?.items}

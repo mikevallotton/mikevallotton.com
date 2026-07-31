@@ -1,6 +1,7 @@
 export default function TopicAudience({
   items,
   eyebrow = "A practical starting point",
+  title = "Who this page is for",
 }) {
   return (
     <section
@@ -12,7 +13,7 @@ export default function TopicAudience({
           {eyebrow}
         </p>
         <h2 id="who-this-is-for" className="mt-2 text-2xl font-semibold">
-          Who this page is for
+          {title}
         </h2>
       </div>
       <ul className="grid gap-x-8 gap-y-3 text-library-muted sm:grid-cols-2">

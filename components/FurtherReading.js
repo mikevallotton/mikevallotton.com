@@ -1,4 +1,7 @@
-export default function FurtherReading({ sources }) {
+export default function FurtherReading({
+  sources,
+  title = "Evidence and further reading",
+}) {
   const uniqueSources = [...new Map(sources.map((source) => [source.href, source])).values()];
 
   return (
@@ -12,7 +15,7 @@ export default function FurtherReading({ sources }) {
             Evidence base
           </p>
           <h2 id="evidence-title" className="mt-2 text-2xl font-semibold">
-            Evidence and further reading
+            {title}
           </h2>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">

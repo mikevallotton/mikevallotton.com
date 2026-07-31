@@ -377,6 +377,7 @@ export default function AiAndThinkingPage() {
       hero={{ eyebrow: "AI and Thinking", title: "AI, Thinking, and Human Judgment", lead: "The more capable AI becomes, the more important it is to understand what it actually does—and what it doesn’t.", description: "AI can generate intelligent-sounding language, but language is not the same as reasoning, understanding, or making decisions with real-world consequences. That distinction changes where humans continue to create value.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#ai-doesnt-think", startLabel: "Start with the distinction", image: { src: "/images/topics/ai-thinking-hero.webp", alt: "Generated patterns form several plausible structures while a person weighs context, experience, uncertainty, values, and consequences before choosing a path." } }}
       audience={["Professionals trying to understand where humans continue to create value alongside AI.", "Leaders making decisions about AI adoption and oversight.", "Anyone interested in how AI changes human thinking and decision-making.", "People exploring the difference between intelligence, reasoning, and language generation.", "Anyone thinking beyond prompts and productivity toward AI’s long-term implications."]}
       audienceEyebrow="A practical perspective"
+      sectionTitles={{ audience: "Who this thinking guide is for", evidence: "Evidence about AI and cognition" }}
       sections={sections}
       
       sources={sources}

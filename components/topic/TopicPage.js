@@ -18,6 +18,7 @@ export default function TopicPage({
   hero,
   audience,
   audienceEyebrow,
+  sectionTitles,
   sections,
   getFaqItems,
   sources,
@@ -35,7 +36,11 @@ export default function TopicPage({
       />
       <Breadcrumbs current={breadcrumb} path={path} />
       <TopicHero {...hero} />
-      <TopicAudience items={audience} eyebrow={audienceEyebrow} />
+      <TopicAudience
+        items={audience}
+        eyebrow={audienceEyebrow}
+        title={sectionTitles?.audience}
+      />
       <TopicSectionNav sections={sections} />
       <div className={sidebar ? "topic-sections-layout" : ""}>
         <div className="topic-sections-layout__content">
@@ -54,7 +59,7 @@ export default function TopicPage({
         ) : null}
       </div>
       {afterSections}
-      <FurtherReading sources={sources} />
+      <FurtherReading sources={sources} title={sectionTitles?.evidence} />
       <ContentContinuation {...next} />
     </article>
   );
