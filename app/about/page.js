@@ -8,7 +8,9 @@ import VideoStructuredData from "../../components/VideoStructuredData";
 import VideoGrid from "../../components/VideoGrid";
 
 export const metadata = {
-  title: "About Mike Vallotton, CTO and Technology Leader",
+  title: {
+    absolute: "About Mike Vallotton | CTO and Technology Leader",
+  },
   description:
     "Mike Vallotton is CTO at Sagepath Reply, with experience in software engineering, architecture, enterprise technology, and applied AI since 1996.",
   alternates: {

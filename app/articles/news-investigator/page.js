@@ -25,7 +25,9 @@ const description =
   "Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment without outsourcing it.";
 
 export const metadata = {
-  title: "News Investigator Agent: Use AI to Strengthen Your Judgment",
+  title: {
+    absolute: "News Investigator Agent | Strengthen Your Judgment",
+  },
   description,
   alternates: { canonical: path },
   openGraph: {
