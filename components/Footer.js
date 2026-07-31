@@ -27,7 +27,6 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <Link href="/about" className="no-underline">About Mike</Link>
             <a href={siteConfig.urls.sagepath} target="_blank" rel="noreferrer" className="no-underline">Sagepath Reply</a>
-            <Link href="/links" className="no-underline">Links</Link>
             <Link href="/privacy" className="no-underline">Privacy</Link>
             <PrivacyChoicesButton enabled={Boolean(process.env.NEXT_PUBLIC_GA_ID)} />
           </div>

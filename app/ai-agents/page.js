@@ -248,6 +248,64 @@ const sections = [
   },
 ];
 
+function faqFromAgents(sectionId, question) {
+  return sections
+    .find((section) => section.id === sectionId)
+    ?.faqs.find((item) => item.question === question);
+}
+
+const agentFaqs = {
+  "what-agents-are": [
+    {
+      question:
+        "How is an AI agent different from a chatbot or traditional automation?",
+      answer:
+        "A chatbot primarily generates responses in a conversation. Traditional automation follows predefined rules and usually executes the same sequence when the same conditions occur. An AI agent combines a model with tools, memory, permissions, and workflow logic so it can pursue a goal and adapt some of its actions to the available information.\n\nAgents do not replace conventional automation. They extend automation into work that involves language, unstructured information, or bounded choices. The surrounding software still determines what the agent can access and do.",
+    },
+  ],
+  "agents-at-work": [
+    {
+      question: "Which workflows are best suited for AI agents?",
+      answer:
+        "Good candidates have a clear objective, digitally available information, observable outcomes, and enough repetition to justify automation. Agents are especially useful when work repeatedly moves between systems or requires interpreting unstructured information that fixed rules handle poorly.\n\nStart with a well-understood process and manageable consequences. Customer-support routing, document processing, reporting, scheduling, monitoring, and workflow preparation may fit these conditions, but the suitability depends on the actual process rather than the label attached to it.",
+    },
+    {
+      question: "How do AI agents change people’s roles in a workflow?",
+      answer:
+        "Agents can take on monitoring, retrieval, routine coordination, and repeatable actions. People then spend more time defining goals, handling exceptions, reviewing consequential output, maintaining relationships, and deciding what should happen when the situation falls outside normal boundaries.\n\nThe effect on a role depends on how much of its work can be separated into reliable tasks. Automating activities does not automatically eliminate the need for the people who provide context, judgment, and accountability.",
+    },
+  ],
+  "reliable-agents": [
+    {
+      question: "What are the main requirements for a reliable AI agent?",
+      answer:
+        "A reliable agent needs a clear objective, a well-understood process, current information, dependable integrations, limited permissions, observable success criteria, and a named owner. Testing should cover expected cases, missing or conflicting information, tool failures, and escalation paths.\n\nReliability must also be maintained after launch. Monitor errors, overrides, source changes, and unexpected behavior, then feed those observations back into the process, instructions, permissions, and evaluations.",
+    },
+    faqFromAgents("reliable-agents", "How much autonomy should agents have?"),
+    faqFromAgents(
+      "reliable-agents",
+      "Who is responsible when an agent makes a mistake?",
+    ),
+  ],
+  "agentic-web": [
+    {
+      question: "What makes a digital service ready for AI agents?",
+      answer:
+        "An agent-ready service provides accurate, structured information and reliable interfaces through which authorized software can act. It also needs identity, permissions, validation, clear error responses, and feedback that lets the agent or a person determine whether an action succeeded.\n\nA website can make information easy to retrieve without being safe for automated action. Agent readiness begins when the service can constrain, verify, and account for what software does on a person’s behalf.",
+    },
+    faqFromAgents(
+      "agentic-web",
+      "How do agents know which information to trust?",
+    ),
+    faqFromAgents("agentic-web", "Why are APIs becoming more important?"),
+  ],
+};
+
+const curatedSections = sections.map((section) => ({
+  ...section,
+  faqs: agentFaqs[section.id] || [],
+}));
+
 const sources = mergeSources([
   {
     title: "Tool Use in Agent Systems",
@@ -310,7 +368,7 @@ const structuredData = {
 const faqStructuredData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: sections.flatMap((section) => section.faqs).map((item) => ({
+  mainEntity: curatedSections.flatMap((section) => section.faqs).map((item) => ({
     "@type": "Question",
     name: item.question,
     acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -328,7 +386,7 @@ export default function AiAgentsPage() {
       hero={{ eyebrow: "AI Agents", title: "From Answering Questions to Getting Work Done", lead: "AI agents represent the next step beyond tools that generate text, summarize information, write code, and answer questions.", description: "Agents can plan work, interact with software, retrieve information, make decisions within defined boundaries, and complete multi-step tasks across systems. This guide explains where they create value and how to build them without creating chaos.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#what-agents-are", startLabel: "Start with what agents are", titleClassName: "max-w-4xl", image: { src: "/images/topics/ai-agents-hero.webp", alt: "A bounded agent loop moves through information, tools, observation, evaluation, and human oversight." } }}
       audience={["Business leaders evaluating AI agents for their organization.", "Professionals interested in automating complex workflows.", "Developers building AI-powered applications.", "Teams preparing for the next generation of AI-enabled work.", "Anyone separating chatbots, automation, and AI agents."]}
       sectionTitles={{ audience: "Who should learn about AI agents", evidence: "Evidence about AI agents" }}
-      sections={sections}
+      sections={curatedSections}
       sources={sources}
       afterSections={<section className="py-14 md:py-20"><div className="max-w-3xl"><p className="type-label text-library-walnut">Closing</p><h2 className="mt-2 text-3xl font-semibold leading-tight md:text-4xl">Machine execution, guided by human judgment</h2><p className="mt-5 text-lg leading-relaxed text-library-ink md:text-xl">AI agents represent a transition from generating information to accomplishing work. Their value comes from reducing the coordination required to move information, execute processes, and connect systems.</p><p className="mt-4 leading-relaxed text-library-muted">Organizations that succeed will focus less on the intelligence of the model alone and more on trustworthy processes, high-quality data, and clear accountability. Reliable agent systems combine machine execution with human judgment.</p></div></section>}
       next={{ title: "See how AI changes software development", description: "Explore how AI affects the development lifecycle, technical roles, engineering workflows, and the judgment required to build reliable systems.", href: "/software-development-and-ai", linkLabel: "Explore Software Development and AI", topicKey: "software" }}

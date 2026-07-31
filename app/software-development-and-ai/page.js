@@ -149,7 +149,7 @@ const sections = [
   },
 ];
 
-const faqGroups = [
+const sourceFaqGroups = [
   {
     title: "The Development Workflow",
     items: [
@@ -258,6 +258,63 @@ const faqGroups = [
         answer:
           "Organizations should treat AI as an opportunity to improve engineering systems rather than simply accelerate coding. Invest in architecture, governance, documentation, testing, security, developer education, and reusable engineering practices. The organizations that benefit most from AI won't necessarily be the ones generating the most code. They'll be the ones consistently delivering reliable software while maintaining high engineering standards.",
       },
+    ],
+  },
+];
+
+function faqFromSoftware(question) {
+  return sourceFaqGroups
+    .flatMap((group) => group.items)
+    .find((item) => item.question === question);
+}
+
+const faqGroups = [
+  {
+    title: "The Development Workflow",
+    items: [
+      faqFromSoftware("Is AI replacing software developers?"),
+      {
+        question: "Where should a software team start using AI?",
+        answer:
+          "Start with a bounded part of the development workflow where the team can observe both speed and quality. Examples may include explaining unfamiliar code, drafting tests, improving documentation, or reviewing a small change. Choose work with clear requirements, an accountable owner, and an existing way to verify the result.\n\nEvaluate the entire workflow rather than the generation step alone. A useful starting point reduces meaningful friction without overwhelming review, testing, security, integration, or maintenance downstream.",
+      },
+      faqFromSoftware("What becomes the new bottleneck?"),
+      {
+        question:
+          "When does AI improve software quality—and when does it make quality worse?",
+        answer:
+          "AI can improve quality when it helps developers identify defects, generate relevant tests, compare implementations, explain unfamiliar code, or apply established standards consistently. Those benefits depend on clear requirements and engineering practices that can evaluate the result.\n\nIt can make quality worse when teams accept plausible code without understanding it, generate more changes than they can review, or allow insecure and unnecessarily complex patterns to accumulate. AI accelerates production; testing, review, architecture, and accountability determine whether that speed produces better software.",
+      },
+    ],
+  },
+  {
+    title: "Developers",
+    items: [
+      faqFromSoftware("Should I still study computer science?"),
+      {
+        question: "How is AI changing entry-level software development?",
+        answer:
+          "AI can automate some repetitive work that has traditionally helped new developers enter the profession. At the same time, organizations still need people who can understand systems, clarify requirements, review generated code, communicate with teams, and develop into experienced engineers.\n\nEntry-level work is therefore likely to change rather than follow one universal path. New developers should use AI to support learning while continuing to practice debugging, design, testing, and independent problem solving.",
+      },
+      faqFromSoftware("How should new developers learn with AI?"),
+      faqFromSoftware("What skills should developers focus on now?"),
+    ],
+  },
+  {
+    title: "Engineering Leadership",
+    items: [
+      {
+        question:
+          "What should engineering leaders change as AI accelerates development?",
+        answer:
+          "Engineering leaders should look beyond individual coding speed and strengthen the system that turns changes into reliable software. That includes architecture, standards, review capacity, testing, security, documentation, technical-debt management, developer learning, and clear accountability for generated code.\n\nAdoption should begin with defined workflows and observable outcomes. The objective is not to maximize the amount of generated code, but to help teams deliver useful software without allowing quality or maintainability to degrade.",
+      },
+      {
+        question: "What controls should teams apply to AI-generated code?",
+        answer:
+          "Apply the same engineering standards used for human-written code, with additional attention to whether anyone understands the generated implementation. Require appropriate peer review, automated tests, security checks, architectural consistency, documentation, and production monitoring. Review licensing or provenance questions when the tool and context make them relevant.\n\nThe team deploying the code remains responsible for its behavior. AI changes how code may be produced; it does not lower the standard the code must meet.",
+      },
+      faqFromSoftware("Does AI increase technical debt?"),
     ],
   },
 ];

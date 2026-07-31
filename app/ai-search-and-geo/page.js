@@ -1,7 +1,6 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
-import FaqList from "../../components/FaqList";
 
 export const metadata = {
   title: "AI Search and GEO: A Practical Guide",
@@ -162,7 +161,7 @@ const sections = [
   },
 ];
 
-const faqGroups = [
+const sourceFaqGroups = [
   {
     title: "Search Is Changing",
     items: [
@@ -285,18 +284,68 @@ const faqGroups = [
   },
 ];
 
-const pageFaqs = [
+function faqFromSearch(question) {
+  return sourceFaqGroups
+    .flatMap((group) => group.items)
+    .find((item) => item.question === question);
+}
+
+const faqGroups = [
   {
-    question: "How will AI change search over the next decade?",
-    answer:
-      "Search will increasingly evolve from ranking webpages toward retrieving and synthesizing knowledge. Websites will remain important, but many interactions will occur through AI assistants that gather information from numerous trusted sources before presenting answers. Organizations that invest in accurate information, strong information architecture, technical quality, and long-term credibility will be better positioned regardless of how search interfaces continue evolving.",
+    title: "Search Is Changing",
+    items: [
+      faqFromSearch("What is retrieval?"),
+      faqFromSearch("Do rankings still matter?"),
+      {
+        question:
+          "What makes information easier for AI search systems to retrieve and use?",
+        answer:
+          "Useful information is directly relevant to the question, specific enough to resolve it, clearly organized, current, and consistent with the rest of the site. Descriptive headings, stable terminology, internal links, and explicit evidence can help systems interpret the information and its relationship to other material.\n\nNo single quality guarantees selection or citation. AI search products use different retrieval and ranking systems, and those systems change. The durable objective is to publish information that people and machines can understand, verify, and use confidently.",
+      },
+    ],
   },
   {
-    question: "What should organizations do today?",
-    answer:
-      "Focus on creating content that deserves to be referenced. Build deep expertise, answer important customer questions thoroughly, organize information clearly, maintain technical excellence, and continually improve content quality. The future of search is unlikely to reward shortcuts. It will reward organizations that consistently become the most trustworthy source of information in their area of expertise.",
+    title: "Websites Become Knowledge Bases",
+    items: [
+      faqFromSearch("Why is content accuracy becoming so important?"),
+      {
+        question: "What makes a website’s information AI-ready?",
+        answer:
+          "AI-ready information is accurate, current, specific, and organized around concepts people actually need to understand. Clear page titles, semantic headings, consistent terminology, meaningful internal links, and maintained source information make relationships easier to retrieve and interpret.\n\nThis is not a separate style of writing for machines. It is sound information architecture and useful content for both people and AI systems. Agent-ready services go further by adding the interfaces, identity, permissions, and feedback required for authorized action.",
+      },
+    ],
+  },
+  {
+    title: "SEO + GEO",
+    items: [
+      {
+        question: "How do SEO and GEO complement each other?",
+        answer:
+          "Search engine optimization (SEO) helps search engines crawl, understand, and rank content for traditional results. Generative engine optimization (GEO) considers whether AI systems can retrieve, interpret, and reference that information while producing answers.\n\nThey share durable foundations: useful content, technical quality, clear organization, authority, and accurate information. GEO expands the discovery problem; it does not make traditional search or SEO obsolete.",
+      },
+      faqFromSearch("How should organizations prepare for AI search?"),
+    ],
+  },
+  {
+    title: "Analytics & Influence",
+    items: [
+      {
+        question:
+          "Why can a website’s influence increase without a corresponding increase in traffic?",
+        answer:
+          "AI systems can synthesize information directly in search results or assistants. A person may learn about an organization, include it in a decision, or contact it later without visiting the page that helped inform the answer. In that case, the content may have contributed influence without producing a conventional session or click.\n\nThat influence is difficult to attribute precisely. Traffic analytics remain useful, but they capture only the interactions that reach the website and should be interpreted alongside broader discovery and business outcomes.",
+      },
+      {
+        question:
+          "How should organizations measure AI-search visibility and influence?",
+        answer:
+          "Combine traditional measures such as search visibility, qualified traffic, engagement, leads, and conversions with broader indicators such as branded search, direct visits, customer-reported discovery paths, and AI citations where they can be measured responsibly.\n\nSeparate observable indicators from inferred influence. Citation frequency or an AI referral can provide evidence of visibility, but neither proves a business outcome by itself. The most useful measurement connects discovery signals with customer quality and organizational results.",
+      },
+    ],
   },
 ];
+
+const pageFaqs = [];
 
 const sources = mergeSources([
   {
@@ -389,7 +438,7 @@ export default function AiSearchAndGeoPage() {
       sections={sections}
       getFaqItems={(section) => faqGroups.find((group) => group.title === section.title)?.items}
       sources={sources}
-      afterSections={<><section aria-labelledby="page-faq-title" className="border-t border-library-parchment py-14 md:py-20"><div className="grid gap-8 md:grid-cols-[15rem_1fr] md:gap-10"><div><p className="type-label text-library-walnut">Page-level perspective</p><h2 id="page-faq-title" className="mt-2 text-2xl font-semibold">The bigger questions</h2></div><FaqList items={pageFaqs} /></div></section><section className="border-t border-library-parchment py-14 md:py-20"><div className="max-w-3xl"><h2 className="text-3xl font-semibold leading-tight md:text-4xl">Become a Source AI Can Trust</h2><p className="mt-5 text-lg font-medium leading-relaxed text-library-ink md:text-xl">The future of search belongs to organizations that produce accurate information, structure it well, and make it easy to retrieve.</p><p className="mt-4 max-w-2xl leading-relaxed text-library-muted">Attracting visitors still matters, but it is no longer the only goal. Build a website that functions as a credible knowledge source, and evaluate success by influence and business outcomes as well as traffic.</p><blockquote className="type-quote mt-8 topic-accent-border border-l-2 pl-5 text-library-ink">In AI search, the most useful source often matters more than the loudest page.</blockquote></div></section></>}
+      afterSections={<section className="border-t border-library-parchment py-14 md:py-20"><div className="max-w-3xl"><h2 className="text-3xl font-semibold leading-tight md:text-4xl">Become a Source AI Can Trust</h2><p className="mt-5 text-lg font-medium leading-relaxed text-library-ink md:text-xl">The future of search belongs to organizations that produce accurate information, structure it well, and make it easy to retrieve.</p><p className="mt-4 max-w-2xl leading-relaxed text-library-muted">Attracting visitors still matters, but it is no longer the only goal. Build a website that functions as a credible knowledge source, and evaluate success by influence and business outcomes as well as traffic.</p><blockquote className="type-quote mt-8 topic-accent-border border-l-2 pl-5 text-library-ink">In AI search, the most useful source often matters more than the loudest page.</blockquote></div></section>}
       next={{ title: "Protect judgment in an AI-mediated world", description: "Explore how AI affects reasoning, learning, trust, and the human responsibility to decide what deserves belief and action.", href: "/ai-and-thinking", linkLabel: "Explore AI and Thinking", topicKey: "thinking" }}
     />
   );

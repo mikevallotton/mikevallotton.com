@@ -297,6 +297,59 @@ const sections = [
   },
 ];
 
+function faqFromThinking(sectionId, question) {
+  return sections
+    .find((section) => section.id === sectionId)
+    ?.faqs.find((item) => item.question === question);
+}
+
+const thinkingFaqs = {
+  "ai-doesnt-think": [
+    faqFromThinking(
+      "ai-doesnt-think",
+      "What’s the difference between prediction and reasoning?",
+    ),
+  ],
+  judgment: [
+    faqFromThinking("judgment", "Can you train your judgment?"),
+    faqFromThinking("judgment", "Why is experience still valuable?"),
+    faqFromThinking("judgment", "How should I use AI to make better decisions?"),
+  ],
+  "human-cognition": [
+    {
+      question: "When can AI weaken independent thinking?",
+      answer:
+        "AI can weaken independent thinking when it repeatedly replaces the effort required to form an initial view, solve a problem, evaluate evidence, or notice uncertainty. The risk depends on the task, the person’s existing knowledge, and whether they remain actively engaged with the work.\n\nA stronger pattern is to think first, use AI to expand or challenge that thinking, and then evaluate the result independently. The objective is not to avoid cognitive offloading, but to preserve the mental models needed to recognize mistakes and make decisions when the tool is unavailable or wrong.",
+    },
+    faqFromThinking("human-cognition", "What is cognitive offloading?"),
+    faqFromThinking("human-cognition", "Can AI improve learning?"),
+    faqFromThinking(
+      "human-cognition",
+      "How should I balance AI with independent thinking?",
+    ),
+  ],
+  "trust-credibility-truth": [
+    {
+      question:
+        "Why do trust and credibility become more valuable as generated content increases?",
+      answer:
+        "AI lowers the cost of producing polished reports, articles, images, and presentations. As appearance becomes easier to reproduce, it provides less evidence that the underlying work is accurate or informed.\n\nPeople therefore rely more heavily on source identity, demonstrated expertise, transparency, supporting evidence, and a history of reliable behavior. AI can improve communication, but credibility still has to be earned through consistent performance.",
+    },
+    faqFromThinking("trust-credibility-truth", "Will AI reduce originality?"),
+    {
+      question:
+        "How should people evaluate information in an AI-rich environment?",
+      answer:
+        "Look beyond presentation and examine the source, evidence, incentives, and degree of independent confirmation. Trustworthy information makes its support traceable, distinguishes fact from inference, acknowledges important uncertainty, and remains consistent with the available record.\n\nNo single signal establishes truth. Credibility grows when a source demonstrates accuracy, transparency, and responsible correction over time.",
+    },
+  ],
+};
+
+const curatedSections = sections.map((section) => ({
+  ...section,
+  faqs: thinkingFaqs[section.id] || [],
+}));
+
 const sources = mergeSources([
   {
     title: "AI Risk Management and Human-AI Interaction",
@@ -360,7 +413,7 @@ const structuredData = {
   citation: sources.map((source) => source.href),
 };
 
-const allFaqs = sections.flatMap((section) => section.faqs);
+const allFaqs = curatedSections.flatMap((section) => section.faqs);
 
 const faqStructuredData = {
   "@context": "https://schema.org",
@@ -384,7 +437,7 @@ export default function AiAndThinkingPage() {
       audience={["Professionals trying to understand where humans continue to create value alongside AI.", "Leaders making decisions about AI adoption and oversight.", "Anyone interested in how AI changes human thinking and decision-making.", "People exploring the difference between intelligence, reasoning, and language generation.", "Anyone thinking beyond prompts and productivity toward AI’s long-term implications."]}
       audienceEyebrow="A practical perspective"
       sectionTitles={{ audience: "Who this thinking guide is for", evidence: "Evidence about AI and cognition" }}
-      sections={sections}
+      sections={curatedSections}
       
       sources={sources}
       afterSections={<section className="border-t border-library-parchment py-14 md:py-20"><div className="max-w-3xl"><h2 className="text-3xl font-semibold leading-tight md:text-4xl">Good Thinking Becomes More Valuable</h2><p className="mt-5 text-lg font-medium leading-relaxed text-library-ink md:text-xl">As AI becomes more capable, the challenge shifts from asking what the technology can do to understanding where people continue to create value.</p><p className="mt-4 max-w-2xl leading-relaxed text-library-muted">AI excels at generating language, accelerating execution, and expanding exploration. Humans remain responsible for judgment, accountability, context, and deciding what matters.</p><blockquote className="mt-8 topic-accent-border border-l-2 pl-5 font-serif text-xl font-medium leading-relaxed text-library-ink md:text-2xl">AI is not a replacement for thinking. It is a tool that makes good thinking even more valuable.</blockquote></div></section>}

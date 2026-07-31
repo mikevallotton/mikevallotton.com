@@ -182,7 +182,7 @@ const sections = [
   },
 ];
 
-const faqGroups = [
+const sourceFaqGroups = [
   {
     title: "How Large Language Models Work",
     items: [
@@ -334,6 +334,75 @@ const faqGroups = [
           "Used thoughtfully, AI becomes a powerful tool for improving productivity and decision-making. Used carelessly, it can create unnecessary risk. Responsibility isn’t about avoiding AI—it’s about using it with informed confidence.",
         ],
       },
+    ],
+  },
+];
+
+function faqFromFundamentals(question) {
+  return sourceFaqGroups
+    .flatMap((group) => group.items)
+    .find((item) => item.question === question);
+}
+
+const faqGroups = [
+  {
+    title: "How Large Language Models Work",
+    items: [
+      {
+        question:
+          "What is a large language model, and what does next-token prediction mean?",
+        answer: [
+          "A large language model (LLM) is an AI system trained to recognize statistical relationships in large amounts of text. It generates a response one token at a time, with each prediction shaped by the prompt, prior conversation, and other context available to it.",
+          "Calling this next-token prediction describes the mechanism but not the full behavior that emerges from it. Across many predictions, a model can explain concepts, compare ideas, write software, and adapt its response to a task. It is generating an answer from learned patterns, however, rather than retrieving a prewritten response or consulting a database by default.",
+        ],
+      },
+      {
+        question: "Why can AI sound intelligent without thinking like a person?",
+        answer: [
+          "People naturally associate articulate language with intelligence. A language model has learned patterns connecting words, concepts, explanations, and forms of reasoning, so it can produce communication that appears thoughtful and informed.",
+          "Fluent communication does not establish that the model has human experience, intentions, or accountability for consequences. The distinction matters because a convincing explanation may still be incomplete or wrong.",
+        ],
+      },
+      faqFromFundamentals("Why can AI be confidently wrong?"),
+    ],
+  },
+  {
+    title: "Context Is Everything",
+    items: [
+      {
+        question: "How should context develop as I iterate with AI?",
+        answer: [
+          "Each useful exchange can clarify the goal, terminology, constraints, examples, and prior decisions that should shape the next response. Review the result, identify a specific weakness or missing assumption, and add information that helps correct it.",
+          "A longer conversation is not automatically a better one. Irrelevant or conflicting history can reduce quality. Iteration works best when each turn improves the relevance and clarity of the context rather than merely increasing its length.",
+        ],
+      },
+      faqFromFundamentals(
+        "Should I start a new conversation or continue an existing one?",
+      ),
+      faqFromFundamentals(
+        "Why doesn’t adding more information always improve results?",
+      ),
+    ],
+  },
+  {
+    title: "Learning to Work with AI",
+    items: [
+      {
+        question: "What is an effective way to learn to work with AI?",
+        answer: [
+          "Choose a real, low-risk task and use AI throughout the work rather than practicing only with artificial prompts. Compare approaches, ask follow-up questions, inspect weak responses, and notice which context or feedback materially improves the result.",
+          "Over time, this develops practical intuition for framing work, providing relevant context, recognizing weaknesses, and deciding when AI is or is not useful. Regular reflection matters more than memorizing prompt formulas.",
+        ],
+      },
+      faqFromFundamentals("Should I use AI like Google?"),
+      faqFromFundamentals("What is prompt engineering really about?"),
+      faqFromFundamentals("How do I know whether AI gave me a good answer?"),
+    ],
+  },
+  {
+    title: "Using AI Responsibly",
+    items: [
+      faqFromFundamentals("Is it safe to put company information into AI?"),
     ],
   },
 ];

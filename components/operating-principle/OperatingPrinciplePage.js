@@ -1,6 +1,7 @@
 import Breadcrumbs from "../Breadcrumbs";
 import ContentMeta from "../ContentMeta";
 import EvidenceNote from "../EvidenceNote";
+import FaqList from "../FaqList";
 import FurtherReading from "../FurtherReading";
 import JsonLd from "../JsonLd";
 import RelatedConcepts from "../RelatedConcepts";
@@ -56,6 +57,21 @@ function schemaForOperatingPrinciple(principle, path) {
   };
 }
 
+function faqSchemaForOperatingPrinciple(faqs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export default function OperatingPrinciplePage({ slug }) {
   const principle = operatingPrinciples[slug];
   const path = `/${slug}`;
@@ -63,6 +79,7 @@ export default function OperatingPrinciplePage({ slug }) {
   return (
     <article className={`article-page topic--${principle.topicKey}`}>
       <JsonLd data={schemaForOperatingPrinciple(principle, path)} />
+      <JsonLd data={faqSchemaForOperatingPrinciple(principle.faqs)} />
       <VideoStructuredData videos={principle.videos} pagePath={path} />
       <Breadcrumbs current={principle.title} path={path} />
 
@@ -140,6 +157,22 @@ export default function OperatingPrinciplePage({ slug }) {
           <VideoGrid videos={principle.videos} />
         </section>
       ) : null}
+
+      <section
+        aria-labelledby="frequently-asked-questions-title"
+        className="border-b border-library-parchment py-14 md:py-20"
+      >
+        <div className="reading-surface max-w-3xl">
+          <p className="eyebrow text-library-walnut">Practical questions</p>
+          <h2
+            id="frequently-asked-questions-title"
+            className="mt-3 text-3xl font-semibold md:text-4xl"
+          >
+            Frequently asked questions
+          </h2>
+          <FaqList items={principle.faqs} className="mt-8" />
+        </div>
+      </section>
 
       <FurtherReading sources={sourcesFor(principle.sourceNotes)} />
     </article>

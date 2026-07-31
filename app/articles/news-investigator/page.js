@@ -96,7 +96,7 @@ const reportSections = [
   },
 ];
 
-const faqs = [
+const sourceFaqs = [
   {
     question: "How can AI help improve my judgment?",
     answer:
@@ -140,6 +140,14 @@ const faqs = [
     answer:
       "The prompt defines the investigative method: which sources to seek, how to classify evidence, what mistakes to avoid, and how to structure the report. The News Investigator Agent applies that method as a reusable tool and can continue the investigation through follow-up questions.\n\nThe prompt is available to make the process visible and adaptable. The agent provides a convenient way to use that process without rebuilding the instructions for every story.",
   },
+];
+
+const faqs = [
+  sourceFaqs[1],
+  sourceFaqs[2],
+  sourceFaqs[5],
+  sourceFaqs[6],
+  sourceFaqs[7],
 ];
 
 function PromptBlock({ section, label }) {

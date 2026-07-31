@@ -86,6 +86,18 @@ export const operatingPrinciples = {
           "Clarifying intent before prompting improves the frame for every AI interaction. Name what you are trying to accomplish before asking the model to produce anything.",
       },
     ],
+    faqs: [
+      {
+        question: "How do I know whether AI is the right tool for a task?",
+        answer:
+          "Start by identifying what is preventing a useful outcome. AI may help when the work involves generating, organizing, comparing, retrieving, classifying, or transforming information. It may not be the right tool when the real constraint is an unresolved decision, missing access, unclear ownership, unavailable source information, or a predictable rule that conventional software can execute more reliably. Choose the approach after understanding the need.",
+      },
+      {
+        question: "What should I do when I cannot define the outcome clearly?",
+        answer:
+          "Treat clarification as the first task. Describe what is known, what remains uncertain, who is affected, and which decision the work should support. AI can help surface assumptions, compare possible problem statements, or identify missing questions, but it should not silently decide the objective. Before moving into execution, a person responsible for the work should confirm what outcome is worth pursuing.",
+      },
+    ],
     sourceNotes: ["fundamentalsContext"],
   },
   "judgment-over-generation": {
@@ -178,6 +190,18 @@ export const operatingPrinciples = {
         videoId: "t8Et8YnHiGY",
         description:
           "As AI accelerates execution, judgment becomes more valuable. People still have to choose what matters for a particular situation, team, and moment.",
+      },
+    ],
+    faqs: [
+      {
+        question: "When should a person remain directly involved in an AI task?",
+        answer:
+          'Keep a person directly involved when the work contains unresolved tradeoffs or when an error could materially affect safety, security, money, employment, rights, reputation, confidential information, or public trust. Human involvement should correspond to a specific review or decision point. A general promise that someone is "in the loop" is not enough unless that person has the context, authority, and time to intervene.',
+      },
+      {
+        question: "Can frequent AI use weaken judgment or professional skills?",
+        answer:
+          "It may if AI consistently replaces the effort required to form an initial view, work through uncertainty, or evaluate consequences. A stronger pattern is to make a preliminary assessment, use AI to challenge or expand it, compare the reasoning, and reflect on the result. Used this way, AI can contribute to the learning process without removing the practice through which judgment develops.",
       },
     ],
     sourceNotes: [
@@ -278,6 +302,18 @@ export const operatingPrinciples = {
           "AI creates leverage when it removes friction from work that already matters. Find where work waits, gets lost, or requires repeated correction.",
       },
     ],
+    faqs: [
+      {
+        question: "How do we know whether AI removed a bottleneck or only moved it?",
+        answer:
+          "Measure the complete workflow, not just the assisted step. Compare queues, review effort, rework, errors, approvals, delivery time, and maintenance before and after the change. Faster drafting, analysis, or coding may simply create more work for a later stage. An improvement is meaningful when the final outcome gets better without creating a larger or more expensive constraint elsewhere.",
+      },
+      {
+        question: "What baseline should we capture before testing AI in a workflow?",
+        answer:
+          "Record enough information to compare the workflow before and after the experiment. Useful measures may include total elapsed time, time spent waiting, review effort, correction cycles, error rates, incomplete cases, and the quality of the final result. The right baseline depends on the outcome being improved. Avoid relying only on how quickly the AI-assisted step runs.",
+      },
+    ],
     sourceNotes: ["workProductivity", "workAdoption"],
   },
   "quality-over-speed": {
@@ -358,6 +394,18 @@ export const operatingPrinciples = {
       },
     ],
     videos: [],
+    faqs: [
+      {
+        question: "How much human review does AI-generated work need?",
+        answer:
+          "Review should increase with the consequences of an error, the difficulty of reversing the action, and the chance that a mistake will go unnoticed. Low-risk brainstorming may require only a quick judgment call. Work involving security, money, employment, rights, safety, or public communication needs stronger evidence, appropriate expertise, explicit approval, and a clearly accountable person.",
+      },
+      {
+        question: "Does asking the model to check its own work count as verification?",
+        answer:
+          "No. Self-critique can help identify omissions, inconsistencies, or alternative interpretations, but it is not independent verification. Important claims should be checked against reliable sources, calculations should be recalculated, code should be tested, and policies should be compared with controlling documents. The verification method should match the type of work and the consequences of being wrong.",
+      },
+    ],
     sourceNotes: [
       "fundamentalsContext",
       "thinkingConfidence",
@@ -455,6 +503,18 @@ export const operatingPrinciples = {
       },
     ],
     videos: [],
+    faqs: [
+      {
+        question: "What permissions should an AI agent receive?",
+        answer:
+          "Give an agent only the information and actions required for its specific task. Separate reading from writing, drafting from publishing, recommendations from approvals, and reversible actions from consequential ones. Limited authority cannot prevent every failure, but it reduces potential harm when the system misunderstands instructions, encounters malicious content, or behaves unexpectedly.",
+      },
+      {
+        question: "Who should own an AI workflow after it is launched?",
+        answer:
+          "A named person or team should own its acceptable behavior, information sources, evaluation, exceptions, approvals, and performance review. That owner should also have the authority to change, pause, or stop the workflow. Ownership must continue after launch because the underlying information, processes, tools, and risks will change over time.",
+      },
+    ],
     sourceNotes: [
       "agentsReliability",
       "fundamentalsContext",

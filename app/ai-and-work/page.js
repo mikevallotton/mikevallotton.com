@@ -266,7 +266,7 @@ const sections = [
   },
 ];
 
-const faqGroups = [
+const sourceFaqGroups = [
   {
     title: "AI Is Already Changing Work",
     items: [
@@ -351,6 +351,50 @@ const faqGroups = [
           "Expertise increasingly shifts away from memorizing information and toward applying judgment. Experienced professionals recognize incomplete requirements, ask better questions, resolve conflicting priorities, and understand organizational context. AI amplifies those capabilities, but it doesn’t replace the experience required to apply them well.",
       },
     ],
+  },
+];
+
+function faqFromWork(question) {
+  return sourceFaqGroups
+    .flatMap((group) => group.items)
+    .find((item) => item.question === question);
+}
+
+const faqGroups = [
+  {
+    title: "AI Is Already Changing Work",
+    items: [
+      faqFromWork("Will AI eliminate white-collar jobs?"),
+      faqFromWork("Will AI reduce working hours?"),
+    ],
+  },
+  {
+    title: "How Organizations Are Responding",
+    items: [
+      faqFromWork("Why aren’t companies adopting AI faster?"),
+      faqFromWork("What is AI maturity?"),
+    ],
+  },
+  {
+    title: "What Becomes More Valuable",
+    items: [
+      faqFromWork("What skills become more valuable as AI improves?"),
+      {
+        question: "How can I build useful AI experience at work?",
+        answer:
+          "Start with a real, bounded task where the consequences of mistakes are manageable. Use tools approved by your organization, protect sensitive information, and compare the AI-assisted result with the existing way of working. Practice providing context, evaluating output, and documenting what improved or became more difficult.\n\nThe goal is not to use AI for every task. It is to develop judgment about where it helps, where it introduces risk, and how the surrounding workflow must change for the result to be useful.",
+      },
+    ],
+  },
+  {
+    title: "The Hidden Effects of AI",
+    items: [
+      faqFromWork("Why doesn’t AI automatically increase productivity?"),
+    ],
+  },
+  {
+    title: "Where This Is Heading",
+    items: [faqFromWork("Will AI replace experts?")],
   },
 ];
 
