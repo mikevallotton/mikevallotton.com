@@ -30,7 +30,10 @@ const sections = [
       caption:
         "Traditional search routes people through ranked pages. AI search can retrieve across sources and synthesize an answer before a visit occurs.",
     },
-    evidence: [evidenceNotes.searchRetrieval],
+    evidence: [
+      evidenceNotes.searchRetrieval,
+      evidenceNotes.contextSufficiency,
+    ],
     related: [
       { href: "/ai-fundamentals", label: "How models use context" },
       { href: "/ai-agents", label: "From retrieval to agent action" },
@@ -173,7 +176,7 @@ const sourceFaqGroups = [
       {
         question: "What is retrieval?",
         answer:
-          "Retrieval is the process of identifying relevant information before an AI generates its response. Rather than relying only on what was learned during training, many modern AI systems retrieve current or authoritative information from external sources and use it as additional context. The quality of retrieval directly influences the quality of the answer. If the AI retrieves accurate, well-structured, relevant information, it is much more likely to generate a reliable response.",
+          "Retrieval is the process of identifying relevant information before an AI generates its response. Rather than relying only on what was learned during training, many modern AI systems retrieve current or authoritative information from external sources and use it as additional context. Relevance alone is not enough: the retrieved material must collectively contain sufficient information to support the answer. Even then, the model may not use that information reliably, so retrieval quality and generation quality need to be evaluated separately.",
       },
       {
         question: "Do rankings still matter?",
@@ -372,7 +375,12 @@ const sources = mergeSources([
     description:
       "A framework for useful, original, trustworthy content grounded in clear authorship and expertise.",
   },
-], sourcesFor(["searchRetrieval", "searchStructure", "searchMeasurement"]));
+], sourcesFor([
+  "searchRetrieval",
+  "contextSufficiency",
+  "searchStructure",
+  "searchMeasurement",
+]));
 
 const structuredData = {
   "@context": "https://schema.org",

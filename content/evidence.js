@@ -143,6 +143,15 @@ export const evidenceSources = {
     description:
       "Evidence that longer context does not guarantee reliable use of all relevant information.",
   },
+  sufficientContext: {
+    title:
+      "Sufficient Context: A New Lens on Retrieval Augmented Generation Systems",
+    publisher: "Joren and coauthors",
+    year: "2025",
+    href: "https://proceedings.iclr.cc/paper_files/paper/2025/hash/33dffa2e3d2ab74a783d1a8c292f66d9-Abstract-Conference.html",
+    description:
+      "Research distinguishing relevant context from context that contains enough information to answer a query, and separating retrieval failures from model-use failures.",
+  },
   gpt3: {
     title: "Language Models Are Few-Shot Learners",
     publisher: "Brown and coauthors",
@@ -298,6 +307,10 @@ export const evidenceNotes = {
   fundamentalsContext: {
     text: "Long-context research shows that access to more information does not guarantee that a model will use every relevant detail reliably. Performance can depend on the position and composition of information within the context.",
     sourceIds: ["lostInMiddle"],
+  },
+  contextSufficiency: {
+    text: "Research on retrieval-augmented generation distinguishes relevant context from sufficient context: retrieved material may relate to a question without containing enough information to answer it. Larger models in the study performed well when context was sufficient, but often answered incorrectly rather than abstaining when it was not; the results do not imply that sufficient context eliminates every model error.",
+    sourceIds: ["sufficientContext"],
   },
   fundamentalsPrivacy: {
     text: "Official product documentation shows that training policy, retention, and zero-data-retention are distinct controls that vary by provider, product, plan, and configuration. Policies change, so they should be checked before sensitive information is shared.",

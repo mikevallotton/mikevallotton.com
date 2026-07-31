@@ -78,7 +78,10 @@ const sections = [
       caption:
         "Useful context combines a goal, relevant background, constraints, examples, and feedback into a clearer working frame.",
     },
-    evidence: [evidenceNotes.fundamentalsContext],
+    evidence: [
+      evidenceNotes.fundamentalsContext,
+      evidenceNotes.contextSufficiency,
+    ],
     related: [
       { href: "/ai-agents", label: "Context in agent systems" },
       { href: "/ai-and-work", label: "Applying AI at work" },
@@ -444,6 +447,7 @@ const sources = mergeSources([
   "fundamentalsPrediction",
   "thinkingConfidence",
   "fundamentalsContext",
+  "contextSufficiency",
   "fundamentalsPrivacy",
 ]));
 
