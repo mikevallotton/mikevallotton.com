@@ -35,7 +35,7 @@ const sections = [
       "Replacing the idea of AI as magic with a practical mental model makes its strengths and limitations much easier to understand.",
     videos: [
       {
-        title: "LLM Basics - Intro",
+        title: "LLM Basics",
         published: "Feb 4, 2026",
         url: "https://www.youtube.com/watch?v=VM1YOO4aQKY&t=1s",
         videoId: "VM1YOO4aQKY",
