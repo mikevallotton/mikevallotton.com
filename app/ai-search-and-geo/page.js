@@ -27,7 +27,7 @@ const sections = [
       "Discoverability now depends on whether an AI system can find, understand, and confidently use your content—not only where a page ranks. Organizations are increasingly competing to become reliable sources of knowledge.",
     image: {
       src: "/images/topics/search-journeys.webp",
-      alt: "Two discovery paths contrast ranked webpages leading to a visit with retrieval across sources leading to a synthesized answer and action.",
+      alt: "Ranked pages versus retrieved sources leading to a synthesized answer.",
       caption:
         "Traditional search routes people through ranked pages. AI search can retrieve across sources and synthesize an answer before a visit occurs.",
     },
@@ -382,7 +382,7 @@ export default function AiSearchAndGeoPage() {
       faqSchema={faqStructuredData}
       path="/ai-search-and-geo"
       breadcrumb="AI Search and GEO"
-      hero={{ eyebrow: "AI Search and GEO", title: "Search Is Becoming AI’s Knowledge Layer", lead: "Search is no longer just about finding links. AI systems increasingly retrieve information, synthesize it, and generate answers before people ever visit a website.", description: "Organizations now compete to become trusted sources that AI systems choose to reference. This guide explains retrieval, AI-ready websites, GEO, and why influence is becoming harder to measure.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#search-is-changing", startLabel: "Start with the shift in search", titleClassName: "max-w-4xl", image: { src: "/images/topics/ai-search-hero.webp", alt: "Many source documents are retrieved and synthesized into a concise answer with visible paths back to supporting sources." } }}
+      hero={{ eyebrow: "AI Search and GEO", title: "Search Is Becoming AI’s Knowledge Layer", lead: "Search is no longer just about finding links. AI systems increasingly retrieve information, synthesize it, and generate answers before people ever visit a website.", description: "Organizations now compete to become trusted sources that AI systems choose to reference. This guide explains retrieval, AI-ready websites, GEO, and why influence is becoming harder to measure.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#search-is-changing", startLabel: "Start with the shift in search", titleClassName: "max-w-4xl", image: { src: "/images/topics/ai-search-hero.webp", alt: "Source documents are retrieved and combined into one concise answer." } }}
       audience={["Marketing and communications leaders adapting to AI-mediated discovery.", "Website teams improving how information is structured and retrieved.", "Organizations measuring visibility beyond clicks and rankings.", "Anyone trying to understand generative engine optimization."]}
       sectionTitles={{ audience: "Who this search guide is for", evidence: "Search and GEO evidence" }}
       

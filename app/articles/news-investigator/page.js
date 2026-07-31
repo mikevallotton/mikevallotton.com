@@ -242,7 +242,7 @@ export default function NewsInvestigatorPage() {
             <div className="relative overflow-hidden border-2 border-library-ink bg-library-paper p-3 shadow-[10px_10px_0_rgba(63,124,255,0.18)]">
               <Image
                 src="/images/news-investigator.png"
-                alt="News Investigator Agent illustration showing multiple news sources evaluated as confirmed, uncertain, or supported by insufficient evidence."
+                alt="News sources compared for confidence, uncertainty, and evidence quality."
                 width={1536}
                 height={1536}
                 priority

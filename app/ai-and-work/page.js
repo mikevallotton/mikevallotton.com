@@ -73,7 +73,7 @@ const sections = [
       "The technology can improve every week while the surrounding company still moves on annual budgets, legacy systems, established incentives, and existing operating models.",
     image: {
       src: "/images/topics/organizational-layers.webp",
-      alt: "A capable central engine sits inside concentric organizational layers of people, process, governance, security, information, and legacy systems.",
+      alt: "Central model inside layers of people, process, governance, and systems.",
       caption:
         "Model capability is only the center. Adoption depends on aligning the organizational layers that surround it.",
     },
@@ -445,7 +445,7 @@ export default function AiAndWorkPage() {
       faqSchema={faqStructuredData}
       path="/ai-and-work"
       breadcrumb="AI and Work"
-      hero={{ eyebrow: "AI and Work", title: "How AI Is Changing Work", lead: "AI is changing work primarily by reducing the time required for research, drafting, documentation, planning, and coordination.", description: "The near-term effect is less about entire professions disappearing and more about changing workflows, expectations, team structures, and the skills that create value. This guide separates what is already happening from the changes that will take years to unfold.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#already-changing", startLabel: "Start with what is changing", image: { src: "/images/topics/ai-work-hero.webp", alt: "People work across connected documents, tools, reviews, and decisions while a shared flow reduces coordination friction." } }}
+      hero={{ eyebrow: "AI and Work", title: "How AI Is Changing Work", lead: "AI is changing work primarily by reducing the time required for research, drafting, documentation, planning, and coordination.", description: "The near-term effect is less about entire professions disappearing and more about changing workflows, expectations, team structures, and the skills that create value. This guide separates what is already happening from the changes that will take years to unfold.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#already-changing", startLabel: "Start with what is changing", image: { src: "/images/topics/ai-work-hero.webp", alt: "Across documents, tools, reviews, and decisions, work flows with less friction." } }}
       audience={["Professionals thinking about how AI will change their careers.", "Leaders responsible for adopting AI inside an organization.", "People separating durable changes from short-term hype.", "Anyone deciding which skills will become more valuable."]}
       sectionTitles={{ audience: "Who this future-of-work guide is for", evidence: "Evidence about AI and work" }}
       
