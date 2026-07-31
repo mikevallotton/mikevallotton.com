@@ -1180,6 +1180,17 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 68%);
   mask-image: linear-gradient(90deg, transparent, #000 68%);
 }
+.topic-index__link {
+  color: var(--topic-color-dark, var(--link));
+  transition: color .45s var(--ease-editorial), transform .45s var(--ease-editorial);
+}
+.topic-index__link-arrow {
+  font-size: .9rem;
+}
+.topic-index > a:hover .topic-index__link,
+.topic-index > a:focus-visible .topic-index__link {
+  transform: translateX(.12rem);
+}
 .topic-index > a:hover .topic-index__art,
 .topic-index > a:focus-visible .topic-index__art {
   opacity: .72;

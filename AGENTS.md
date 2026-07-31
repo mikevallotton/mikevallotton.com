@@ -43,6 +43,7 @@ Before changing the site:
 - Do not commit secrets. Google Analytics is optional through `NEXT_PUBLIC_GA_ID`.
 - Avoid editing generated directories such as `.next/` and dependencies in `node_modules/`.
 - Preserve unrelated user changes in a dirty worktree.
+- Verify the intended approach with me before making changes, rather than deciding requirements or implementation details on your own, especially when I’ve explicitly said not to do that.
 
 ## Content Standards
 

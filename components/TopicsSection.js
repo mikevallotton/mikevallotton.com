@@ -89,20 +89,18 @@ export default function TopicsSection() {
                   className="object-cover"
                 />
               </span>
-              <div className="hidden">
-                <span
-                  aria-hidden="true"
-                  className="text-2xl text-library-walnut transition-transform group-hover:translate-x-2 md:order-3"
-                >
-                  →
-                </span>
-              </div>
               <h3 className="mt-5 text-3xl font-semibold transition-transform duration-500 group-hover:translate-x-2 md:mt-0 md:text-5xl">
                 {topic.title}
               </h3>
               <p className="mt-3 max-w-xl leading-relaxed text-library-muted md:col-start-1">
                 {topic.description}
               </p>
+              <span className="topic-index__link mt-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[.16em] text-library-walnut md:col-start-1">
+                Explore {topic.title}
+                <span aria-hidden="true" className="site-menu__arrow topic-index__link-arrow">
+                  ↗
+                </span>
+              </span>
             </Link>
           ))}
         </div>
