@@ -25,7 +25,7 @@ const routes = [
 ];
 
 async function assertStatus(path, expectedStatus) {
-  const response = await fetch(new URL(path, baseUrl));
+  const response = await fetch(new URL(path, baseUrl), { redirect: "manual" });
   if (response.status !== expectedStatus) {
     throw new Error(`${path} returned ${response.status}, expected ${expectedStatus}`);
   }
@@ -37,6 +37,12 @@ try {
     await assertStatus(path, 200);
   }
 
+  const card = await assertStatus("/card", 302);
+  const cardLocation = card.headers.get("location") || "";
+  if (new URL(cardLocation, baseUrl).pathname !== "/") {
+    throw new Error("/card did not redirect to the homepage");
+  }
+
   const robots = await assertStatus("/robots.txt", 200);
   if (!/Sitemap:/i.test(await robots.text())) {
     throw new Error("/robots.txt did not include a sitemap reference");
@@ -45,6 +51,12 @@ try {
   const sitemap = await assertStatus("/sitemap.xml", 200);
   if (!/<(urlset|sitemapindex)/i.test(await sitemap.text())) {
     throw new Error("/sitemap.xml did not contain a sitemap payload");
+  }
+
+  const indexNowKey = "2dc41532e2834fd3a4a01128a834d55d";
+  const indexNowKeyFile = await assertStatus(`/${indexNowKey}.txt`, 200);
+  if ((await indexNowKeyFile.text()).trim() !== indexNowKey) {
+    throw new Error("The IndexNow key file did not contain the expected key");
   }
 
   const home = await assertStatus("/", 200);

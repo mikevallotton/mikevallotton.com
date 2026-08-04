@@ -101,6 +101,12 @@ The solution exposes several discovery surfaces:
 - `public/llms.txt`; and
 - a web manifest and icons.
 
+IndexNow complements the sitemap with explicit change notifications. Its
+ownership key is served from the site root, and `npm run indexnow -- <paths>`
+submits only the canonical URLs supplied after a successful production
+deployment. The submission is intentionally separate from builds and pull
+request CI so previews and failed releases cannot trigger notifications.
+
 Public-route changes should be reflected across navigation, sitemap, `llms.txt`, and smoke-test coverage where applicable.
 
 ### Security

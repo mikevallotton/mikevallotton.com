@@ -68,6 +68,18 @@ npm run start
 npm run smoke -- http://127.0.0.1:3000
 ```
 
+After a successful production deployment, notify IndexNow only about canonical
+URLs that were added, meaningfully updated, redirected, or deleted:
+
+```bash
+npm run indexnow -- /ai-and-work /articles/news-investigator
+```
+
+The command verifies the public ownership key on `mikevallotton.com` before it
+submits URLs. An accepted response confirms receipt, not crawling or indexing.
+Use Bing Webmaster Tools to review submitted URLs. The XML sitemap remains the
+complete URL inventory; IndexNow is the release-time change notification.
+
 CI performs a clean install, content validation, lint, dependency audit,
 production build, and smoke test.
 

@@ -19,6 +19,7 @@
 # Local temporary work
 /.tmp-*
 /tmp/
+/.private/
 
 # Local editorial planning
 /docs/Videos - Videos.csv
