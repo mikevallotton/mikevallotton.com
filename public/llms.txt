@@ -30,6 +30,7 @@ Language: English
 ## Articles
 
 - [News Investigator Agent](https://mikevallotton.com/articles/news-investigator): Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment.
+- [What an Agentic SOC Teaches Us About Enterprise AI](https://mikevallotton.com/articles/agentic-soc-enterprise-ai): A field note from the Agentic SOC Forum on process design, orchestration, bounded autonomy, auditability, governance, and human accountability.
 
 ## Navigation
 

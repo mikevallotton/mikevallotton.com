@@ -172,6 +172,14 @@ const sections = [
     ],
     articles: [
       {
+        href: "/articles/agentic-soc-enterprise-ai",
+        category: "Enterprise AI",
+        title: "What an Agentic SOC Teaches Us About Enterprise AI",
+        description:
+          "See how security operations make agent orchestration, bounded autonomy, auditability, governance, and human accountability visible.",
+        published: "2026-08-07",
+      },
+      {
         href: "/articles/news-investigator",
         category: "AI judgment",
         title: "News Investigator Agent",

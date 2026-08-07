@@ -46,6 +46,12 @@ export default function sitemap() {
       lastModified: new Date("2026-07-26"),
     },
     {
+      path: "/articles/agentic-soc-enterprise-ai",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-07"),
+    },
+    {
       path: "/clarity-before-tools",
       priority: 0.8,
       changeFrequency: "monthly",

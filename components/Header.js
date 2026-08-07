@@ -86,6 +86,13 @@ const NAV_SECTIONS = [
         description:
           "Use the News Investigator Agent to compare current reporting, evaluate evidence, identify uncertainty, and strengthen your judgment without outsourcing what to think.",
       },
+      {
+        href: "/articles/agentic-soc-enterprise-ai",
+        label: "Agentic SOC and Enterprise AI",
+        linkLabel: "Read the Agentic SOC article",
+        description:
+          "A field note from the Agentic SOC Forum on process design, orchestration, bounded autonomy, auditability, governance, and human accountability.",
+      },
     ],
   },
   {

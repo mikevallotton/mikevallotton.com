@@ -85,6 +85,10 @@ const sections = [
         href: "/bottlenecks-over-use-cases",
         label: "Bottlenecks over use cases",
       },
+      {
+        href: "/articles/agentic-soc-enterprise-ai",
+        label: "What an Agentic SOC teaches enterprise AI",
+      },
     ],
     closing: "Technology evolves every week. Organizations evolve over years.",
     videos: [

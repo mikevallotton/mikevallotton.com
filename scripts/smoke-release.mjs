@@ -17,6 +17,7 @@ const routes = [
   "/software-development-and-ai",
   "/ai-and-thinking",
   "/articles/news-investigator",
+  "/articles/agentic-soc-enterprise-ai",
   "/clarity-before-tools",
   "/judgment-over-generation",
   "/bottlenecks-over-use-cases",

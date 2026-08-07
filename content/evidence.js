@@ -1,4 +1,13 @@
 export const evidenceSources = {
+  agenticSocForum: {
+    title:
+      "Agentic SOC Forum Leaders Shape the Future of Security Operations",
+    publisher: "1BusinessWorld",
+    year: "2026",
+    href: "https://1businessworld.com/2026/08/agentic-soc-forum/agentic-soc-forum-leaders-shape-the-future-of-security-operations/",
+    description:
+      "Event reference for the August 5, 2026 Agentic SOC Forum at Atlanta Tech Park, presented by Cyngular Security.",
+  },
   aiJobsVacancies: {
     title: "Artificial Intelligence and Jobs: Evidence from Online Vacancies",
     publisher: "Acemoglu, Autor, Hazell, and Restrepo",
@@ -67,7 +76,7 @@ export const evidenceSources = {
     title: "Artificial Intelligence Risk Management Framework: Generative AI Profile",
     publisher: "NIST",
     year: "2024",
-    href: "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+    href: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
     description:
       "A cross-sector framework for governing, mapping, measuring, and managing risks from generative AI.",
   },
@@ -251,6 +260,10 @@ export const evidenceSources = {
 };
 
 export const evidenceNotes = {
+  agenticSocForum: {
+    text: "1BusinessWorld's event reference identifies the Agentic SOC Forum as an August 5, 2026 Atlanta event presented by Cyngular Security, with a program focused on coordinated AI agents, security operations, human direction, evidence, and accountability.",
+    sourceIds: ["agenticSocForum"],
+  },
   workTasks: {
     text: "Research on online vacancies finds that AI exposure changes task composition, demanded skills, and hiring within affected organizations. That supports task change before clean occupational replacement, but it does not imply that entire roles can never disappear.",
     sourceIds: ["aiJobsVacancies", "oecdWorkers"],

@@ -1114,6 +1114,97 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   padding-top: 1rem;
   border-top: 1px solid var(--parchment);
 }
+
+.article-page--field-note {
+  --topic-color: var(--ochre);
+  --topic-color-dark: #4f4319;
+  --topic-color-soft: rgba(123, 105, 40, .12);
+  --topic-color-on-dark: #f5d867;
+}
+
+.article-field-section {
+  isolation: isolate;
+}
+
+.agentic-soc-question-list {
+  display: grid;
+  gap: .9rem;
+  max-width: 48rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agentic-soc-question-list li {
+  position: relative;
+  padding: .95rem 0 .95rem 1.6rem;
+  border-top: 1px solid var(--parchment);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.agentic-soc-question-list li:last-child {
+  border-bottom: 1px solid var(--parchment);
+}
+
+.agentic-soc-question-list li::before {
+  position: absolute;
+  top: 1.45rem;
+  left: 0;
+  width: .42rem;
+  height: .42rem;
+  border-radius: 999px;
+  background: var(--topic-color);
+  content: "";
+}
+
+.agentic-soc-autonomy-ladder {
+  display: grid;
+  gap: .75rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agentic-soc-autonomy-ladder li {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--parchment);
+  background: rgba(255, 255, 248, .58);
+}
+
+.agentic-soc-autonomy-ladder span {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(123, 105, 40, .35);
+  border-radius: 999px;
+  color: var(--topic-color-dark);
+  background: var(--topic-color-soft);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.agentic-soc-autonomy-ladder h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.agentic-soc-autonomy-ladder p {
+  margin: .25rem 0 0;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.55;
+}
 .topic-artwork {
   position: absolute;
   overflow: hidden;
