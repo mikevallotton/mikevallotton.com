@@ -567,7 +567,12 @@ export default function AgenticSocEnterpriseAiPage() {
             <ExternalLink href={eventUrl} className="btn btn-primary no-underline">
               Open event page <span aria-hidden="true">{"\u2197"}</span>
             </ExternalLink>
-            <ExternalLink href={oneBusinessWorldUrl}>Visit 1BusinessWorld</ExternalLink>
+            <ExternalLink
+              href={oneBusinessWorldUrl}
+              className="btn btn-secondary no-underline"
+            >
+              Visit 1BusinessWorld <span aria-hidden="true">{"\u2197"}</span>
+            </ExternalLink>
           </div>
         </div>
       </section>
