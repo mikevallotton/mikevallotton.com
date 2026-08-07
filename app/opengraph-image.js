@@ -10,7 +10,6 @@ export const size = {
 export const contentType = "image/png";
 export const runtime = "nodejs";
 
-/* eslint-disable @next/next/no-img-element */
 export default async function OpenGraphImage() {
   const headshotBuffer = await readFile(path.join(process.cwd(), "public", "headshot.jpg"));
   const headshotSrc = `data:image/jpeg;base64,${headshotBuffer.toString("base64")}`;

@@ -16,6 +16,12 @@ const config = [
     ignores: [".next/**", "node_modules/**"],
   },
   ...compat.extends("next/core-web-vitals"),
+  {
+    files: ["app/**/opengraph-image.js", "app/**/twitter-image.js"],
+    rules: {
+      "@next/next/no-img-element": "off",
+    },
+  },
 ];
 
 export default config;
