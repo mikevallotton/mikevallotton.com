@@ -78,14 +78,14 @@ export default function LinksPage() {
         </div>
       </header>
 
-      <section className="links-featured" aria-labelledby="news-investigator-title">
+      <section className="links-featured" aria-labelledby="ai-job-search-title">
         <p className="eyebrow">Featured article</p>
-        <Link href="/articles/news-investigator" className="no-underline">
+        <Link href="/articles/ai-job-search" className="no-underline">
           <span>
-            <span id="news-investigator-title">News Investigator Agent</span>
+            <span id="ai-job-search-title">AI Job Search Workflow</span>
             <small>
-              Compare current reporting, evaluate evidence, identify
-              uncertainty, and strengthen your judgment.
+              Use five prompts to understand what you can offer, find sourced
+              employers, research fit, and plan legitimate outreach.
             </small>
           </span>
           <Arrow />

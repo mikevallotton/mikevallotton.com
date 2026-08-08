@@ -52,6 +52,42 @@ export default function sitemap() {
       lastModified: new Date("2026-08-07"),
     },
     {
+      path: "/articles/ai-job-search",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
+      path: "/articles/ai-job-search/examples/experienced-professional",
+      priority: 0.6,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
+      path: "/articles/ai-job-search/examples/early-career",
+      priority: 0.6,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
+      path: "/articles/ai-job-search/examples/career-changer-weak-match",
+      priority: 0.6,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
+      path: "/articles/ai-job-search/examples/broad-generalist",
+      priority: 0.6,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
+      path: "/articles/ai-job-search/examples/local-small-employer",
+      priority: 0.6,
+      changeFrequency: "monthly",
+      lastModified: new Date("2026-08-08"),
+    },
+    {
       path: "/clarity-before-tools",
       priority: 0.8,
       changeFrequency: "monthly",

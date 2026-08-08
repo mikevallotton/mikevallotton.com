@@ -136,6 +136,16 @@ const sections = [
       "As AI makes execution cheaper, value shifts toward choosing the right problems, coordinating people and systems, designing better processes, and applying judgment.",
     body:
       "The scarce resource is no longer always the ability to produce a first draft. It is increasingly the ability to decide what should happen, create the conditions for it, and learn from the result.",
+    related: [
+      {
+        href: "/articles/ai-job-search",
+        label: "AI job-search workflow",
+      },
+      {
+        href: "/judgment-over-generation",
+        label: "Judgment over generation",
+      },
+    ],
     closing: "AI lowers the cost of execution. Humans decide what should happen next.",
     videos: [
       {

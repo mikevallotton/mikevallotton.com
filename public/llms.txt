@@ -29,6 +29,12 @@ Language: English
 
 ## Articles
 
+- [AI Job Search Workflow](https://mikevallotton.com/articles/ai-job-search): A five-prompt workflow for understanding what you can offer, finding sourced employers, researching fit, identifying real overlap, and planning legitimate outreach.
+  - [Experienced Professional Example](https://mikevallotton.com/articles/ai-job-search/examples/experienced-professional): Synthetic input and output for a senior B2B SaaS operations leader researching ServiceNow.
+  - [Early-Career Candidate Example](https://mikevallotton.com/articles/ai-job-search/examples/early-career): Synthetic input and output for an IT support specialist exploring security compliance and customer trust paths.
+  - [Career Changer Example](https://mikevallotton.com/articles/ai-job-search/examples/career-changer-weak-match): Synthetic input and output for a Spanish teacher evaluating a narrow, weak immediate fit with Duolingo.
+  - [Broad Generalist Example](https://mikevallotton.com/articles/ai-job-search/examples/broad-generalist): Synthetic input and output for a startup generalist narrowing broad experience into specific lanes.
+  - [Local Small-Employer Example](https://mikevallotton.com/articles/ai-job-search/examples/local-small-employer): Synthetic input and output for a local candidate exploring a small bookstore and community business.
 - [News Investigator Agent](https://mikevallotton.com/articles/news-investigator): Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment.
 - [What an Agentic SOC Teaches Us About Enterprise AI](https://mikevallotton.com/articles/agentic-soc-enterprise-ai): A field note from the Agentic SOC Forum on process design, orchestration, bounded autonomy, auditability, governance, and human accountability.
 

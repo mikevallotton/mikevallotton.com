@@ -1122,6 +1122,294 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   --topic-color-on-dark: #f5d867;
 }
 
+.article-page--job-search {
+  --topic-color: var(--accent);
+  --topic-color-dark: var(--forest);
+  --topic-color-soft: rgba(46, 233, 209, .13);
+  --topic-color-on-dark: var(--cyan);
+}
+
+.job-search-step-list {
+  display: grid;
+  gap: .9rem;
+  max-width: 58rem;
+  margin-inline: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.job-search-step-list li {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.05rem;
+  border: 1px solid var(--parchment);
+  background: rgba(255, 255, 248, .58);
+}
+
+.job-search-step-list span {
+  display: inline-flex;
+  width: 2.45rem;
+  height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(14, 47, 37, .24);
+  border-radius: 999px;
+  color: var(--forest);
+  background: rgba(46, 233, 209, .18);
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.job-search-step-list h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.job-search-step-list p {
+  margin: .3rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.job-search-prompt-notes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.job-search-prompt-notes > div {
+  padding-top: 1rem;
+  border-top: 1px solid var(--parchment);
+}
+
+.job-search-section-examples {
+  max-width: 58rem;
+  margin-top: 1.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--parchment);
+}
+
+.job-search-section-examples > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: .7rem;
+}
+
+.job-search-section-examples a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: .15rem;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 2rem;
+  padding: .42rem .7rem;
+  border: 1px solid rgba(14, 47, 37, .16);
+  color: var(--forest);
+  background: rgba(46, 233, 209, .11);
+  font-size: .86rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.job-search-section-examples a:hover,
+.job-search-section-examples a:focus-visible {
+  border-color: var(--forest);
+  background: rgba(46, 233, 209, .18);
+}
+
+.job-search-section-examples small {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.job-search-example-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.job-search-example-card {
+  display: block;
+  padding: clamp(1.1rem, 2vw, 1.35rem);
+  border: 1px solid var(--parchment);
+  background: rgba(255, 255, 248, .58);
+  transition:
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+.job-search-example-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--walnut);
+  box-shadow: 0 12px 30px rgba(14, 47, 37, .12);
+}
+
+.job-search-example-card h3 {
+  margin: .5rem 0 0;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.job-search-example-card p:not(.type-label) {
+  margin: .65rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.job-search-example-card span {
+  display: inline-flex;
+  gap: .45rem;
+  align-items: center;
+  margin-top: 1rem;
+  color: var(--forest);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.job-search-example-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+}
+
+.job-search-example-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: .4rem .7rem;
+  border: 1px solid var(--parchment);
+  color: var(--forest);
+  background: rgba(46, 233, 209, .12);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.job-search-example-content {
+  max-width: 68rem;
+  margin-top: 2rem;
+}
+
+.semantic-markdown {
+  color: var(--muted);
+}
+
+.semantic-markdown > * + * {
+  margin-top: 1rem;
+}
+
+.semantic-markdown h3,
+.semantic-markdown h4,
+.semantic-markdown h5 {
+  color: var(--ink);
+  line-height: 1.18;
+}
+
+.semantic-markdown h3 {
+  margin-top: 2rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+}
+
+.semantic-markdown h4 {
+  margin-top: 1.6rem;
+  font-size: 1.15rem;
+}
+
+.semantic-markdown h5 {
+  margin-top: 1.35rem;
+  font-size: 1rem;
+}
+
+.semantic-markdown p,
+.semantic-markdown li {
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.semantic-markdown ul,
+.semantic-markdown ol {
+  padding-left: 1.35rem;
+}
+
+.semantic-markdown li + li {
+  margin-top: .35rem;
+}
+
+.semantic-markdown a {
+  font-weight: 650;
+}
+
+.semantic-markdown code {
+  padding: .08rem .24rem;
+  color: var(--forest);
+  background: rgba(46, 233, 209, .13);
+  font-family: var(--font-mono);
+  font-size: .92em;
+}
+
+.semantic-markdown blockquote {
+  max-width: 46rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--topic-color, var(--signal));
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.semantic-markdown-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--parchment);
+  background: rgba(255, 255, 248, .62);
+}
+
+.semantic-markdown table {
+  min-width: 48rem;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.semantic-markdown th,
+.semantic-markdown td {
+  padding: .75rem .85rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--parchment);
+  border-right: 1px solid var(--parchment);
+}
+
+.semantic-markdown th:last-child,
+.semantic-markdown td:last-child {
+  border-right: 0;
+}
+
+.semantic-markdown tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.semantic-markdown th {
+  color: var(--forest);
+  background: rgba(46, 233, 209, .13);
+  font-weight: 700;
+  text-align: left;
+}
+
 .article-field-section {
   isolation: isolate;
 }

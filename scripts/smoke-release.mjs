@@ -16,6 +16,12 @@ const routes = [
   "/ai-search-and-geo",
   "/software-development-and-ai",
   "/ai-and-thinking",
+  "/articles/ai-job-search",
+  "/articles/ai-job-search/examples/experienced-professional",
+  "/articles/ai-job-search/examples/early-career",
+  "/articles/ai-job-search/examples/career-changer-weak-match",
+  "/articles/ai-job-search/examples/broad-generalist",
+  "/articles/ai-job-search/examples/local-small-employer",
   "/articles/news-investigator",
   "/articles/agentic-soc-enterprise-ai",
   "/clarity-before-tools",
@@ -79,6 +85,13 @@ try {
     prompt.headers.get("content-disposition") || "",
   )) {
     throw new Error("The News Investigator prompt did not return as a download");
+  }
+
+  const jobSearchPrompts = await assertStatus("/downloads/ai-job-search-prompts.txt", 200);
+  if (!/attachment;\s*filename="ai-job-search-prompts\.txt"/i.test(
+    jobSearchPrompts.headers.get("content-disposition") || "",
+  )) {
+    throw new Error("The AI job-search prompts did not return as a download");
   }
 
   console.log(`Smoke checks passed for ${baseUrl}`);

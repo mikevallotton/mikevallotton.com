@@ -80,6 +80,13 @@ const NAV_SECTIONS = [
       "Practical resources for applying AI to specific questions, methods, and workflows.",
     items: [
       {
+        href: "/articles/ai-job-search",
+        label: "AI Job Search",
+        linkLabel: "Use the AI job-search workflow",
+        description:
+          "A five-prompt workflow for understanding what you can offer, finding sourced employers, researching fit, identifying real overlap, and planning legitimate outreach.",
+      },
+      {
         href: "/articles/news-investigator",
         label: "News Investigator Agent",
         linkLabel: "Use the News Investigator Agent",
