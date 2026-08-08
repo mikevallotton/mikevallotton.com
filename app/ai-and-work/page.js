@@ -173,6 +173,27 @@ const sections = [
         videoId: "fJ3jGePPWKw",
         description: "The fastest learners gain the edge in a changing tech landscape. AI accelerates experimentation, but real learning comes from doing. Consistent practice and iteration enable you to outpace change and build lasting advantage.",
       },
+      {
+        title: "Mapping Workflows Before Applying AI",
+        published: "2026-08-03",
+        url: "https://www.youtube.com/shorts/wuSmjNXJGSw",
+        videoId: "wuSmjNXJGSw",
+        description: "Effective AI adoption begins by mapping work into detailed tasks, identifying repetitive activities, and then applying automation to improve efficiency without replacing people.",
+      },
+      {
+        title: "AI Expands the Scope of Modern Marketing Work",
+        published: "2026-08-05",
+        url: "https://www.youtube.com/shorts/oonP6CURSDw",
+        videoId: "oonP6CURSDw",
+        description: "AI shifts marketing beyond faster execution by making previously impractical work, such as continuous research and customer analysis, economically feasible. As routine tasks are automated, teams can focus on higher-value capabilities that were previously out of reach.",
+      },
+      {
+        title: "AI Redesigns Marketing Work Through Task Automation",
+        published: "2026-08-06",
+        url: "https://www.youtube.com/shorts/hysaUcYuXx4",
+        videoId: "hysaUcYuXx4",
+        description: "AI shifts marketing from saving time to creating more value by enabling more experimentation, customer understanding, competitive analysis, and effective execution. It automates tasks, not roles, requiring work itself to be redesigned.",
+      },
     ],
   },
   {
@@ -469,7 +490,7 @@ const structuredData = {
     "@id": `${siteConfig.siteUrl}/ai-and-work`,
   },
   datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  dateModified: "2026-08-08",
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };
@@ -497,7 +518,7 @@ export default function AiAndWorkPage() {
       faqSchema={faqStructuredData}
       path="/ai-and-work"
       breadcrumb="AI and Work"
-      hero={{ eyebrow: "AI and Work", title: "How AI Is Changing Work", lead: "AI is changing work primarily by reducing the time required for research, drafting, documentation, planning, and coordination.", description: "The near-term effect is less about entire professions disappearing and more about changing workflows, expectations, team structures, and the skills that create value. This guide separates what is already happening from the changes that will take years to unfold.", updated: "2026-07-25", updatedLabel: "July 25, 2026", startHref: "#already-changing", startLabel: "Start with what is changing", image: { src: "/images/topics/ai-work-hero.webp", alt: "Across documents, tools, reviews, and decisions, work flows with less friction." } }}
+      hero={{ eyebrow: "AI and Work", title: "How AI Is Changing Work", lead: "AI is changing work primarily by reducing the time required for research, drafting, documentation, planning, and coordination.", description: "The near-term effect is less about entire professions disappearing and more about changing workflows, expectations, team structures, and the skills that create value. This guide separates what is already happening from the changes that will take years to unfold.", updated: "2026-08-08", updatedLabel: "August 8, 2026", startHref: "#already-changing", startLabel: "Start with what is changing", image: { src: "/images/topics/ai-work-hero.webp", alt: "Across documents, tools, reviews, and decisions, work flows with less friction." } }}
       audience={["Professionals thinking about how AI will change their careers.", "Leaders responsible for adopting AI inside an organization.", "People separating durable changes from short-term hype.", "Anyone deciding which skills will become more valuable."]}
       sectionTitles={{ audience: "Who this future-of-work guide is for", evidence: "Evidence about AI and work" }}
       

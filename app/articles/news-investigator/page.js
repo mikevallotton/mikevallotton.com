@@ -1,10 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import EvidenceNote from "../../../components/EvidenceNote";
 import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
 import JsonLd from "../../../components/JsonLd";
+import VideoGrid from "../../../components/VideoGrid";
+import VideoStructuredData from "../../../components/VideoStructuredData";
 import ContentContinuation from "../../../components/ContentContinuation";
 import ContentMeta from "../../../components/ContentMeta";
 import {
@@ -21,6 +22,7 @@ const newsInvestigatorAgentUrl =
   "https://chatgpt.com/g/g-6a6587b9aad88191a8a77b26f41b1c77-news-investigator";
 const promptDownloadUrl = "/downloads/news-investigator-prompt.txt";
 const published = "2026-07-26";
+const modified = "2026-08-08";
 const description =
   "Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment without outsourcing it.";
 
@@ -96,6 +98,49 @@ const reportSections = [
   },
 ];
 
+const videos = [
+  {
+    title: "Building Better Judgment With AI and Evidence",
+    published: "2026-07-27",
+    url: "https://www.youtube.com/shorts/dxjWhcsJW9U",
+    videoId: "dxjWhcsJW9U",
+    description:
+      "Better judgment comes from stronger mental models built on reliable information. This introduction explains how an AI agent compares evidence across sources to improve decision-making and previews the principles behind the approach.",
+  },
+  {
+    title: "How a News Investigator Agent Evaluates Evidence",
+    published: "2026-07-28",
+    url: "https://www.youtube.com/shorts/BjgF8-2Bkro",
+    videoId: "BjgF8-2Bkro",
+    description:
+      "A news investigator agent separates facts from claims, evaluates evidence and source repetition, compares competing frames, and identifies uncertainty to support clearer thinking and better decisions.",
+  },
+  {
+    title: "Better Context Leads to Better AI Responses",
+    published: "2026-07-29",
+    url: "https://www.youtube.com/shorts/UDfQolcCQlQ",
+    videoId: "UDfQolcCQlQ",
+    description:
+      "Strong AI results come from providing rich, organized context rather than clever prompts. Supplying verified information, separating facts from opinions, and identifying uncertainty helps models produce more reliable outputs.",
+  },
+  {
+    title: "What Large Language Models Do Best With Context",
+    published: "2026-07-30",
+    url: "https://www.youtube.com/shorts/aeB1a2Y2d5g",
+    videoId: "aeB1a2Y2d5g",
+    description:
+      "Large language models excel at organizing and comparing well-supported information. With sufficient context, they can identify claims, evidence, uncertainty, and differing interpretations, helping people analyze complex topics more efficiently.",
+  },
+  {
+    title: "AI Augments Judgment Through Better Information",
+    published: "2026-07-31",
+    url: "https://www.youtube.com/shorts/t1PpdjdM7pE",
+    videoId: "t1PpdjdM7pE",
+    description:
+      "AI is most valuable when it strengthens human judgment rather than replacing it. Using AI to challenge assumptions, compare perspectives, and organize information helps people make better decisions across news, business, finance, and everyday life.",
+  },
+];
+
 const sourceFaqs = [
   {
     question: "How can AI help improve my judgment?",
@@ -167,7 +212,7 @@ const articleSchema = {
   headline: "News Investigator Agent: Use AI to Strengthen Your Judgment",
   description,
   datePublished: published,
-  dateModified: published,
+  dateModified: modified,
   mainEntityOfPage: `${siteConfig.siteUrl}${path}`,
   image: `${siteConfig.siteUrl}/images/news-investigator.png`,
   author: {
@@ -200,6 +245,7 @@ export default function NewsInvestigatorPage() {
     <article className="article-page">
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
+      <VideoStructuredData videos={videos} pagePath={path} />
       <Breadcrumbs current="News Investigator Agent" path={path} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">
@@ -458,6 +504,24 @@ export default function NewsInvestigatorPage() {
           </div>
           <FaqList items={faqs} />
         </div>
+      </section>
+
+      <section
+        id="related-videos"
+        aria-labelledby="related-videos-title"
+        className="article-section border-b border-library-parchment py-14 md:py-20"
+      >
+        <div className="reading-surface max-w-3xl">
+          <p className="eyebrow text-library-walnut">Related Shorts</p>
+          <h2 id="related-videos-title" className="mt-3 text-3xl font-semibold md:text-4xl">
+            Watch the News Investigator series
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-library-muted">
+            These short videos explain the judgment, evidence, context, and
+            source-evaluation ideas behind the News Investigator Agent.
+          </p>
+        </div>
+        <VideoGrid videos={videos} />
       </section>
 
       <section className="py-14 md:py-20">

@@ -44,6 +44,7 @@ Before changing the site:
 - Avoid editing generated directories such as `.next/` and dependencies in `node_modules/`.
 - Preserve unrelated user changes in a dirty worktree.
 - Verify the intended approach with me before making changes, rather than deciding requirements or implementation details on your own, especially when I’ve explicitly said not to do that.
+- Treat an agreed plan as binding during implementation. If new information suggests the plan should change, stop and ask before changing placement, scope, architecture, copy direction, schema strategy, or any other material decision.
 
 ## Content Standards
 
@@ -62,4 +63,3 @@ For code or public-content changes:
 2. Run `npm run build`.
 3. Check keyboard navigation and reduced motion for interaction changes.
 4. Confirm that claims, citations, dates, metadata, sitemap entries, and cross-links remain consistent.
-
