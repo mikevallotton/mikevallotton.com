@@ -8,9 +8,11 @@ import RelatedConcepts from "../../../components/RelatedConcepts";
 import TopicSectionNav from "../../../components/topic/TopicSectionNav";
 import { evidenceNotes, sourcesFor } from "../../../content/evidence";
 import { siteConfig } from "../../../content/siteConfig";
+import { withPageSocial } from "../../../content/metadata";
+import { contentDates } from "../../../content/dates";
 
 const path = "/articles/agentic-soc-enterprise-ai";
-const published = "2026-08-07";
+const published = contentDates.agenticSoc.published;
 const description =
   "A field note from the Agentic SOC Forum on what enterprise AI requires: process design, orchestration, bounded autonomy, auditability, governance, and human accountability.";
 
@@ -27,7 +29,7 @@ const people = {
   annDunkin: "https://www.linkedin.com/in/anndunkin",
 };
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: {
     absolute: "What an Agentic SOC Teaches Us About Enterprise AI",
   },
@@ -41,7 +43,7 @@ export const metadata = {
     publishedTime: published,
     authors: [`${siteConfig.siteUrl}/about`],
   },
-};
+});
 
 const sections = [
   { id: "process", title: "Start with the process", navTitle: "Process" },
@@ -122,7 +124,7 @@ const articleSchema = {
 function ExternalLink({ href, className = "", children }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-      {children}
+      {children}<span className="sr-only"> (opens in a new tab)</span>
     </a>
   );
 }
