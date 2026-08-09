@@ -148,6 +148,7 @@ export default function Header() {
   useEffect(() => {
     if (!menuOpen) return;
     const scrollY = window.scrollY;
+    const pathnameWhenOpened = window.location.pathname;
     const previousBodyTop = document.body.style.top;
     const menuTrigger = triggerRef.current;
     document.documentElement.classList.add("menu-open");
@@ -181,7 +182,11 @@ export default function Header() {
       document.documentElement.classList.remove("menu-open");
       document.body.classList.remove("menu-open");
       document.body.style.top = previousBodyTop;
-      window.scrollTo(0, scrollY);
+      requestAnimationFrame(() => {
+        if (window.location.pathname === pathnameWhenOpened) {
+          window.scrollTo(0, scrollY);
+        }
+      });
       document.removeEventListener("keydown", handleKeyDown);
       menuTrigger?.focus();
     };

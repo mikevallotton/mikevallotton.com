@@ -1,12 +1,28 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 export default function MotionSystem() {
   const pathname = usePathname();
+  const historyNavigationRef = useRef(false);
 
   useEffect(() => {
+    const markHistoryNavigation = () => {
+      historyNavigationRef.current = true;
+    };
+
+    window.addEventListener("popstate", markHistoryNavigation);
+    return () => window.removeEventListener("popstate", markHistoryNavigation);
+  }, []);
+
+  useEffect(() => {
+    if (historyNavigationRef.current) {
+      historyNavigationRef.current = false;
+    } else if (!window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const narrow = window.matchMedia("(max-width: 767px)").matches;
     let disposed = false;

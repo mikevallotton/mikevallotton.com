@@ -30,7 +30,7 @@ an article and downloadable prompt, About, Links, and Privacy pages. See
 
 ## Local development
 
-Node.js 20 is required.
+Node.js 24 is required.
 
 ```bash
 npm ci

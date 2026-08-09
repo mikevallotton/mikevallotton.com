@@ -20,7 +20,7 @@ There is currently no chat feature in the product. The root `AGENTS.md` is the i
 | Analytics | Optional Google Analytics with a persistent visitor opt-out through `NEXT_PUBLIC_GA_ID` |
 | Verification | ESLint, production build, and a route smoke-test script |
 
-Node.js 20 is required.
+Node.js 24 is required.
 
 ## Architecture
 
