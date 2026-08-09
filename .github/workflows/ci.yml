@@ -32,6 +32,12 @@ jobs:
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=critical
 
+      # Temporary visibility-only check while the transitive nanoid advisory
+      # has no upstream fix. Remove continue-on-error once a patched path exists.
+      - name: Report high-severity production dependency advisories
+        continue-on-error: true
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Start production server
         run: npm run start &
 

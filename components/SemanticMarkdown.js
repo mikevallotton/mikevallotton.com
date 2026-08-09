@@ -17,6 +17,7 @@ function inlineNodes(text, keyPrefix) {
           href={match[3]}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`${match[2]} (opens in a new tab)`}
         >
           {match[2]}
         </a>,

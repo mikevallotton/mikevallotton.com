@@ -56,7 +56,7 @@ const nextConfig = {
           { key: "X-XSS-Protection", value: "0" },
           {
             key: "Strict-Transport-Security",
-            value: "max-age=31536000",
+            value: "max-age=31536000; includeSubDomains",
           },
         ],
       },

@@ -25,6 +25,7 @@ export default function FurtherReading({
               href={source.href}
               target="_blank"
               rel="noreferrer"
+              aria-label={`${source.title} (opens in a new tab)`}
               className="rounded-xl border border-library-parchment p-5 no-underline transition hover:border-library-walnut"
             >
               <p className="type-label text-library-walnut">

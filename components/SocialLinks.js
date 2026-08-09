@@ -37,7 +37,7 @@ export default function SocialLinks({ className = "" }) {
           target="_blank"
           rel="noreferrer"
           className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-library-parchment/70 transition hover:text-library-ink hover:border-library-ink"
-          aria-label={link.label}
+          aria-label={`${link.label} (opens in a new tab)`}
         >
           <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
             <path d={link.path} />

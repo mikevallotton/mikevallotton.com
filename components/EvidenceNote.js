@@ -17,7 +17,13 @@ export default function EvidenceNote({ note }) {
           {note.sourceIds.map((id) => {
             const source = evidenceSources[id];
             return (
-              <a key={id} href={source.href} target="_blank" rel="noreferrer">
+              <a
+                key={id}
+                href={source.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${source.publisher}, ${source.year} (opens in a new tab)`}
+              >
                 {source.publisher}, {source.year}
               </a>
             );

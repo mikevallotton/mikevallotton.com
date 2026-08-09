@@ -15,7 +15,7 @@ There is currently no chat feature in the product. The root `AGENTS.md` is the i
 | Styling | Tailwind CSS plus global component styles |
 | Typography | `next/font` with IBM Plex Sans, Serif, and Mono |
 | Motion | GSAP and Lenis, initialized in `components/MotionSystem.js` |
-| Content | JavaScript objects and JSX in route files |
+| Content | JavaScript objects and JSX in route files, with shared video records in `content/videos/` |
 | Evidence | Central registry and note mappings in `content/evidence.js` |
 | Analytics | Optional Google Analytics with a persistent visitor opt-out through `NEXT_PUBLIC_GA_ID` |
 | Verification | ESLint, production build, and a route smoke-test script |
@@ -64,7 +64,16 @@ Each route owns its page metadata and content. The long-form topic routes use a 
 
 ### Content and evidence
 
-Most editorial content lives in the corresponding `app/<route>/page.js` file. This includes section IDs, headings, explanatory copy, videos, FAQs, related concepts, metadata, and schemas.
+Most editorial content lives in the corresponding `app/<route>/page.js` file. This includes section IDs, headings, explanatory copy, video associations, FAQs, related concepts, metadata, and schemas. Video metadata and transcripts live in `content/videos/` so repeated videos can be reused without duplicating the full record.
+
+The video archive uses the six canonical topics as its taxonomy. `/videos`
+contains every topic-associated video, `/videos/<topic>` narrows the archive to
+one topic, and `/videos/<topic>/<section>` narrows it to a section. Topic-page
+previews show the three newest associated videos; archive routes present their
+results oldest first. Collections longer than 18 videos use static pagination
+at `/videos/page/<n>` or `/videos/<topic>/page/<n>`; section collections remain
+unpaginated. Article-only video associations remain on their articles and do
+not enter the topic archive.
 
 `content/evidence.js` has two layers:
 
@@ -119,6 +128,9 @@ Public-route changes should be reflected across navigation, sitemap, `llms.txt`,
 - frame denial.
 
 The CSP currently allows the site's own assets, YouTube thumbnails, Google Analytics, inline styles required by the application, and inline scripts used by Next.js. The production policy does not allow `unsafe-eval`; development adds it for React debugging. The static-compatible `unsafe-inline` allowance is a deliberate limitation: replacing it with per-request nonces would require dynamic rendering and give up the site's static optimization. Adding a third-party dependency may require a narrowly scoped CSP update.
+
+HSTS applies for one year and includes subdomains. The site is not submitted to
+the browser preload list; preload remains an explicit future operational choice.
 
 Google Analytics loads by default when it is configured. A visitor can turn it
 off through the footer; the choice is stored locally, collection is disabled,
