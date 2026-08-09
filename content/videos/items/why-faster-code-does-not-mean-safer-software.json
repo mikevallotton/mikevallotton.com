@@ -1,0 +1,15 @@
+{
+  "slug": "why-faster-code-does-not-mean-safer-software",
+  "title": "Why Faster Code Does Not Mean Safer Software",
+  "published": "2026-01-23",
+  "description": "AI accelerates software creation but does not improve safety by itself. Without tests and documentation, speed multiplies entropy. Teams that treat structure as leverage can stabilize acceleration and improve quality as both people and models evolve.",
+  "youtubeUrl": "https://www.youtube.com/watch?v=zgCVNJJ89iY",
+  "youtubeVideoId": "zgCVNJJ89iY",
+  "tiktokUrl": "",
+  "linkedinUrl": "",
+  "xUrl": "",
+  "transcriptPath": "content/videos/transcripts/why-faster-code-does-not-mean-safer-software.md",
+  "aliasTitles": [
+    "Why Faster Code Does Not Mean Safer Software"
+  ]
+}

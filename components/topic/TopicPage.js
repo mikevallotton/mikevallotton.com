@@ -3,6 +3,11 @@ import FurtherReading from "../FurtherReading";
 import JsonLd from "../JsonLd";
 import VideoStructuredData from "../VideoStructuredData";
 import ContentContinuation from "../ContentContinuation";
+import {
+  compareVideosByPublishedDesc,
+  getVideoTopicBySourcePath,
+  getVideosByIds,
+} from "../../content/videos";
 import TopicHero from "./TopicHero";
 import TopicAudience from "./TopicAudience";
 import TopicSection from "./TopicSection";
@@ -26,14 +31,18 @@ export default function TopicPage({
   next,
   sidebar,
 }) {
+  const videoTopic = getVideoTopicBySourcePath(path);
+  const visibleVideos = sections.flatMap((section) =>
+    [...(section.videos || getVideosByIds(section.videoIds))]
+      .sort(compareVideosByPublishedDesc)
+      .slice(0, 3),
+  );
+
   return (
     <article className={`topic-page topic--${topicKey}`}>
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
-      <VideoStructuredData
-        videos={sections.flatMap((section) => section.videos || [])}
-        pagePath={path}
-      />
+      <VideoStructuredData videos={visibleVideos} pagePath={path} />
       <Breadcrumbs current={breadcrumb} path={path} />
       <TopicHero {...hero} />
       <TopicAudience
@@ -49,6 +58,7 @@ export default function TopicPage({
               key={section.id}
               section={section}
               faqItems={getFaqItems?.(section)}
+              videoTopic={videoTopic}
             />
           ))}
         </div>

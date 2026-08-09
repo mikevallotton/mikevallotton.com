@@ -5,20 +5,23 @@ import FaqList from "../FaqList";
 import FurtherReading from "../FurtherReading";
 import JsonLd from "../JsonLd";
 import RelatedConcepts from "../RelatedConcepts";
-import VideoGrid from "../VideoGrid";
+import VideoShelf from "../VideoShelf";
 import VideoStructuredData from "../VideoStructuredData";
 import { evidenceNotes, sourcesFor } from "../../content/evidence";
 import { operatingPrinciples } from "../../content/operatingPrinciples";
 import { siteConfig } from "../../content/siteConfig";
+import { getVideosByIds } from "../../content/videos";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const operatingPrinciplePublished = "2026-07-30";
+export const operatingPrinciplePublished = contentDates.operatingPrinciples.published;
 export const operatingPrinciplePublishedLabel = "July 30, 2026";
 
 export function metadataForOperatingPrinciple(slug) {
   const principle = operatingPrinciples[slug];
   const path = `/${slug}`;
 
-  return {
+  return withPageSocial({
     title: {
       absolute: `${principle.title} | Practical AI Guidance`,
     },
@@ -32,7 +35,7 @@ export function metadataForOperatingPrinciple(slug) {
       publishedTime: operatingPrinciplePublished,
       authors: [`${siteConfig.siteUrl}/about`],
     },
-  };
+  });
 }
 
 function schemaForOperatingPrinciple(principle, path) {
@@ -42,7 +45,7 @@ function schemaForOperatingPrinciple(principle, path) {
     headline: principle.title,
     description: principle.description,
     datePublished: operatingPrinciplePublished,
-    dateModified: operatingPrinciplePublished,
+    dateModified: contentDates.operatingPrinciples.modified,
     mainEntityOfPage: `${siteConfig.siteUrl}${path}`,
     author: {
       "@type": "Person",
@@ -75,12 +78,13 @@ function faqSchemaForOperatingPrinciple(faqs) {
 export default function OperatingPrinciplePage({ slug }) {
   const principle = operatingPrinciples[slug];
   const path = `/${slug}`;
+  const videos = getVideosByIds(principle.videoIds);
 
   return (
     <article className={`article-page topic--${principle.topicKey}`}>
       <JsonLd data={schemaForOperatingPrinciple(principle, path)} />
       <JsonLd data={faqSchemaForOperatingPrinciple(principle.faqs)} />
-      <VideoStructuredData videos={principle.videos} pagePath={path} />
+      <VideoStructuredData videos={videos} pagePath={path} />
       <Breadcrumbs current={principle.title} path={path} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">
@@ -143,7 +147,7 @@ export default function OperatingPrinciplePage({ slug }) {
         </section>
       ))}
 
-      {principle.videos.length ? (
+      {videos.length ? (
         <section
           aria-labelledby="related-video-title"
           className="border-b border-library-parchment py-14 md:py-20"
@@ -154,7 +158,7 @@ export default function OperatingPrinciplePage({ slug }) {
               The principle in brief
             </h2>
           </div>
-          <VideoGrid videos={principle.videos} />
+          <VideoShelf videos={videos} />
         </section>
       ) : null}
 

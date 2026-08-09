@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "AI Agents: A Practical Guide",
   description:
     "A practical guide to what AI agents are, where they create value, why they fail, and how to build reliable agent-based systems.",
@@ -14,7 +16,7 @@ export const metadata = {
     url: "/ai-agents",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -68,31 +70,10 @@ const sections = [
       "Agents can monitor systems, trigger workflows, gather information from several sources, and execute routine business processes. People then spend less time shepherding work between tools and more time on judgment, exceptions, and decisions.",
     closing:
       "The biggest opportunity is better coordination, not merely faster task completion.",
-    videos: [
-      {
-        title: "How AI Agents Execute Work Across Systems",
-        published: "Apr 13, 2026",
-        url: "https://www.youtube.com/watch?v=Y9cphAsdlvg",
-        videoId: "Y9cphAsdlvg",
-        description:
-          "AI agents move beyond generating responses to executing workflows across tools like Jira and GitHub. They autonomously gather data, analyze progress, and produce actionable reports, significantly extending team efficiency and operational capability.",
-      },
-      {
-        title: "Where AI Agents Deliver Value in Everyday Work",
-        published: "Apr 14, 2026",
-        url: "https://www.youtube.com/watch?v=blyXw3bZYTA",
-        videoId: "blyXw3bZYTA",
-        description:
-          "AI agents create the most value in repetitive coordination work across systems. By automating tasks like reporting, data aggregation, and workflow preparation, they reduce manual effort and allow professionals to focus on higher level decisions.",
-      },
-      {
-        title: "How AI Agents Shift Responsibility in Workflows",
-        published: "Apr 15, 2026",
-        url: "https://www.youtube.com/watch?v=hUV9phI0cp0",
-        videoId: "hUV9phI0cp0",
-        description:
-          "AI agents accelerate execution but shift human responsibility toward evaluation and judgment. Rather than replacing jobs, they reduce time spent on tasks while increasing the importance of verifying correctness and alignment with goals.",
-      },
+    videoIds: [
+      "how-ai-agents-execute-work-across-systems",
+      "where-ai-agents-deliver-value-in-everyday-work",
+      "how-ai-agents-shift-responsibility-in-workflows",
     ],
     faqs: [
       {
@@ -144,31 +125,10 @@ const sections = [
     ],
     closing:
       "Successful agent systems are built around reliable processes, not just powerful models.",
-    videos: [
-      {
-        title: "Why Clear Processes Matter for AI Agent Success",
-        published: "Apr 16, 2026",
-        url: "https://www.youtube.com/watch?v=IZ5diOYDNa4",
-        videoId: "IZ5diOYDNa4",
-        description:
-          "AI agents amplify the quality of underlying processes, succeeding with clear inputs, outputs, and steps but failing in ambiguous tasks. Without defined boundaries and instructions, they can execute flawed workflows faster, creating unintended outcomes.",
-      },
-      {
-        title: "Why AI Agent Failures Stem From System Design",
-        published: "Apr 17, 2026",
-        url: "https://www.youtube.com/watch?v=1mt3EM5MOhE",
-        videoId: "1mt3EM5MOhE",
-        description:
-          "Most AI agent failures arise from poor system design, not model limitations. Inconsistent data, unclear mappings, and improper permissions can produce misleading outputs or risky actions, highlighting the need for well-structured systems and controlled access.",
-      },
-      {
-        title: "Accountability and Bottlenecks in AI Agent Systems",
-        published: "Apr 20, 2026",
-        url: "https://www.youtube.com/watch?v=Brj3W_lJ2YE",
-        videoId: "Brj3W_lJ2YE",
-        description:
-          "AI agents shift work rather than eliminate it, often creating review bottlenecks and new accountability challenges. Teams that succeed design systems with clear oversight, ensuring reliability while leveraging speed for competitive advantage.",
-      },
+    videoIds: [
+      "why-clear-processes-matter-for-ai-agent-success",
+      "why-ai-agent-failures-stem-from-system-design",
+      "accountability-and-bottlenecks-in-ai-agent-systems",
     ],
     articles: [
       {
@@ -367,8 +327,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/ai-agents`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };

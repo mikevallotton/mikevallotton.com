@@ -1,10 +1,21 @@
 import EvidenceNote from "../EvidenceNote";
 import FaqList from "../FaqList";
 import RelatedConcepts from "../RelatedConcepts";
-import VideoGrid from "../VideoGrid";
+import VideoShelf from "../VideoShelf";
+import {
+  compareVideosByPublishedDesc,
+  getVideoArchivePath,
+  getVideoSection,
+  getVideosByIds,
+} from "../../content/videos";
 import TopicImage from "./TopicImage";
 
-export default function TopicSection({ section, faqItems }) {
+export default function TopicSection({ section, faqItems, videoTopic }) {
+  const videos = [...(section.videos || getVideosByIds(section.videoIds))].sort(
+    compareVideosByPublishedDesc,
+  );
+  const archiveSection = getVideoSection(videoTopic, section.id);
+
   return (
     <section
       id={section.id}
@@ -30,7 +41,14 @@ export default function TopicSection({ section, faqItems }) {
         ))}
         <RelatedConcepts links={section.related} />
       </div>
-      <VideoGrid videos={section.videos} articles={section.articles} />
+      <VideoShelf
+        videos={videos}
+        articles={section.articles}
+        moreHref={
+          archiveSection ? getVideoArchivePath(videoTopic, archiveSection) : undefined
+        }
+        moreLabel={`View all ${section.title} videos`}
+      />
       {section.closing ? (
         <blockquote className="type-quote reading-surface topic-accent-border mt-9 border-l-2 pl-5 text-library-ink">
           {section.closing}

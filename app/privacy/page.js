@@ -1,13 +1,14 @@
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ContentMeta from "../../components/ContentMeta";
+import { withPageSocial } from "../../content/metadata";
 
-const updated = "2026-07-29";
+const updated = "2026-08-09";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "Privacy",
   description: "How mikevallotton.com handles analytics, local privacy choices, and third-party video thumbnails.",
   alternates: { canonical: "/privacy" },
-};
+});
 
 export default function PrivacyPage() {
   return (
@@ -22,7 +23,7 @@ export default function PrivacyPage() {
         <ContentMeta
           showAuthor={false}
           updated={updated}
-          updatedLabel="July 29, 2026"
+          updatedLabel="August 9, 2026"
           className="mt-5"
         />
       </header>
@@ -51,7 +52,7 @@ export default function PrivacyPage() {
         <section>
           <h2>Video thumbnails and external links</h2>
           <p>
-            Topic pages display thumbnails hosted by YouTube. Loading those
+            Topic and video pages display thumbnails hosted by YouTube. Loading those
             images makes a request to YouTube and may disclose ordinary request
             information such as your IP address, browser details, and referring
             page. Videos open on YouTube only when you follow a video link.

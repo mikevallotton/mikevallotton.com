@@ -6,8 +6,10 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import PrinciplesGrid from "../../components/PrinciplesGrid";
 import VideoStructuredData from "../../components/VideoStructuredData";
 import VideoGrid from "../../components/VideoGrid";
+import { getVideosByIds } from "../../content/videos";
+import { withPageSocial } from "../../content/metadata";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: {
     absolute: "About Mike Vallotton | CTO and Technology Leader",
   },
@@ -16,7 +18,7 @@ export const metadata = {
   alternates: {
     canonical: "/about",
   },
-};
+});
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -48,32 +50,12 @@ const structuredData = {
   ],
 };
 
-const videos = [
-  {
-    title: "Intro",
-    published: "2025-12-01T05:30:48-08:00",
-    url: "https://www.youtube.com/watch?v=amz7jADqzG0",
-    videoId: "amz7jADqzG0",
-    description:
-      "AI is already reshaping how work gets done across every industry, not just tech. This video introduces the series and explains why the shift is real, immediate, and already affecting every role, from developers to designers to executives.",
-  },
-  {
-    title: "Teaching at Porsche",
-    published: "2026-02-24T12:06:30-08:00",
-    url: "https://www.youtube.com/watch?v=3jXhkdJGKZc",
-    videoId: "3jXhkdJGKZc",
-    description:
-      "Executives across industries are actively confronting rapid AI driven shifts in customer behavior, staffing, and digital architecture. Leaders are focused on adapting responsibly, structuring content for AI mediated discovery, and evolving organizations without breaking them.",
-  },
-  {
-    title: "Where AI Is Overestimated and Underestimated Today",
-    published: "2026-06-08T00:00:00-08:00",
-    url: "https://youtu.be/11zFeonc7eQ",
-    videoId: "11zFeonc7eQ",
-    description:
-      "Organizations often focus on AI’s current capabilities, but the bigger issue is how it will reshape operations over the next three to five years. Key opportunities and risks emerge in tools, workflows, discovery, software economics, and trust.",
-  },
+const videoIds = [
+  "ai-is-changing-work-faster-than-most-people-can-process",
+  "teaching-at-porsche",
+  "where-ai-is-overestimated-and-underestimated-today",
 ];
+const videos = getVideosByIds(videoIds);
 
 export default function AboutPage() {
   return (
@@ -143,6 +125,7 @@ export default function AboutPage() {
               href="https://sagepath-reply.com/blog/news/gartner-marketing-symposium-2026/"
               target="_blank"
               rel="noreferrer"
+              aria-label="AI-Native Marketing: What Every CMO Must Do Now (opens in a new tab)"
             >
               AI-Native Marketing: What Every CMO Must Do Now
             </a>
@@ -215,7 +198,7 @@ export default function AboutPage() {
         </p>
         <p className="text-sm text-library-muted max-w-prose">
           To suggest a correction, connect with me through{" "}
-          <a href={siteConfig.urls.linkedin} target="_blank" rel="noreferrer">
+          <a href={siteConfig.urls.linkedin} target="_blank" rel="noreferrer" aria-label="Mike Vallotton on LinkedIn (opens in a new tab)">
             LinkedIn
           </a>
           .
@@ -228,12 +211,11 @@ export default function AboutPage() {
           I work with large organizations and enterprise transformation initiatives through my role at Sagepath Reply. I also independently consider select advisory work with small businesses, along with speaking, teaching, and workshop opportunities.
         </p>
         <div className="flex flex-wrap gap-3">
-          <a href={siteConfig.urls.sagepath} target="_blank" rel="noreferrer" className="btn btn-primary no-underline">Work with Sagepath Reply</a>
-          <a href={siteConfig.urls.linkedin} target="_blank" rel="noreferrer" className="btn btn-secondary no-underline">Contact me on LinkedIn</a>
+          <a href={siteConfig.urls.sagepath} target="_blank" rel="noreferrer" aria-label="Work with Sagepath Reply (opens in a new tab)" className="btn btn-primary no-underline">Work with Sagepath Reply</a>
+          <a href={siteConfig.urls.linkedin} target="_blank" rel="noreferrer" aria-label="Contact me on LinkedIn (opens in a new tab)" className="btn btn-secondary no-underline">Contact me on LinkedIn</a>
         </div>
       </section>
 
     </div>
   );
 }
-

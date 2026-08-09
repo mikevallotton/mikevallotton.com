@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "AI Search and GEO: A Practical Guide",
   description:
     "How AI search changes discovery, turns websites into knowledge bases, expands SEO through GEO, and reshapes digital measurement.",
@@ -14,7 +16,7 @@ export const metadata = {
     url: "/ai-search-and-geo",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -40,28 +42,10 @@ const sections = [
     ],
     closing:
       "Visibility is shifting from winning a position on a results page to becoming part of the answer.",
-    videos: [
-      {
-        title: "From Ranking to Retrieval in AI Search",
-        published: "Mar 3, 2026",
-        url: "https://www.youtube.com/watch?v=5VPYLST1OmA",
-        videoId: "5VPYLST1OmA",
-        description: "Search engines are shifting from ranking links to composing answers. Visibility now depends on being retrievable and citeable within AI generated responses, not just ranking first. This fundamentally changes how organizations must approach content strategy.",
-      },
-      {
-        title: "Retrieval Determines Visibility in AI Search",
-        published: "Mar 6, 2026",
-        url: "https://www.youtube.com/watch?v=tlyw-AiIP7E",
-        videoId: "tlyw-AiIP7E",
-        description: "In AI search, visibility is determined before generation. Modern systems retrieve and ground answers in source content, making retrievability, structure, and semantic precision decisive. This shift requires a content architecture rethink, not just SEO tweaks.",
-      },
-      {
-        title: "Specificity Now Determines Visibility in AI Search",
-        published: "Mar 5, 2026",
-        url: "https://www.youtube.com/watch?v=L-alt68d8pU",
-        videoId: "L-alt68d8pU",
-        description: "Broad positioning is breaking down as AI mediated discovery favors highly specific, constraint driven queries. Vague content is no longer retrieved. In this new model, specificity determines visibility, yet many companies still write as if it is twenty fifteen.",
-      },
+    videoIds: [
+      "from-ranking-to-retrieval-in-ai-search",
+      "retrieval-determines-visibility-in-ai-search",
+      "specificity-now-determines-visibility-in-ai-search",
     ],
   },
   {
@@ -78,35 +62,11 @@ const sections = [
     ],
     closing:
       "In an AI-first web, information architecture becomes as important as content creation.",
-    videos: [
-      {
-        title: "Why Websites Become Reference Sources in an AI-First World",
-        published: "Feb 11, 2026",
-        url: "https://www.youtube.com/watch?v=YzjsQ-OtbfA",
-        videoId: "YzjsQ-OtbfA",
-        description: "As AI becomes the primary interface for questions and decisions, websites shift from destinations to reference sources. Clear, explicit, and consistent content now determines how brands are represented when machines do the explaining.",
-      },
-      {
-        title: "AI Changes Content Accuracy Before Search Performance",
-        published: "Jul 1, 2026",
-        url: "https://www.youtube.com/watch?v=7vRHBLiOAaA",
-        videoId: "7vRHBLiOAaA",
-        description: "AI usually affects how a business is interpreted before it affects traffic or rankings. Incomplete or inconsistent content gets recombined into plausible but inaccurate explanations, reducing control over how the business is described by AI systems.",
-      },
-      {
-        title: "Structuring Website Content for AI Consumption",
-        published: "Jul 2, 2026",
-        url: "https://www.youtube.com/watch?v=8NRtJtld7iE",
-        videoId: "8NRtJtld7iE",
-        description: "AI systems consume website content as fragments rather than complete pages. Teams need consistently defined, scoped, and described concepts across their sites so information can be accurately recombined without losing meaning.",
-      },
-      {
-        title: "Organizing Website Content for AI and Human Readers",
-        published: "Feb 12, 2026",
-        url: "https://www.youtube.com/watch?v=tznEgpt9nzc",
-        videoId: "tznEgpt9nzc",
-        description: "As AI systems extract snippets rather than read pages, content organization becomes a visibility strategy. Clear structure, explicit answers, and machine readable formatting help AI interpret expertise while still serving human users.",
-      },
+    videoIds: [
+      "why-websites-become-reference-sources-in-an-ai-first-world",
+      "ai-changes-content-accuracy-before-search-performance",
+      "structuring-website-content-for-ai-consumption",
+      "organizing-website-content-for-ai-and-human-readers",
     ],
   },
   {
@@ -118,21 +78,9 @@ const sections = [
       "SEO still helps search engines understand and rank webpages. GEO adds a second objective: making content precise, structured, credible, and useful inside generated responses. Organizations increasingly need to optimize for both.",
     closing:
       "GEO does not replace SEO. It extends optimization from rankings into generated answers.",
-    videos: [
-      {
-        title: "How AI Uses Web Content and Why Analytics Feel Broken",
-        published: "Feb 9, 2026",
-        url: "https://www.youtube.com/watch?v=x4E0NTOZLek",
-        videoId: "x4E0NTOZLek",
-        description: "AI systems increasingly consume and summarize web content without direct visits, turning websites into sources of truth for other systems. This shift weakens traditional analytics and attribution while raising the bar for clarity, structure, and authority.",
-      },
-      {
-        title: "SEO, GEO, and Why Declining Traffic Can Be Misleading",
-        published: "Feb 10, 2026",
-        url: "https://www.youtube.com/watch?v=u4DhOMAdook",
-        videoId: "u4DhOMAdook",
-        description: "Declining traffic does not mean declining influence. As AI systems retrieve and summarize content upstream, SEO determines discoverability and GEO shapes representation, making websites harder to measure but more critical as sources of truth.",
-      },
+    videoIds: [
+      "how-ai-uses-web-content-and-why-analytics-feel-broken",
+      "seo-geo-and-why-declining-traffic-can-be-misleading",
     ],
   },
   {
@@ -145,21 +93,9 @@ const sections = [
     evidence: [evidenceNotes.searchMeasurement],
     closing:
       "When AI mediates discovery, influence can rise even while direct traffic falls.",
-    videos: [
-      {
-        title: "The Invisible Influence Layer of AI",
-        published: "Mar 4, 2026",
-        url: "https://www.youtube.com/watch?v=7c9anwH6ez4",
-        videoId: "7c9anwH6ez4",
-        description: "AI now mediates research and evaluation, shaping buying decisions without generating site visits. As content influences choices through summarized answers, traditional attribution models fail to capture this invisible layer of impact.",
-      },
-      {
-        title: "Why Traditional Analytics Break Down in an AI-Mediated World",
-        published: "Feb 13, 2026",
-        url: "https://www.youtube.com/watch?v=Ig3TsxuUNQk",
-        videoId: "Ig3TsxuUNQk",
-        description: "As AI mediates research and decision making, traditional analytics capture less of the real influence of content. Measurement models built on visits and funnels miss upstream impact, requiring new ways to assess visibility, accuracy, and decision shaping.",
-      },
+    videoIds: [
+      "the-invisible-influence-layer-of-ai",
+      "why-traditional-analytics-break-down-in-an-ai-mediated-world",
     ],
   },
 ];
@@ -413,8 +349,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/ai-search-and-geo`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };

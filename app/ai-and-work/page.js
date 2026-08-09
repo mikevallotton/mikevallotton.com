@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "How AI Is Changing Work",
   description:
     "A practical guide to how AI is changing careers, organizations, leadership, and the skills that create value.",
@@ -16,7 +18,7 @@ export const metadata = {
     url: "/ai-and-work",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -33,35 +35,11 @@ const sections = [
     ],
     closing:
       "AI changes how work gets done before it changes the organizational chart.",
-    videos: [
-      {
-        title: "AI is changing work faster than most people can process",
-        published: "Dec 1, 2025",
-        url: "https://www.youtube.com/watch?v=amz7jADqzG0",
-        videoId: "amz7jADqzG0",
-        description: "AI is already reshaping how work gets done across every industry, not just tech. This video introduces the series and explains why the shift is real, immediate, and already affecting every role, from developers to designers to executives.",
-      },
-      {
-        title: "AI isn’t wiping out white-collar work—it’s compressing it",
-        published: "Dec 5, 2025",
-        url: "https://www.youtube.com/watch?v=oGVVetmu6Hs",
-        videoId: "oGVVetmu6Hs",
-        description: "AI isn’t eliminating professions, but it is removing slow, repetitive parts of knowledge work. The result is smaller teams, higher expectations, and more output per person.",
-      },
-      {
-        title: "The Real Impact of AI on Work Hours",
-        published: "Dec 8, 2025",
-        url: "https://www.youtube.com/watch?v=ziT5BhZjdho",
-        videoId: "ziT5BhZjdho",
-        description: "The most immediate effect of AI is reducing wasted time, not replacing people. By removing friction like rework, coordination overhead, and unclear communication, AI quietly reshapes how long work takes.",
-      },
-      {
-        title: "AI Is a Long Transition, Not a Sudden Revolution",
-        published: "Jan 13, 2026",
-        url: "https://www.youtube.com/watch?v=Psb530VL-8M",
-        videoId: "Psb530VL-8M",
-        description: "AI is not an overnight disruption, it is a decade long shift. Roles are widening, teams are compressing, and expectations are rising faster than organizations can adapt, creating both leverage and pressure for individuals.",
-      },
+    videoIds: [
+      "ai-is-changing-work-faster-than-most-people-can-process",
+      "ai-isn-t-wiping-out-white-collar-work-it-s-compressing-it",
+      "the-real-impact-of-ai-on-work-hours",
+      "ai-is-a-long-transition-not-a-sudden-revolution",
     ],
   },
   {
@@ -91,42 +69,12 @@ const sections = [
       },
     ],
     closing: "Technology evolves every week. Organizations evolve over years.",
-    videos: [
-      {
-        title: "Why Your Company Isn’t Ready, But You Can Be",
-        published: "Dec 11, 2025",
-        url: "https://www.youtube.com/watch?v=aEEymdEyu54",
-        videoId: "aEEymdEyu54",
-        description: "Organizations adapt slowly by necessity, but individuals don’t have to wait. This video explains how personal AI habits can create an advantage long before formal company adoption.",
-      },
-      {
-        title: "Organizational Readiness for AI Adoption",
-        published: "2026-01-05T05:30:50-08:00",
-        url: "https://www.youtube.com/watch?v=lv3IXxv0pW4",
-        videoId: "lv3IXxv0pW4",
-        description: "AI adoption follows a maturity curve from individual experimentation to enterprise integration. This video explains the stages and why most companies are still early.",
-      },
-      {
-        title: "How AI Adoption Moves Predictably Through Organizations",
-        published: "2026-01-15T05:30:43-08:00",
-        url: "https://www.youtube.com/watch?v=gtDTQFUuD3Y",
-        videoId: "gtDTQFUuD3Y",
-        description: "AI adoption inside companies follows a predictable path, starting with measurable service and technical teams before moving into creative and operational functions. Progress depends on system readiness, data quality, regulation, and team trust in automation.",
-      },
-      {
-        title: "Why Enterprise AI Is a Multi-Year Organizational Rebuild",
-        published: "Jan 8, 2026",
-        url: "https://www.youtube.com/watch?v=bdDLt4QIWpI",
-        videoId: "bdDLt4QIWpI",
-        description: "Integrating AI across a company is a long, complex rebuild of processes, data, governance, and habits. Treating AI as infrastructure rather than a plug in is essential to achieving durable, scalable capability.",
-      },
-      {
-        title: "AI Governance as the Key to Scalable Deployment",
-        published: "Mar 30, 2026",
-        url: "https://www.youtube.com/watch?v=sawl12bAM2I",
-        videoId: "sawl12bAM2I",
-        description: "AI capability alone is not enough. Organizations that manage governance, risk, and compliance effectively can deploy faster and scale safely, because auditability and monitoring are what enable reliable and secure AI operations.",
-      },
+    videoIds: [
+      "why-your-company-isn-t-ready-but-you-can-be",
+      "organizational-readiness-for-ai-adoption",
+      "how-ai-adoption-moves-predictably-through-organizations",
+      "why-enterprise-ai-is-a-multi-year-organizational-rebuild",
+      "ai-governance-as-the-key-to-scalable-deployment",
     ],
   },
   {
@@ -139,7 +87,7 @@ const sections = [
     related: [
       {
         href: "/articles/ai-job-search",
-        label: "AI job-search workflow",
+        label: "How I would use AI to look for work",
       },
       {
         href: "/judgment-over-generation",
@@ -147,63 +95,15 @@ const sections = [
       },
     ],
     closing: "AI lowers the cost of execution. Humans decide what should happen next.",
-    videos: [
-      {
-        title: "Stop Looking for Use Cases. Start Looking for Bottlenecks",
-        published: "Dec 19, 2025",
-        url: "https://www.youtube.com/watch?v=NX6e532FUmI",
-        videoId: "NX6e532FUmI",
-        description: "AI delivers the most value when applied to friction points. This video reframes AI adoption around identifying bottlenecks instead of chasing abstract use cases.",
-      },
-      {
-        title: "AI Productivity Gains Depend on Coordination Systems",
-        published: "Mar 25, 2026",
-        url: "https://www.youtube.com/watch?v=cBHNzZL1ENY",
-        videoId: "cBHNzZL1ENY",
-        description: "AI accelerates creation but shifts the bottleneck to coordination. Without systems to prioritize, integrate, and ship increased output, productivity stalls. The winners are teams that coordinate decisions and workflows more effectively.",
-      },
-      {
-        title: "AI Shifts Advantage From Output to Coordination",
-        published: "Mar 24, 2026",
-        url: "https://www.youtube.com/watch?v=a5GqbtEWEQI",
-        videoId: "a5GqbtEWEQI",
-        description: "AI removes execution friction and shifts the constraint to coordination. Competitive advantage comes from deciding what to build, integrating output, and maintaining fast feedback loops, not simply producing more.",
-      },
-      {
-        title: "Process Design as the Real Competitive Advantage",
-        published: "Mar 31, 2026",
-        url: "https://www.youtube.com/watch?v=qXf8O98NM7M",
-        videoId: "qXf8O98NM7M",
-        description: "As tools democratize execution, advantage shifts from individual capability to system design. The winners are those who build better workflows, feedback loops, and decision processes that are harder to replicate than raw output.",
-      },
-      {
-        title: "Learning Speed as the Ultimate Competitive Advantage",
-        published: "Apr 1, 2026",
-        url: "https://www.youtube.com/watch?v=fJ3jGePPWKw",
-        videoId: "fJ3jGePPWKw",
-        description: "The fastest learners gain the edge in a changing tech landscape. AI accelerates experimentation, but real learning comes from doing. Consistent practice and iteration enable you to outpace change and build lasting advantage.",
-      },
-      {
-        title: "Mapping Workflows Before Applying AI",
-        published: "2026-08-03",
-        url: "https://www.youtube.com/shorts/wuSmjNXJGSw",
-        videoId: "wuSmjNXJGSw",
-        description: "Effective AI adoption begins by mapping work into detailed tasks, identifying repetitive activities, and then applying automation to improve efficiency without replacing people.",
-      },
-      {
-        title: "AI Expands the Scope of Modern Marketing Work",
-        published: "2026-08-05",
-        url: "https://www.youtube.com/shorts/oonP6CURSDw",
-        videoId: "oonP6CURSDw",
-        description: "AI shifts marketing beyond faster execution by making previously impractical work, such as continuous research and customer analysis, economically feasible. As routine tasks are automated, teams can focus on higher-value capabilities that were previously out of reach.",
-      },
-      {
-        title: "AI Redesigns Marketing Work Through Task Automation",
-        published: "2026-08-06",
-        url: "https://www.youtube.com/shorts/hysaUcYuXx4",
-        videoId: "hysaUcYuXx4",
-        description: "AI shifts marketing from saving time to creating more value by enabling more experimentation, customer understanding, competitive analysis, and effective execution. It automates tasks, not roles, requiring work itself to be redesigned.",
-      },
+    videoIds: [
+      "stop-looking-for-use-cases-start-looking-for-bottlenecks",
+      "ai-productivity-gains-depend-on-coordination-systems",
+      "ai-shifts-advantage-from-output-to-coordination",
+      "process-design-as-the-real-competitive-advantage",
+      "learning-speed-as-the-ultimate-competitive-advantage",
+      "mapping-workflows-before-applying-ai",
+      "ai-expands-the-scope-of-modern-marketing-work",
+      "ai-redesigns-marketing-work-through-task-automation",
     ],
   },
   {
@@ -214,49 +114,13 @@ const sections = [
     body:
       "Faster production can create more noise, more coordination work, and more pressure on systems that were designed for a slower environment.",
     closing: "The technology changes quickly. The surrounding systems take much longer.",
-    videos: [
-      {
-        title: "What Breaks When Execution Becomes Cheap: Attention",
-        published: "Mar 16, 2026",
-        url: "https://www.youtube.com/watch?v=rElJluhXAdY",
-        videoId: "rElJluhXAdY",
-        description: "What Breaks When Execution Becomes Cheap: AI removes the barrier that once limited how many ideas teams produced. As output explodes, attention becomes scarce. Winning organizations will not generate the most content. They will excel at deciding what actually deserves focus.",
-      },
-      {
-        title: "Trust",
-        published: "Mar 17, 2026",
-        url: "https://www.youtube.com/watch?v=XNTUUK7DAbk",
-        videoId: "XNTUUK7DAbk",
-        description: "What Breaks When Execution Becomes Cheap: AI makes it easy to produce convincing reports, images, voices, and video at scale. As believable content becomes cheap to create and test, people rely less on the content itself and more on the credibility and reliability of the source.",
-      },
-      {
-        title: "Idea Diversity",
-        published: "Mar 18, 2026",
-        url: "https://www.youtube.com/watch?v=uYAMyUITGAM",
-        videoId: "uYAMyUITGAM",
-        description: "What Breaks When Execution Becomes Cheap: AI can improve individual output but also pull groups toward the same patterns. As many people rely on similar model-generated answers, average idea quality rises while diversity shrinks, making differentiation a competitive advantage.",
-      },
-      {
-        title: "Credibility",
-        published: "Mar 19, 2026",
-        url: "https://www.youtube.com/watch?v=4__M9GY09oU",
-        videoId: "4__M9GY09oU",
-        description: "What Breaks When Execution Becomes Cheap: As convincing reports, images, and voices become easy to produce, people stop judging information by how real it looks. Instead they rely on reputation, verification, and source credibility to decide what to trust.",
-      },
-      {
-        title: "Institutional Lag",
-        published: "Mar 20, 2026",
-        url: "https://www.youtube.com/watch?v=EhxxwCP8haI",
-        videoId: "EhxxwCP8haI",
-        description: "What Breaks When Execution Becomes Cheap: AI is advancing quickly, but the institutions that govern technology move far more slowly. Like other general purpose technologies, the biggest shifts come as companies, laws, and norms reorganize around new capabilities.",
-      },
-      {
-        title: "Systems",
-        published: "Mar 23, 2026",
-        url: "https://www.youtube.com/watch?v=Rsfjz83U7Kg",
-        videoId: "Rsfjz83U7Kg",
-        description: "What Breaks When Execution Becomes Cheap: As production costs collapse, organizations face noise, misinformation, idea convergence, trust challenges, and institutional lag. Advantage shifts from producing to filtering, deciding, coordinating, and building trust.",
-      },
+    videoIds: [
+      "what-breaks-when-execution-becomes-cheap-attention",
+      "what-breaks-when-execution-becomes-cheap-trust",
+      "what-breaks-when-execution-becomes-cheap-idea-diversity",
+      "what-breaks-when-execution-becomes-cheap-credibility",
+      "institutional-lag",
+      "systems",
     ],
   },
   {
@@ -268,35 +132,11 @@ const sections = [
       "The organizations that benefit most will build the context and coordination that allow people and AI systems to work together reliably.",
     closing:
       "The future belongs to organizations that combine AI with human judgment rather than treating them as competitors.",
-    videos: [
-      {
-        title: "AI Adoption Is the Real ‘Then What’ Moment",
-        published: "Jun 1, 2026",
-        url: "https://www.youtube.com/watch?v=sSxyXLOphAk",
-        videoId: "sSxyXLOphAk",
-        description: "The debate over AGI may be missing the bigger story. Organizations are already redesigning business processes around AI, and the scale of operational change underway suggests the transformative impact is happening now, not after a future milestone.",
-      },
-      {
-        title: "Organizational Knowledge May Matter More Than Smarter AI",
-        published: "Jul 20, 2026",
-        url: "https://www.youtube.com/watch?v=WVDkrG-JMxs",
-        videoId: "WVDkrG-JMxs",
-        description: "AI models have advanced rapidly, but the greater opportunity may come from connecting them to decades of organizational knowledge. Making documented decisions, lessons, and processes searchable could have a bigger impact than further increases in model intelligence.",
-      },
-      {
-        title: "AI Amplifies Human Capability Rather Than Replacing It",
-        published: "Jul 23, 2026",
-        url: "https://www.youtube.com/watch?v=HFTIIRRrJDk",
-        videoId: "HFTIIRRrJDk",
-        description: "Daily experience with AI suggests its greatest impact is amplifying human capability, enabling people to become more productive, expand their skills, and solve larger problems rather than replacing their roles.",
-      },
-      {
-        title: "Human Judgment Remains the Hardest Skill to Automate",
-        published: "Jul 24, 2026",
-        url: "https://www.youtube.com/watch?v=blGD1EwDluU",
-        videoId: "blGD1EwDluU",
-        description: "AI excels at generating and synthesizing information, but experience highlights that professional expertise is rooted in judgment, nuance, and recognizing subtle issues before they become problems, making those capabilities far harder to automate.",
-      },
+    videoIds: [
+      "ai-adoption-is-the-real-then-what-moment",
+      "organizational-knowledge-may-matter-more-than-smarter-ai",
+      "ai-amplifies-human-capability-rather-than-replacing-it",
+      "human-judgment-remains-the-hardest-skill-to-automate",
     ],
   },
 ];
@@ -499,8 +339,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/ai-and-work`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-08-08",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };

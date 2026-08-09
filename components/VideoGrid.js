@@ -1,3 +1,6 @@
+import { ArticleCard } from "./article/ArticleGrid";
+import Image from "next/image";
+
 function PlayIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
@@ -20,26 +23,31 @@ function formatPublishedDate(value) {
 }
 
 export function VideoCard({ video }) {
-  const available = Boolean(video.url);
+  const url = video.url || video.youtubeUrl;
+  const videoId = video.videoId || video.youtubeVideoId;
+  const description = video.description || video.summary;
+  const available = Boolean(url && videoId);
   const cardClassName =
     "group grid grid-cols-[7.25rem_1fr] overflow-hidden rounded-xl border border-library-parchment bg-library-paper sm:block";
   const cardContent = (
     <>
       <div
         className="relative aspect-[9/16] min-h-[12.75rem] overflow-hidden bg-library-forest bg-cover bg-center transition sm:group-hover:brightness-90"
-        style={
-          available
-            ? {
-                backgroundImage: `linear-gradient(to top, rgba(14, 47, 37, 0.72), rgba(14, 47, 37, 0.04) 50%), url("https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg")`,
-              }
-            : undefined
-        }
       >
+        {available ? (
+          <Image
+            src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 116px"
+            className="object-cover"
+          />
+        ) : null}
         <div
           aria-hidden="true"
           className={`absolute inset-0 ${
             available
-              ? ""
+              ? "bg-gradient-to-t from-library-forest/70 to-transparent"
               : "bg-[radial-gradient(circle_at_25%_20%,rgba(221,227,218,0.22),transparent_34%),linear-gradient(145deg,transparent_35%,rgba(141,110,82,0.28)_35%,rgba(141,110,82,0.28)_58%,transparent_58%)]"
           }`}
         />
@@ -55,7 +63,7 @@ export function VideoCard({ video }) {
       <div className="flex min-w-0 flex-col justify-center p-4 sm:min-h-[10.5rem] sm:justify-start sm:p-5">
         <h3 className="text-lg font-semibold leading-snug">{video.title}</h3>
         <p className="mt-2 text-sm leading-relaxed text-library-muted">
-          {video.description}
+          {description}
         </p>
         <div className="type-label mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-library-walnut">
           <span>{formatPublishedDate(video.published)}</span>
@@ -72,9 +80,10 @@ export function VideoCard({ video }) {
 
   return available ? (
     <a
-      href={video.url}
+      href={url}
       target="_blank"
       rel="noreferrer"
+      aria-label={`Watch “${video.title}” on YouTube (opens in a new tab)`}
       className={`${cardClassName} no-underline transition hover:-translate-y-0.5 hover:border-library-walnut hover:shadow-[0_12px_30px_rgba(14,47,37,0.12)]`}
     >
       {cardContent}
@@ -93,9 +102,8 @@ export default function VideoGrid({ videos, articles }) {
         <ArticleCard key={article.href} article={article} />
       ))}
       {videos?.map((video) => (
-        <VideoCard key={video.title} video={video} />
+        <VideoCard key={video.slug || video.title} video={video} />
       ))}
     </div>
   );
 }
-import { ArticleCard } from "./article/ArticleGrid";

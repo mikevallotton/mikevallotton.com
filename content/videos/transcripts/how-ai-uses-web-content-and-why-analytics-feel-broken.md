@@ -1,0 +1,9 @@
+When you use AI in a chat interface, you’ll see that it sometimes searches the web. When it does that it creates a query, retrieves text, and then adds that text into the context window, so that it has richer context to produce a response. Large language models predict language, based on the context they’re given, so connecting a model to the web gives it additional context.
+
+If the retrieved content is clear and factual and complete, then the output from the LLM is usually pretty solid. But if the content has gaps, or it’s outdated or it’s conflicting, then it’ll fill that in with statistically probable tokens, but not necessarily correct ones.
+
+So even when you see fewer people visiting your website, they are still likely consuming that information. But through AI, your content is being extracted and summarized, and recombined and presented to the user. So this means that your website isn’t just a place for people to read, and transact although it will likely continue to be that for years, but your website becomes a source of truth for other systems, that are presenting information to consumers based on your content.
+
+So websites can’t just be brochureware, they become more like an encyclopedia, for the niche that your website covers. If your website’s vague or incomplete, then models are going to guess, and if your site is structured, explicit and authoritative, then models can reference it properly.
+
+And this is also why, a lot of your traditional analytics is starting to feel wrong. Influence in the digital space doesn’t map cleanly to visits, time on site or marketing funnels anymore. AI can shape decisions without a consumer ever visiting your website. And even when they do visit your website, they’re often dropped into the middle or the end of the funnel, and then attribution becomes very difficult.

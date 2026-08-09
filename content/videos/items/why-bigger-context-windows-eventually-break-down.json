@@ -1,0 +1,15 @@
+{
+  "slug": "why-bigger-context-windows-eventually-break-down",
+  "title": "Why Bigger Context Windows Eventually Break Down",
+  "published": "2026-01-30",
+  "description": "Larger context windows help but introduce noise. As more text competes for attention, relevance blurs and outputs degrade. Effective use depends on selectivity, ranking, and compression, not dumping everything into the model.",
+  "youtubeUrl": "https://www.youtube.com/watch?v=efzhrgYyp1o",
+  "youtubeVideoId": "efzhrgYyp1o",
+  "tiktokUrl": "",
+  "linkedinUrl": "",
+  "xUrl": "",
+  "transcriptPath": "content/videos/transcripts/why-bigger-context-windows-eventually-break-down.md",
+  "aliasTitles": [
+    "Why Bigger Context Windows Eventually Break Down"
+  ]
+}

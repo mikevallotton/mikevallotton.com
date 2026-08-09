@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "AI, Thinking, and Human Judgment",
   description:
     "Explore how AI changes human thinking, judgment, learning, trust, and the skills that remain distinctly valuable.",
@@ -14,7 +16,7 @@ export const metadata = {
     url: "/ai-and-thinking",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -31,28 +33,10 @@ const sections = [
     ],
     closing:
       "Language generation and human cognition can look similar while remaining fundamentally different processes.",
-    videos: [
-      {
-        title: "Representation: How Humans Build Models of Reality",
-        published: "Dec 29, 2025",
-        url: "https://www.youtube.com/watch?v=zOHfOP2qkfc",
-        videoId: "zOHfOP2qkfc",
-        description: "Humans reason from grounded experience; AI does not. This video explains the difference between human understanding and language-based prediction.",
-      },
-      {
-        title: "Coherence vs Cognition",
-        published: "Jan 6, 2026",
-        url: "https://www.youtube.com/watch?v=8e0RChr_YZo",
-        videoId: "8e0RChr_YZo",
-        description: "AI produces fluent language without understanding. This video explains why models sound confident, how hallucinations happen, and where the boundary between prediction and thought lies.",
-      },
-      {
-        title: "Thinking Begins Where Consequences Exist",
-        published: "Jan 12, 2026",
-        url: "https://www.youtube.com/watch?v=ieTFrOLthY4",
-        videoId: "ieTFrOLthY4",
-        description: "Real thinking begins when outcomes actually matter. Human reasoning is shaped by consequences and feedback, while AI simulates reasoning in language without stakes, learning from being right, or learning from being wrong.",
-      },
+    videoIds: [
+      "representation-how-humans-build-models-of-reality",
+      "coherence-vs-cognition",
+      "thinking-begins-where-consequences-exist",
     ],
     faqs: [
       {
@@ -98,35 +82,11 @@ const sections = [
     ],
     closing:
       "AI changes the economics of execution without changing the importance of human decision-making.",
-    videos: [
-      {
-        title: "The One Skill AI Can’t Replace",
-        published: "Dec 10, 2025",
-        url: "https://www.youtube.com/watch?v=t8Et8YnHiGY",
-        videoId: "t8Et8YnHiGY",
-        description: "As AI accelerates execution, judgment becomes more valuable, not less. This video explains why choosing what matters still belongs to humans.",
-      },
-      {
-        title: "AI Accelerates Execution but Not Human Judgment",
-        published: "Jan 19, 2026",
-        url: "https://www.youtube.com/watch?v=1oMghiPirAQ",
-        videoId: "1oMghiPirAQ",
-        description: "AI systems speed up execution by drafting and organizing, but they do not possess judgment. Judgment comes from human experience, interpretation, and consequence. Used correctly, AI amplifies human thinking rather than replacing it.",
-      },
-      {
-        title: "Why Judgment Must Be Trained",
-        published: "Apr 8, 2026",
-        url: "https://www.youtube.com/watch?v=ovutMrl_zE0",
-        videoId: "ovutMrl_zE0",
-        description: "As AI handles more execution, human value shifts to judgment, but judgment is not innate. It develops through experience, feedback, and testing assumptions in complex environments where outcomes are slow and uncertain.",
-      },
-      {
-        title: "Why AI Confidence Should Not Replace Human Judgment",
-        published: "Apr 3, 2026",
-        url: "https://www.youtube.com/watch?v=Zd0ML1BJVEU",
-        videoId: "Zd0ML1BJVEU",
-        description: "AI tools can sound authoritative, but coherence is not accuracy. The real advantage is not having access to AI, but building the discipline to question its outputs before acting on them in business-critical decisions.",
-      },
+    videoIds: [
+      "the-one-skill-ai-cannot-replace-good-judgment",
+      "ai-accelerates-execution-but-not-human-judgment",
+      "why-judgment-must-be-trained",
+      "why-ai-confidence-should-not-replace-human-judgment",
     ],
     articles: [
       {
@@ -184,28 +144,10 @@ const sections = [
     ],
     closing:
       "Use AI to widen exploration while continuing to build the mental models that make independent thought possible.",
-    videos: [
-      {
-        title: "AI Expands Exploration, Humans Decide What Matters",
-        published: "Jan 16, 2026",
-        url: "https://www.youtube.com/watch?v=RxEux3hLuk8",
-        videoId: "RxEux3hLuk8",
-        description: "AI does not replace thinking, it changes how ideas are explored. Models expand the space of possibilities, but humans must still decide what matters, because fluent output without judgment leads to shallow decisions.",
-      },
-      {
-        title: "Cognitive Offloading and the Risk to Mental Models",
-        published: "Apr 7, 2026",
-        url: "https://www.youtube.com/watch?v=QnSZlUh1-7I",
-        videoId: "QnSZlUh1-7I",
-        description: "Relying on AI and tools boosts efficiency but can weaken internal understanding over time. The key is not avoiding tools, but continuing to build strong mental models so you can adapt when situations change.",
-      },
-      {
-        title: "The Risk of AI Is the Erosion of Human Thinking Skills",
-        published: "Apr 10, 2026",
-        url: "https://www.youtube.com/watch?v=QRt0myyoA6s",
-        videoId: "QRt0myyoA6s",
-        description: "AI’s biggest risk is not replacement but cognitive atrophy. As systems handle more work, people may stop practicing core skills, leaving them unprepared when errors matter. Effective design keeps humans actively thinking and engaged.",
-      },
+    videoIds: [
+      "ai-expands-exploration-humans-decide-what-matters",
+      "cognitive-offloading-and-the-risk-to-mental-models",
+      "the-risk-of-ai-is-the-erosion-of-human-thinking-skills",
     ],
     faqs: [
       {
@@ -244,28 +186,10 @@ const sections = [
       "Credibility, reputation, transparency, and evidence become stronger signals in an environment filled with convincing reports, articles, images, and videos. Trustworthy institutions and people become easier to value, not less.",
     closing:
       "When convincing information is abundant, credibility becomes a competitive advantage.",
-    videos: [
-      {
-        title: "What Breaks When Execution Becomes Cheap: Trust",
-        published: "Mar 17, 2026",
-        url: "https://www.youtube.com/watch?v=XNTUUK7DAbk",
-        videoId: "XNTUUK7DAbk",
-        description: "What Breaks When Execution Becomes Cheap: AI makes it easy to produce convincing reports, images, voices, and video at scale. As believable content becomes cheap to create and test, people rely less on the content itself and more on the credibility and reliability of the source.",
-      },
-      {
-        title: "What Breaks When Execution Becomes Cheap: Credibility",
-        published: "Mar 19, 2026",
-        url: "https://www.youtube.com/watch?v=4__M9GY09oU",
-        videoId: "4__M9GY09oU",
-        description: "What Breaks When Execution Becomes Cheap: As convincing reports, images, and voices become easy to produce, people stop judging information by how real it looks. Instead they rely on reputation, verification, and source credibility to decide what to trust.",
-      },
-      {
-        title: "What Breaks When Execution Becomes Cheap: Idea Diversity",
-        published: "Mar 18, 2026",
-        url: "https://www.youtube.com/watch?v=uYAMyUITGAM",
-        videoId: "uYAMyUITGAM",
-        description: "What Breaks When Execution Becomes Cheap: AI can improve individual output but also pull groups toward the same patterns. As many people rely on similar model-generated answers, average idea quality rises while diversity shrinks, making differentiation a competitive advantage.",
-      },
+    videoIds: [
+      "what-breaks-when-execution-becomes-cheap-trust",
+      "what-breaks-when-execution-becomes-cheap-credibility",
+      "what-breaks-when-execution-becomes-cheap-idea-diversity",
     ],
     faqs: [
       {
@@ -407,8 +331,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/ai-and-thinking`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };

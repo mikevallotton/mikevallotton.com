@@ -10,32 +10,36 @@ function toIsoDate(value) {
 export default function VideoStructuredData({ videos, pagePath }) {
   const seenVideoIds = new Set();
   const uniqueVideos = videos.filter((video) => {
-    if (!video.videoId || seenVideoIds.has(video.videoId)) return false;
-    seenVideoIds.add(video.videoId);
+    const videoId = video.videoId || video.youtubeVideoId;
+    if (!videoId || seenVideoIds.has(videoId)) return false;
+    seenVideoIds.add(videoId);
     return true;
   });
 
   const graph = uniqueVideos
-    .filter(
-      (video) =>
-        video.url &&
-        video.videoId &&
-        video.published &&
-        video.title &&
-        video.description,
-    )
-    .map((video) => ({
-      "@type": "VideoObject",
-      name: video.title,
-      description: video.description,
-      thumbnailUrl: `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`,
-      uploadDate: toIsoDate(video.published),
-      contentUrl: video.url,
-      embedUrl: `https://www.youtube.com/embed/${video.videoId}`,
-      url: video.url,
-      publisher: { "@id": `${siteConfig.siteUrl}/#person` },
-      isPartOf: { "@id": `${siteConfig.siteUrl}${pagePath}` },
-    }))
+    .filter((video) => {
+      const url = video.url || video.youtubeUrl;
+      const videoId = video.videoId || video.youtubeVideoId;
+      const description = video.description || video.summary;
+      return url && videoId && video.published && video.title && description;
+    })
+    .map((video) => {
+      const url = video.url || video.youtubeUrl;
+      const videoId = video.videoId || video.youtubeVideoId;
+      const description = video.description || video.summary;
+
+      return {
+        "@type": "VideoObject",
+        name: video.title,
+        description,
+        thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+        uploadDate: toIsoDate(video.published),
+        embedUrl: `https://www.youtube.com/embed/${videoId}`,
+        url,
+        publisher: { "@id": `${siteConfig.siteUrl}/#person` },
+        isPartOf: { "@id": `${siteConfig.siteUrl}${pagePath}` },
+      };
+    })
     .filter((video) => video.uploadDate);
 
   if (!graph.length) return null;

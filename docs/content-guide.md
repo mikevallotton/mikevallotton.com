@@ -136,6 +136,12 @@ Do not promise ranking or citation outcomes. `public/llms.txt` is a discovery ai
 
 Video titles and descriptions should tell readers what they will learn rather than merely restating a topic label. Video metadata must match the embedded or linked video.
 
+Published transcripts may be lightly edited for punctuation, paragraphing,
+capitalization, and unmistakable transcription errors without changing the
+speaker's meaning. Label that treatment for readers. Add evidence next to
+consequential claims when support exists; otherwise identify quantitative
+figures as the speaker's estimate rather than presenting them as benchmarks.
+
 FAQs should:
 
 - answer a specific reader question immediately;

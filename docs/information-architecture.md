@@ -48,8 +48,12 @@ type, page structure, and navigation label remain Operating Principles.
 
 ### Utility pages
 
-About, Links, and Privacy support identity, navigation, and site operation.
-They are neither topics nor articles.
+About, Links, Privacy, and Videos support identity, navigation, discovery, and
+site operation. They are neither topics nor articles.
+
+Video collection pagination uses static child routes: `/videos/page/<n>` for
+the complete archive and `/videos/<topic>/page/<n>` for topic collections.
+Page one always uses the collection's base route.
 
 ### Downloads
 

@@ -1,3 +1,18 @@
+import {
+  getAllTopicVideos,
+  getVideoArchivePath,
+  getVideosForTopic,
+  pageCountForVideos,
+  videoTopics,
+} from "../content/videos/index.js";
+
+function paginationPaths(basePath, pageCount) {
+  return Array.from(
+    { length: Math.max(0, pageCount - 1) },
+    (_, index) => `${basePath}/page/${index + 2}`,
+  );
+}
+
 const baseUrl = process.argv[2] || process.env.SMOKE_BASE_URL;
 
 if (!baseUrl) {
@@ -24,6 +39,16 @@ const routes = [
   "/articles/ai-job-search/examples/local-small-employer",
   "/articles/news-investigator",
   "/articles/agentic-soc-enterprise-ai",
+  "/videos",
+  ...paginationPaths("/videos", pageCountForVideos(getAllTopicVideos())),
+  ...videoTopics.flatMap((topic) => [
+    getVideoArchivePath(topic),
+    ...paginationPaths(
+      getVideoArchivePath(topic),
+      pageCountForVideos(getVideosForTopic(topic)),
+    ),
+    ...topic.sections.map((section) => getVideoArchivePath(topic, section)),
+  ]),
   "/clarity-before-tools",
   "/judgment-over-generation",
   "/bottlenecks-over-use-cases",
@@ -39,10 +64,85 @@ async function assertStatus(path, expectedStatus) {
   return response;
 }
 
+function decodeHtml(value) {
+  return value
+    .replaceAll("&amp;", "&")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#x27;", "'")
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">");
+}
+
+function metaContent(html, attribute, value) {
+  const pattern = new RegExp(
+    `<meta[^>]*${attribute}="${value}"[^>]*content="([^"]*)"[^>]*>`,
+    "i",
+  );
+  return decodeHtml(html.match(pattern)?.[1] || "");
+}
+
+function assertPageMetadata(path, html) {
+  const title = decodeHtml(html.match(/<title>([^<]+)<\/title>/i)?.[1] || "");
+  const description = metaContent(html, "name", "description");
+  const twitterTitle = metaContent(html, "name", "twitter:title");
+  const twitterDescription = metaContent(html, "name", "twitter:description");
+  const ogImage = metaContent(html, "property", "og:image");
+  const canonical = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/i)?.[1];
+  const h1Count = (html.match(/<h1\b/gi) || []).length;
+
+  if (!title || !description || !twitterTitle || !twitterDescription || !ogImage || !canonical) {
+    throw new Error(`${path} is missing required page or social metadata`);
+  }
+  if (/\b(?:ai|Ai)\b/.test(`${title} ${description} ${twitterTitle} ${twitterDescription}`)) {
+    throw new Error(`${path} contains incorrectly capitalized AI in page metadata`);
+  }
+  if (path !== "/" && twitterTitle === "Mike Vallotton | Practical AI Guidance") {
+    throw new Error(`${path} still inherits the global Twitter title`);
+  }
+  if (new URL(canonical, baseUrl).pathname !== path) {
+    throw new Error(`${path} canonical points to ${canonical}`);
+  }
+  if (h1Count !== 1) {
+    throw new Error(`${path} rendered ${h1Count} h1 elements, expected 1`);
+  }
+
+  for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      JSON.parse(match[1]);
+    } catch {
+      throw new Error(`${path} contains invalid JSON-LD`);
+    }
+  }
+}
+
+function assertLatestContent(path, html) {
+  const requiredSnippets = [
+    "Latest article",
+    "Latest video",
+    "latest-content-card--article",
+    "latest-content-card--video",
+  ];
+
+  for (const snippet of requiredSnippets) {
+    if (!html.includes(snippet)) {
+      throw new Error(`${path} did not include latest content snippet: ${snippet}`);
+    }
+  }
+}
+
 try {
   for (const path of routes) {
-    await assertStatus(path, 200);
+    const response = await assertStatus(path, 200);
+    assertPageMetadata(path, await response.text());
   }
+
+  await assertStatus("/videos/not-a-topic", 404);
+  await assertStatus("/videos/ai-and-thinking/not-a-section", 404);
+  await assertStatus("/videos/ai-and-thinking/agents-at-work", 404);
+  await assertStatus("/videos/page/1", 404);
+  await assertStatus("/videos/page/999", 404);
+  await assertStatus("/videos/ai-and-work/page/1", 404);
+  await assertStatus("/videos/ai-and-work/page/999", 404);
 
   const card = await assertStatus("/card", 302);
   const cardLocation = card.headers.get("location") || "";
@@ -78,6 +178,34 @@ try {
     if (!home.headers.get(header)) {
       throw new Error(`/ did not include the ${header} header`);
     }
+  }
+  if (!/includeSubDomains/i.test(home.headers.get("strict-transport-security") || "")) {
+    throw new Error("/ did not include includeSubDomains in HSTS");
+  }
+  assertLatestContent("/", await home.text());
+
+  const links = await assertStatus("/links", 200);
+  assertLatestContent("/links", await links.text());
+
+  const videoArchive = await assertStatus("/videos", 200);
+  const videoArchiveHtml = await videoArchive.text();
+  if (/background-image:[^;]*i\.ytimg\.com/i.test(videoArchiveHtml)) {
+    throw new Error("/videos still renders YouTube thumbnails as CSS background images");
+  }
+  if (!/aria-label="Watch [^<]* on YouTube"/i.test(videoArchiveHtml)) {
+    throw new Error("/videos did not include descriptive video-link names");
+  }
+  if (!videoArchiveHtml.includes('<span class="sr-only"> for')) {
+    throw new Error("/videos did not include descriptive transcript-control names");
+  }
+
+  const videoArchivePageTwo = await assertStatus("/videos/page/2", 200);
+  const videoArchivePageTwoHtml = await videoArchivePageTwo.text();
+  if (!videoArchivePageTwoHtml.includes("Showing 19–36 of 78 videos")) {
+    throw new Error("/videos/page/2 did not describe its visible result range");
+  }
+  if (/href="\/videos"[^>]*aria-current="page"/i.test(videoArchivePageTwoHtml)) {
+    throw new Error("/videos/page/2 incorrectly marks /videos as the current page");
   }
 
   const prompt = await assertStatus("/downloads/news-investigator-prompt.txt", 200);

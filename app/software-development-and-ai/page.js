@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "How AI Is Changing Software Development",
   description:
     "A practical guide to how AI is changing software development workflows, developer careers, engineering leadership, and technical judgment.",
@@ -16,7 +18,7 @@ export const metadata = {
     url: "/software-development-and-ai",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -33,29 +35,10 @@ const sections = [
     ],
     closing:
       "AI reduces implementation effort while increasing the importance of good engineering decisions.",
-    videos: [
-      {
-        title: "Why AI Changes the Software Development Workflow",
-        published: "Jan 21, 2026",
-        url: "https://www.youtube.com/watch?v=6F_pXa8VpZ0",
-        videoId: "6F_pXa8VpZ0",
-        description: "AI is not just code autocomplete. It compresses the software development loop by accelerating lookup, planning, debugging, testing, and cleanup, while developers retain judgment, architecture, and quality control. Used well, AI removes friction, not responsibility.",
-      },
-      {
-        title: "AI Shifts Software Development Toward Better Decisions",
-        published: "Jul 21, 2026",
-        url: "https://www.youtube.com/watch?v=HFgeel0_hlw",
-        videoId: "HFgeel0_hlw",
-        description:
-          "Organizational Knowledge May Matter More Than Smarter AI. Writing code is not really the most difficult part of software development, but it traditionally has been the most time-consuming. The hard part's always been figuring out what to build and exactly how to build it. Understanding the requirements, finding the edge cases, realizing business rules contradict each other, or figuring out that one small change here breaks things elsewhere. And that's where experienced engineers spend most of their time. AI has fundamentally changed the economics of software development. Writing code is dramatically faster than it used to be, but it doesn't eliminate the need for good decisions. And in fact, it does the opposite. The easier it becomes to build something, the more important it becomes to know exactly what should be built. You can't hand AI a prompt that says, \"Build me a website. It should be cool.\" You have to tell it exactly what success looks like.",
-      },
-      {
-        title: "Why Faster Code Does Not Mean Safer Software",
-        published: "Jan 23, 2026",
-        url: "https://www.youtube.com/watch?v=zgCVNJJ89iY",
-        videoId: "zgCVNJJ89iY",
-        description: "AI accelerates software creation but does not improve safety by itself. Without tests and documentation, speed multiplies entropy. Teams that treat structure as leverage can stabilize acceleration and improve quality as both people and models evolve.",
-      },
+    videoIds: [
+      "why-ai-changes-the-software-development-workflow",
+      "ai-shifts-software-development-toward-better-decisions",
+      "why-faster-code-does-not-mean-safer-software",
     ],
   },
   {
@@ -67,35 +50,11 @@ const sections = [
       "New developers gain immediate access to explanations, examples, debugging assistance, and personalized tutoring. Experienced engineers are adapting to workflows that emphasize collaboration with AI. Developers still need to understand systems, architecture, debugging, and tradeoffs, but they can acquire and apply those skills differently.",
     closing:
       "AI accelerates the path to capability without eliminating the need for strong engineering fundamentals.",
-    videos: [
-      {
-        title: "Computer Science in Three Years",
-        published: "Dec 30, 2025",
-        url: "https://www.youtube.com/watch?v=tyWhoCiN1d0",
-        videoId: "tyWhoCiN1d0",
-        description: "AI changes how programming is done, not why it exists. This video explains which skills will evolve and which remain essential for developers.",
-      },
-      {
-        title: "The Real Value of Junior Developers",
-        published: "Jan 7, 2026",
-        url: "https://www.youtube.com/watch?v=JKlvhhm5o6M",
-        videoId: "JKlvhhm5o6M",
-        description: "Reducing junior hiring may seem efficient but risks long-term stagnation. This video explains why curiosity and fresh perspective matter more than ever in an AI-augmented workforce.",
-      },
-      {
-        title: "How AI Is Reshaping How Developers Learn",
-        published: "Jan 14, 2026",
-        url: "https://www.youtube.com/watch?v=AZbBsJWifVg",
-        videoId: "AZbBsJWifVg",
-        description: "AI is changing how developers learn faster than how teams mentor. Instant answers collapse traditional learning loops, forcing managers to focus mentorship on context, constraints, and reasoning instead of syntax alone.",
-      },
-      {
-        title: "Building Early Career Advantage in an AI-Tight Job Market",
-        published: "Jan 20, 2026",
-        url: "https://www.youtube.com/watch?v=bdx4EQ43MHk",
-        videoId: "bdx4EQ43MHk",
-        description: "Entry level hiring is tighter due to economic caution and AI absorbing routine work. Early career advantage now comes from learning to use AI as an execution partner while developing clear problem definition, structured thinking, and faster learning loops.",
-      },
+    videoIds: [
+      "computer-science-in-three-years",
+      "the-real-value-of-junior-developers",
+      "how-ai-is-reshaping-how-developers-learn",
+      "building-early-career-advantage-in-an-ai-tight-job-market",
     ],
   },
   {
@@ -116,35 +75,11 @@ const sections = [
     ],
     closing:
       "Strong engineering leadership determines whether AI compounds quality or compounds risk.",
-    videos: [
-      {
-        title: "Accountability and Judgment in AI-Assisted Software Development",
-        published: "Jan 22, 2026",
-        url: "https://www.youtube.com/watch?v=z2kWFOQuzMo",
-        videoId: "z2kWFOQuzMo",
-        description: "AI can generate code and accelerate execution, but accountability remains with the developer. The role is shifting toward orchestration and judgment, where clarity, discipline, and process determine quality more than speed.",
-      },
-      {
-        title: "AI Can Create Work Faster Than It Automates It",
-        published: "Jul 22, 2026",
-        url: "https://www.youtube.com/watch?v=E23LnN7khtI",
-        videoId: "E23LnN7khtI",
-        description: "AI makes generating code, content, and campaigns dramatically cheaper, but that efficiency often creates more testing, validation, review, and measurement work, shifting rather than simply reducing the overall workload.",
-      },
-      {
-        title: "Automation Erodes Practice and Weakens Judgment",
-        published: "Apr 2, 2026",
-        url: "https://www.youtube.com/watch?v=5QY7ev3KjUo",
-        videoId: "5QY7ev3KjUo",
-        description: "Automation removes practice and shifts workers into oversight roles, leaving teams unprepared for failure. The real advantage is not generation but maintaining judgment, verification habits, and processes that catch rare but critical errors.",
-      },
-      {
-        title: "AI Speed Needs Judgment, Structure, and Audit",
-        published: "Apr 9, 2026",
-        url: "https://www.youtube.com/watch?v=d_x67R7ZC1I",
-        videoId: "d_x67R7ZC1I",
-        description: "AI can accelerate almost any task, but speed only helps when direction is right. Before optimizing for efficiency, slow down to understand the problem, build judgment, and create feedback loops that catch mistakes early.",
-      },
+    videoIds: [
+      "accountability-and-judgment-in-ai-assisted-software-development",
+      "ai-can-create-work-faster-than-it-automates-it",
+      "automation-erodes-practice-and-weakens-judgment",
+      "ai-speed-needs-judgment-structure-and-audit",
     ],
   },
 ];
@@ -377,8 +312,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/software-development-and-ai`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };

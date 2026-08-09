@@ -4,7 +4,7 @@ import EvidenceNote from "../../../components/EvidenceNote";
 import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
 import JsonLd from "../../../components/JsonLd";
-import VideoGrid from "../../../components/VideoGrid";
+import VideoShelf from "../../../components/VideoShelf";
 import VideoStructuredData from "../../../components/VideoStructuredData";
 import ContentContinuation from "../../../components/ContentContinuation";
 import ContentMeta from "../../../components/ContentMeta";
@@ -16,17 +16,20 @@ import {
   newsInvestigatorPromptSections,
 } from "../../../content/newsInvestigatorPrompt";
 import { siteConfig } from "../../../content/siteConfig";
+import { getVideosByIds } from "../../../content/videos";
+import { withPageSocial } from "../../../content/metadata";
+import { contentDates } from "../../../content/dates";
 
 const path = "/articles/news-investigator";
 const newsInvestigatorAgentUrl =
   "https://chatgpt.com/g/g-6a6587b9aad88191a8a77b26f41b1c77-news-investigator";
 const promptDownloadUrl = "/downloads/news-investigator-prompt.txt";
-const published = "2026-07-26";
-const modified = "2026-08-08";
+const published = contentDates.newsInvestigator.published;
+const modified = contentDates.newsInvestigator.modified;
 const description =
   "Use the News Investigator Agent to compare reporting, evaluate evidence, identify uncertainty, and strengthen your judgment without outsourcing it.";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: {
     absolute: "News Investigator Agent | Strengthen Your Judgment",
   },
@@ -40,7 +43,7 @@ export const metadata = {
     publishedTime: published,
     authors: [`${siteConfig.siteUrl}/about`],
   },
-};
+});
 
 const sectionById = Object.fromEntries(
   newsInvestigatorPromptSections.map((section) => [section.id, section]),
@@ -98,48 +101,14 @@ const reportSections = [
   },
 ];
 
-const videos = [
-  {
-    title: "Building Better Judgment With AI and Evidence",
-    published: "2026-07-27",
-    url: "https://www.youtube.com/shorts/dxjWhcsJW9U",
-    videoId: "dxjWhcsJW9U",
-    description:
-      "Better judgment comes from stronger mental models built on reliable information. This introduction explains how an AI agent compares evidence across sources to improve decision-making and previews the principles behind the approach.",
-  },
-  {
-    title: "How a News Investigator Agent Evaluates Evidence",
-    published: "2026-07-28",
-    url: "https://www.youtube.com/shorts/BjgF8-2Bkro",
-    videoId: "BjgF8-2Bkro",
-    description:
-      "A news investigator agent separates facts from claims, evaluates evidence and source repetition, compares competing frames, and identifies uncertainty to support clearer thinking and better decisions.",
-  },
-  {
-    title: "Better Context Leads to Better AI Responses",
-    published: "2026-07-29",
-    url: "https://www.youtube.com/shorts/UDfQolcCQlQ",
-    videoId: "UDfQolcCQlQ",
-    description:
-      "Strong AI results come from providing rich, organized context rather than clever prompts. Supplying verified information, separating facts from opinions, and identifying uncertainty helps models produce more reliable outputs.",
-  },
-  {
-    title: "What Large Language Models Do Best With Context",
-    published: "2026-07-30",
-    url: "https://www.youtube.com/shorts/aeB1a2Y2d5g",
-    videoId: "aeB1a2Y2d5g",
-    description:
-      "Large language models excel at organizing and comparing well-supported information. With sufficient context, they can identify claims, evidence, uncertainty, and differing interpretations, helping people analyze complex topics more efficiently.",
-  },
-  {
-    title: "AI Augments Judgment Through Better Information",
-    published: "2026-07-31",
-    url: "https://www.youtube.com/shorts/t1PpdjdM7pE",
-    videoId: "t1PpdjdM7pE",
-    description:
-      "AI is most valuable when it strengthens human judgment rather than replacing it. Using AI to challenge assumptions, compare perspectives, and organize information helps people make better decisions across news, business, finance, and everyday life.",
-  },
+const videoIds = [
+  "building-better-judgment-with-ai-and-evidence",
+  "how-a-news-investigator-agent-evaluates-evidence",
+  "better-context-leads-to-better-ai-responses",
+  "what-large-language-models-do-best-with-context",
+  "ai-augments-judgment-through-better-information",
 ];
+const videos = getVideosByIds(videoIds);
 
 const sourceFaqs = [
   {
@@ -275,6 +244,7 @@ export default function NewsInvestigatorPage() {
               href={newsInvestigatorAgentUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Try the News Investigator Agent (opens in a new tab)"
               className="btn btn-primary no-underline"
             >
               Try the News Investigator Agent <span aria-hidden="true">↗</span>
@@ -521,7 +491,10 @@ export default function NewsInvestigatorPage() {
             source-evaluation ideas behind the News Investigator Agent.
           </p>
         </div>
-        <VideoGrid videos={videos} />
+        <VideoShelf
+          videos={videos}
+          limit={null}
+        />
       </section>
 
       <section className="py-14 md:py-20">
@@ -543,6 +516,7 @@ export default function NewsInvestigatorPage() {
               href={newsInvestigatorAgentUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Open the News Investigator Agent (opens in a new tab)"
               className="btn btn-primary no-underline"
             >
               Open the News Investigator Agent <span aria-hidden="true">↗</span>

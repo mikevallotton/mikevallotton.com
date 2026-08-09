@@ -76,15 +76,8 @@ export const operatingPrinciples = {
         ],
       },
     ],
-    videos: [
-      {
-        title: "The Simplest AI Habit That Changes Everything",
-        published: "2025-12-12",
-        url: "https://youtube.com/shorts/0o28SCCbRx8?feature=share",
-        videoId: "0o28SCCbRx8",
-        description:
-          "Clarifying intent before prompting improves the frame for every AI interaction. Name what you are trying to accomplish before asking the model to produce anything.",
-      },
+    videoIds: [
+      "the-simplest-ai-habit-that-changes-everything",
     ],
     faqs: [
       {
@@ -182,15 +175,8 @@ export const operatingPrinciples = {
         ],
       },
     ],
-    videos: [
-      {
-        title: "The One Skill AI Cannot Replace: Good Judgment",
-        published: "2025-12-10",
-        url: "https://youtube.com/shorts/t8Et8YnHiGY?feature=share",
-        videoId: "t8Et8YnHiGY",
-        description:
-          "As AI accelerates execution, judgment becomes more valuable. People still have to choose what matters for a particular situation, team, and moment.",
-      },
+    videoIds: [
+      "the-one-skill-ai-cannot-replace-good-judgment",
     ],
     faqs: [
       {
@@ -292,15 +278,8 @@ export const operatingPrinciples = {
         ],
       },
     ],
-    videos: [
-      {
-        title: "Stop Looking for Use Cases. Start Looking for Bottlenecks",
-        published: "2025-12-19",
-        url: "https://youtube.com/shorts/NX6e532FUmI?feature=share",
-        videoId: "NX6e532FUmI",
-        description:
-          "AI creates leverage when it removes friction from work that already matters. Find where work waits, gets lost, or requires repeated correction.",
-      },
+    videoIds: [
+      "stop-looking-for-use-cases-start-looking-for-bottlenecks",
     ],
     faqs: [
       {

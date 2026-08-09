@@ -19,6 +19,38 @@ Language: English
 
 - [About Mike Vallotton](https://mikevallotton.com/about): Mike's progression since 1996 through software engineering, architecture, enterprise digital experience, technology leadership, and applied AI.
 
+## Videos
+
+- [Videos](https://mikevallotton.com/videos): A topic and section-filtered library of short videos about AI fluency, work, agents, search, software development, and human judgment.
+- [AI and Work Videos](https://mikevallotton.com/videos/ai-and-work): How AI is changing jobs, organizations, productivity, coordination, and the skills people need as execution becomes faster.
+  - [AI Is Already Changing Work](https://mikevallotton.com/videos/ai-and-work/already-changing)
+  - [How Organizations Are Responding](https://mikevallotton.com/videos/ai-and-work/organizations)
+  - [What Becomes More Valuable](https://mikevallotton.com/videos/ai-and-work/more-valuable)
+  - [The Hidden Effects of AI](https://mikevallotton.com/videos/ai-and-work/hidden-effects)
+  - [Where This Is Heading](https://mikevallotton.com/videos/ai-and-work/where-heading)
+- [AI Fundamentals Videos](https://mikevallotton.com/videos/ai-fundamentals): Clear explanations of language models, context, iteration, hallucinations, privacy, and responsible everyday use.
+  - [How Large Language Models Work](https://mikevallotton.com/videos/ai-fundamentals/how-language-models-work)
+  - [Context Is Everything](https://mikevallotton.com/videos/ai-fundamentals/context-is-everything)
+  - [Learning to Work with AI](https://mikevallotton.com/videos/ai-fundamentals/learning-to-work-with-ai)
+  - [Using AI Responsibly](https://mikevallotton.com/videos/ai-fundamentals/using-ai-responsibly)
+- [AI and Thinking Videos](https://mikevallotton.com/videos/ai-and-thinking): How AI affects reasoning, cognitive offloading, judgment, creativity, trust, and independent thought.
+  - [AI Doesn't Think](https://mikevallotton.com/videos/ai-and-thinking/ai-doesnt-think)
+  - [Judgment](https://mikevallotton.com/videos/ai-and-thinking/judgment)
+  - [Human Cognition](https://mikevallotton.com/videos/ai-and-thinking/human-cognition)
+  - [Trust, Credibility & Truth](https://mikevallotton.com/videos/ai-and-thinking/trust-credibility-truth)
+- [AI Search and GEO Videos](https://mikevallotton.com/videos/ai-search-and-geo): How AI-mediated discovery changes retrieval, website structure, credibility, measurement, SEO, and GEO.
+  - [Search Is Changing](https://mikevallotton.com/videos/ai-search-and-geo/search-is-changing)
+  - [Websites Become Knowledge Bases](https://mikevallotton.com/videos/ai-search-and-geo/knowledge-bases)
+  - [SEO + GEO](https://mikevallotton.com/videos/ai-search-and-geo/seo-and-geo)
+  - [Analytics & Influence](https://mikevallotton.com/videos/ai-search-and-geo/analytics-and-influence)
+- [Software Development and AI Videos](https://mikevallotton.com/videos/software-development-and-ai): How AI changes development workflows, developer learning, engineering leadership, security, quality, and accountability.
+  - [The Development Workflow](https://mikevallotton.com/videos/software-development-and-ai/development-workflow)
+  - [Developers](https://mikevallotton.com/videos/software-development-and-ai/developers)
+  - [Engineering Leadership](https://mikevallotton.com/videos/software-development-and-ai/engineering-leadership)
+- [AI Agents Videos](https://mikevallotton.com/videos/ai-agents): How agents use tools and workflows, where they help, why they fail, and how to constrain authority while preserving accountability.
+  - [Agents at Work](https://mikevallotton.com/videos/ai-agents/agents-at-work)
+  - [Building Reliable Agents](https://mikevallotton.com/videos/ai-agents/reliable-agents)
+
 ## Operating Principles
 
 - [Clarity Before Tools](https://mikevallotton.com/clarity-before-tools): Define the goal, audience, constraints, context, and standard of success before deciding how AI should help.
@@ -29,7 +61,7 @@ Language: English
 
 ## Articles
 
-- [AI Job Search Workflow](https://mikevallotton.com/articles/ai-job-search): A five-prompt workflow for understanding what you can offer, finding sourced employers, researching fit, identifying real overlap, and planning legitimate outreach.
+- [How I Would Use AI If I Was Looking for a Job](https://mikevallotton.com/articles/ai-job-search): The five prompts I would use to understand what you can offer, find sourced employers, research fit, identify real overlap, and decide what to do next.
   - [Experienced Professional Example](https://mikevallotton.com/articles/ai-job-search/examples/experienced-professional): Synthetic input and output for a senior B2B SaaS operations leader researching ServiceNow.
   - [Early-Career Candidate Example](https://mikevallotton.com/articles/ai-job-search/examples/early-career): Synthetic input and output for an IT support specialist exploring security compliance and customer trust paths.
   - [Career Changer Example](https://mikevallotton.com/articles/ai-job-search/examples/career-changer-weak-match): Synthetic input and output for a Spanish teacher evaluating a narrow, weak immediate fit with Duolingo.

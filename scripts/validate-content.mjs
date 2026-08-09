@@ -1,7 +1,9 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+import { videoTopics } from "../content/videos/associations.js";
 
 const appDirectory = path.resolve("app");
+const videoItemsDirectory = path.resolve("content", "videos", "items");
 const errors = [];
 let videoCount = 0;
 
@@ -20,6 +22,25 @@ function lineNumber(source, index) {
   return source.slice(0, index).split("\n").length;
 }
 
+function extractYoutubeId(value) {
+  if (!value) return "";
+
+  try {
+    const url = new URL(value);
+    const shortsMatch = url.pathname.match(/\/shorts\/([A-Za-z0-9_-]{11})/);
+    if (shortsMatch) return shortsMatch[1];
+    const embedMatch = url.pathname.match(/\/embed\/([A-Za-z0-9_-]{11})/);
+    if (embedMatch) return embedMatch[1];
+    if (url.hostname === "youtu.be") {
+      const shortMatch = url.pathname.match(/^\/([A-Za-z0-9_-]{11})/);
+      if (shortMatch) return shortMatch[1];
+    }
+    return url.searchParams.get("v") || "";
+  } catch {
+    return "";
+  }
+}
+
 for (const file of (await filesUnder(appDirectory)).filter((name) => name.endsWith(".js"))) {
   const source = await readFile(file, "utf8");
   const videoIds = new Map();
@@ -35,7 +56,7 @@ for (const file of (await filesUnder(appDirectory)).filter((name) => name.endsWi
 
     let urlVideoId;
     try {
-      urlVideoId = new URL(url).searchParams.get("v");
+      urlVideoId = extractYoutubeId(url);
     } catch {
       errors.push(`${location}: "${title}" has invalid URL "${url}"`);
     }
@@ -50,6 +71,110 @@ for (const file of (await filesUnder(appDirectory)).filter((name) => name.endsWi
       );
     } else {
       videoIds.set(videoId, { title, location });
+    }
+  }
+}
+
+const videoRecords = new Map();
+const youtubeIds = new Map();
+for (const file of (await readdir(videoItemsDirectory)).filter((name) => name.endsWith(".json"))) {
+  const location = path.join("content", "videos", "items", file);
+  let record;
+  try {
+    record = JSON.parse(await readFile(path.join(videoItemsDirectory, file), "utf8"));
+  } catch (error) {
+    errors.push(`${location}: invalid JSON (${error.message})`);
+    continue;
+  }
+
+  videoCount += 1;
+
+  if (!record.slug) errors.push(`${location}: missing slug`);
+  if (!record.title) errors.push(`${location}: missing title`);
+  if (!record.description) errors.push(`${location}: missing description`);
+  if (/\b(?:ai|Ai)\b/.test(`${record.title || ""} ${record.description || ""}`)) {
+    errors.push(`${location}: title or description must capitalize AI`);
+  }
+  if (/\bThis video explains\b/i.test(record.description || "")) {
+    errors.push(`${location}: description uses the repetitive "This video explains" construction`);
+  }
+  if (!record.published || Number.isNaN(new Date(record.published).getTime())) {
+    errors.push(`${location}: invalid published date "${record.published || ""}"`);
+  }
+  if (record.slug && file !== `${record.slug}.json`) {
+    errors.push(`${location}: filename does not match slug "${record.slug}"`);
+  }
+  if (record.slug && videoRecords.has(record.slug)) {
+    errors.push(`${location}: duplicate video slug "${record.slug}"`);
+  }
+  if (record.slug) videoRecords.set(record.slug, record);
+
+  if (record.youtubeUrl) {
+    const urlVideoId = extractYoutubeId(record.youtubeUrl);
+    if (!urlVideoId) {
+      errors.push(`${location}: could not extract YouTube ID from "${record.youtubeUrl}"`);
+    }
+    if (record.youtubeVideoId && urlVideoId && urlVideoId !== record.youtubeVideoId) {
+      errors.push(
+        `${location}: YouTube URL ID ${urlVideoId} does not match ${record.youtubeVideoId}`,
+      );
+    }
+  }
+
+  if (record.youtubeVideoId) {
+    const previous = youtubeIds.get(record.youtubeVideoId);
+    if (previous && previous !== record.slug) {
+      errors.push(
+        `${location}: YouTube ID ${record.youtubeVideoId} is also used by "${previous}"`,
+      );
+    }
+    youtubeIds.set(record.youtubeVideoId, record.slug);
+  }
+
+  if (record.transcriptPath) {
+    try {
+      const transcript = await readFile(path.resolve(record.transcriptPath), "utf8");
+      if (/[a-z][.!?][A-Z]/.test(transcript)) {
+        errors.push(`${location}: transcript contains joined sentences without spacing`);
+      }
+      if (/\b(?:ai|Ai)\b/.test(transcript)) {
+        errors.push(`${location}: transcript must capitalize AI`);
+      }
+      if (/\b(?:15 to 20%|18 to 36 month|five plus years)\b/i.test(transcript) && !record.transcriptNote) {
+        errors.push(`${location}: quantitative transcript claim needs an evidence or estimate note`);
+      }
+    } catch {
+      errors.push(`${location}: missing transcript "${record.transcriptPath}"`);
+    }
+  }
+}
+
+for (const topic of videoTopics) {
+  if (!topic.slug || !topic.sourcePath) {
+    errors.push(`content/videos/associations.js: topic is missing slug or sourcePath`);
+  }
+  if (!topic.description) {
+    errors.push(`content/videos/associations.js: ${topic.slug} is missing a description`);
+  }
+
+  for (const section of topic.sections || []) {
+    if (!section.id || !section.title || !section.description) {
+      errors.push(
+        `content/videos/associations.js: ${topic.slug} has a section missing an id, title, or description`,
+      );
+    }
+    if (/\b(?:ai|Ai)\b/.test(`${section.title || ""} ${section.description || ""}`)) {
+      errors.push(`content/videos/associations.js: ${topic.slug}/${section.id} must capitalize AI`);
+    }
+    if (/preserving .*relationships|connected to the .* guide|^Videos about\b/i.test(section.description || "")) {
+      errors.push(`content/videos/associations.js: ${topic.slug}/${section.id} uses a generic description`);
+    }
+    for (const videoId of section.videoIds || []) {
+      if (!videoRecords.has(videoId)) {
+        errors.push(
+          `content/videos/associations.js: ${topic.slug}/${section.id} references missing video "${videoId}"`,
+        );
+      }
     }
   }
 }

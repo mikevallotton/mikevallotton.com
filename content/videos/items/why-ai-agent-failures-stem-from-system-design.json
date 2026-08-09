@@ -1,0 +1,15 @@
+{
+  "slug": "why-ai-agent-failures-stem-from-system-design",
+  "title": "Why AI Agent Failures Stem From System Design",
+  "published": "2026-04-17",
+  "description": "Most AI agent failures arise from poor system design, not model limitations. Inconsistent data, unclear mappings, and improper permissions can produce misleading outputs or risky actions, highlighting the need for well-structured systems and controlled access.",
+  "youtubeUrl": "https://www.youtube.com/watch?v=1mt3EM5MOhE",
+  "youtubeVideoId": "1mt3EM5MOhE",
+  "tiktokUrl": "",
+  "linkedinUrl": "",
+  "xUrl": "",
+  "transcriptPath": "content/videos/transcripts/why-ai-agent-failures-stem-from-system-design.md",
+  "aliasTitles": [
+    "Why AI Agent Failures Stem From System Design"
+  ]
+}

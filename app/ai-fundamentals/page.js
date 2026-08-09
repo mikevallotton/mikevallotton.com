@@ -1,8 +1,10 @@
 import { siteConfig } from "../../content/siteConfig";
 import TopicPage from "../../components/topic/TopicPage";
 import { evidenceNotes, mergeSources, sourcesFor } from "../../content/evidence";
+import { withPageSocial } from "../../content/metadata";
+import { contentDates } from "../../content/dates";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "Understanding How AI Actually Works",
   description:
     "A practical guide to large language models, context windows, prediction, iteration, and getting more reliable results from modern AI.",
@@ -16,7 +18,7 @@ export const metadata = {
     url: "/ai-fundamentals",
     type: "article",
   },
-};
+});
 
 const sections = [
   {
@@ -33,36 +35,11 @@ const sections = [
     ],
     closing:
       "Replacing the idea of AI as magic with a practical mental model makes its strengths and limitations much easier to understand.",
-    videos: [
-      {
-        title: "LLM Basics",
-        published: "Feb 4, 2026",
-        url: "https://www.youtube.com/watch?v=VM1YOO4aQKY&t=1s",
-        videoId: "VM1YOO4aQKY",
-        description:
-          "Introduces the core concepts behind large language models and establishes a practical foundation for understanding how they work.",
-      },
-      {
-        title: "AI Makes You Smarter",
-        published: "Dec 2, 2025",
-        url: "https://www.youtube.com/watch?v=EiZSfNpnzp0",
-        videoId: "EiZSfNpnzp0",
-        description: "AI doesn’t replace thinking; it expands it. This video shows how AI improves decision quality, planning, and awareness by helping you consider options and pitfalls you might otherwise miss.",
-      },
-      {
-        title: "How AI Actually Works",
-        published: "Dec 15, 2025",
-        url: "https://www.youtube.com/watch?v=dUQNOhzxoss",
-        videoId: "dUQNOhzxoss",
-        description: "AI doesn’t think; it predicts. This video breaks down how large language models generate responses and why understanding this helps explain both their power and their failures.",
-      },
-      {
-        title: "Why AI Sounds Smart Without Actually Thinking",
-        published: "Jan 27, 2026",
-        url: "https://www.youtube.com/watch?v=aQKw3M_Doog",
-        videoId: "aQKw3M_Doog",
-        description: "AI does not think or understand. It predicts tokens based on patterns and context. Confusing fluency with understanding leads to misplaced trust. Effective use comes from supplying the right context, not expecting knowledge.",
-      },
+    videoIds: [
+      "llm-basics",
+      "ai-makes-you-smarter",
+      "how-ai-actually-works",
+      "why-ai-sounds-smart-without-actually-thinking",
     ],
   },
   {
@@ -92,28 +69,10 @@ const sections = [
     ],
     closing:
       "Successful AI users spend less time searching for the perfect prompt and more time building better context.",
-    videos: [
-      {
-        title: "You Are Building a Context Window When You Talk to AI",
-        published: "Jan 28, 2026",
-        url: "https://www.youtube.com/watch?v=frElPE_r-kQ",
-        videoId: "frElPE_r-kQ",
-        description: "Talking to AI is about managing a context window, not conversing with a mind. What the model sees defines what it can produce. Deliberate iteration and supplying real information improve accuracy and reliability.",
-      },
-      {
-        title: "Iteration Builds Reliable Results by Expanding Context",
-        published: "Jan 29, 2026",
-        url: "https://www.youtube.com/watch?v=CGHU_rv4hsk",
-        videoId: "CGHU_rv4hsk",
-        description: "Professionals iterate with AI to expand and sharpen the context window. Each round adds corrections, examples, and missing data, improving signal and accuracy. Structured iteration treats the context like an evolving brief for reliable outcomes.",
-      },
-      {
-        title: "Why Bigger Context Windows Eventually Break Down",
-        published: "Jan 30, 2026",
-        url: "https://www.youtube.com/watch?v=efzhrgYyp1o",
-        videoId: "efzhrgYyp1o",
-        description: "Larger context windows help but introduce noise. As more text competes for attention, relevance blurs and outputs degrade. Effective use depends on selectivity, ranking, and compression, not dumping everything into the model.",
-      },
+    videoIds: [
+      "you-are-building-a-context-window-when-you-talk-to-ai",
+      "iteration-builds-reliable-results-by-expanding-context",
+      "why-bigger-context-windows-eventually-break-down",
     ],
   },
   {
@@ -125,35 +84,11 @@ const sections = [
       "AI is not a search engine that gives one final answer. It becomes more useful when you use conversation to explore ideas, challenge assumptions, add missing context, and gradually improve a solution. Curiosity and consistent practice matter more than technical credentials.",
     closing:
       "Becoming effective with AI is less about memorizing techniques and more about developing better working habits.",
-    videos: [
-      {
-        title: "The Simplest AI Habit That Changes Everything",
-        published: "Dec 12, 2025",
-        url: "https://www.youtube.com/watch?v=0o28SCCbRx8",
-        videoId: "0o28SCCbRx8",
-        description: "Clarifying intent before prompting dramatically improves results. This video explains why naming your goal upfront makes every AI interaction more effective.",
-      },
-      {
-        title: "The AI Mistake That Makes People Feel Dumb",
-        published: "Dec 23, 2025",
-        url: "https://www.youtube.com/watch?v=aFQ-C1u_vNU",
-        videoId: "aFQ-C1u_vNU",
-        description: "Treating AI like a search engine limits its usefulness. This video explains why iteration is the key to feeling capable instead of frustrated.",
-      },
-      {
-        title: "Why Some People Learn AI Faster",
-        published: "Dec 17, 2025",
-        url: "https://www.youtube.com/watch?v=Z04Wdi4Ui6U",
-        videoId: "Z04Wdi4Ui6U",
-        description: "People who succeed with AI aren’t smarter; they’re more comfortable iterating. This video explains why experimentation beats perfection when working with AI.",
-      },
-      {
-        title: "What Are Your Goals? Do You Have a Plan?",
-        published: "Dec 4, 2025",
-        url: "https://www.youtube.com/watch?v=1bJYnh7cKTw",
-        videoId: "1bJYnh7cKTw",
-        description: "AI can be used as a planning partner for nearly any goal, from career growth to financial independence. This video shows how providing the right context turns vague goals into concrete, step-by-step plans.",
-      },
+    videoIds: [
+      "the-simplest-ai-habit-that-changes-everything",
+      "the-ai-mistake-that-makes-people-feel-dumb",
+      "why-some-people-learn-ai-faster",
+      "what-are-your-goals-do-you-have-a-plan",
     ],
   },
   {
@@ -166,21 +101,9 @@ const sections = [
     evidence: [evidenceNotes.fundamentalsPrivacy],
     closing:
       "Responsible adoption means understanding where AI creates value, where caution is appropriate, and how to use it with confidence.",
-    videos: [
-      {
-        title: "The Biggest Reason People Avoid AI Isn’t Complexity—It’s Privacy",
-        published: "Dec 3, 2025",
-        url: "https://www.youtube.com/watch?v=MJpfRuaTLBw",
-        videoId: "MJpfRuaTLBw",
-        description: "Most hesitation around AI comes from legitimate privacy concerns. This video explains how data is handled, what options exist to reduce risk, and how to adopt AI gradually and confidently.",
-      },
-      {
-        title: "Why Most Professionals Feel Behind on AI",
-        published: "Dec 9, 2025",
-        url: "https://www.youtube.com/watch?v=8Ug-u1iZ8S8",
-        videoId: "8Ug-u1iZ8S8",
-        description: "Feeling behind on AI is normal. This video explains why habits lag technology and why AI’s rapid adoption curve makes adjustment feel harder than past shifts.",
-      },
+    videoIds: [
+      "the-biggest-reason-people-avoid-ai-isn-t-complexity-it-s-privacy",
+      "why-most-professionals-feel-behind-on-ai",
     ],
   },
 ];
@@ -482,8 +405,8 @@ const structuredData = {
     "@type": "WebPage",
     "@id": `${siteConfig.siteUrl}/ai-fundamentals`,
   },
-  datePublished: "2026-07-24",
-  dateModified: "2026-07-25",
+  datePublished: contentDates.topics.published,
+  dateModified: contentDates.topics.modified,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   citation: sources.map((source) => source.href),
 };
