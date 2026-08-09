@@ -108,7 +108,7 @@ export const evidenceSources = {
     title: "Cognitive Offloading",
     publisher: "Risko and Gilbert",
     year: "2016",
-    href: "https://samgilbert.net/pubs/Risko2016TiCS.pdf",
+    href: "https://doi.org/10.1016/j.tics.2016.07.002",
     description:
       "A review of how people externalize memory and problem-solving to tools, changing what they retain and how they work.",
   },

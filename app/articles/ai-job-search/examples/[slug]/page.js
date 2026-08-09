@@ -13,8 +13,11 @@ import {
   getAiJobSearchExample,
 } from "../../../../../content/aiJobSearch";
 import { siteConfig } from "../../../../../content/siteConfig";
+import { withPageSocial } from "../../../../../content/metadata";
+import { contentDates } from "../../../../../content/dates";
 
-const published = "2026-08-08";
+const published = contentDates.aiJobSearch.published;
+const parentArticleTitle = "How I Would Use AI If I Was Looking for a Job";
 
 export function generateStaticParams() {
   return aiJobSearchExampleCases.map((example) => ({ slug: example.slug }));
@@ -28,7 +31,7 @@ export async function generateMetadata({ params }) {
   const title = `${example.title} | AI Job Search Example`;
   const description = `${example.description} Review the synthetic input and five workflow outputs.`;
 
-  return {
+  return withPageSocial({
     title: { absolute: title },
     description,
     alternates: { canonical: example.path },
@@ -40,7 +43,7 @@ export async function generateMetadata({ params }) {
       publishedTime: published,
       authors: [`${siteConfig.siteUrl}/about`],
     },
-  };
+  });
 }
 
 export default async function AiJobSearchExamplePage({ params }) {
@@ -53,7 +56,7 @@ export default async function AiJobSearchExamplePage({ params }) {
     ...example.outputs.map((output) => ({
       id: output.id,
       title: output.title,
-      navTitle: output.number,
+      navTitle: output.navTitle,
     })),
   ];
 
@@ -63,7 +66,7 @@ export default async function AiJobSearchExamplePage({ params }) {
     headline: `${example.title} | AI Job Search Example`,
     description: example.description,
     datePublished: published,
-    dateModified: published,
+    dateModified: contentDates.aiJobSearch.modified,
     mainEntityOfPage: `${siteConfig.siteUrl}${example.path}`,
     image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
     author: {
@@ -78,7 +81,7 @@ export default async function AiJobSearchExamplePage({ params }) {
     },
     isPartOf: {
       "@type": "Article",
-      name: "Use AI to Find Work Where You Can Be Useful",
+      name: parentArticleTitle,
       url: `${siteConfig.siteUrl}${aiJobSearchPath}`,
       description: aiJobSearchDescription,
     },
@@ -111,7 +114,7 @@ export default async function AiJobSearchExamplePage({ params }) {
           />
           <div className="mt-9 flex flex-wrap gap-3">
             <Link href={aiJobSearchPath} className="btn btn-primary no-underline">
-              Back to the workflow
+              Back to the article
             </Link>
             <Link
               href={`${aiJobSearchPath}#examples`}
@@ -156,7 +159,7 @@ export default async function AiJobSearchExamplePage({ params }) {
         >
           <div className="reading-surface max-w-3xl">
             <p className="type-label text-library-walnut">
-              Prompt {output.number} output
+              Example output
             </p>
             <h2
               id={`${output.id}-title`}
@@ -165,9 +168,9 @@ export default async function AiJobSearchExamplePage({ params }) {
               {output.title}
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-library-muted">
-              This is the output from prompt {output.number} for the{" "}
-              {example.label.toLowerCase()} example. It shows the level of
-              grounding, skepticism, and practical detail the workflow is meant
+              This is the output for the {example.label.toLowerCase()} example.
+              It shows the level of
+              grounding, skepticism, and practical detail this approach is meant
               to produce before moving to the next step.
             </p>
           </div>
@@ -179,10 +182,10 @@ export default async function AiJobSearchExamplePage({ params }) {
       ))}
 
       <ContentContinuation
-        title="Use the five-prompt workflow"
-        description="Read the main article, copy the prompts, and run the same sequence on your own search."
+        title="Use the prompts on your own search"
+        description="Read the main article, copy the prompts, and run the same sequence for yourself."
         href={aiJobSearchPath}
-        linkLabel="Back to AI Job Search"
+        linkLabel="Back to the article"
         topicKey="work"
       />
     </article>

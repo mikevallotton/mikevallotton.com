@@ -5,6 +5,7 @@ import ContentMeta from "../../../components/ContentMeta";
 import EvidenceNote from "../../../components/EvidenceNote";
 import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
+import JobSearchPrivacyWarning from "../../../components/JobSearchPrivacyWarning";
 import JsonLd from "../../../components/JsonLd";
 import TopicSectionNav from "../../../components/topic/TopicSectionNav";
 import { evidenceNotes, sourcesFor } from "../../../content/evidence";
@@ -17,55 +18,58 @@ import {
   aiJobSearchSections,
 } from "../../../content/aiJobSearch";
 import { siteConfig } from "../../../content/siteConfig";
+import { withPageSocial } from "../../../content/metadata";
+import { contentDates } from "../../../content/dates";
 
-const published = "2026-08-08";
+const published = contentDates.aiJobSearch.published;
+const articleTitle = "How I Would Use AI If I Was Looking for a Job";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: {
-    absolute: "Use AI to Find Work Where You Can Be Useful",
+    absolute: articleTitle,
   },
   description: aiJobSearchDescription,
   alternates: { canonical: aiJobSearchPath },
   openGraph: {
-    title: "Use AI to Find Work Where You Can Be Useful",
+    title: articleTitle,
     description: aiJobSearchDescription,
     url: aiJobSearchPath,
     type: "article",
     publishedTime: published,
     authors: [`${siteConfig.siteUrl}/about`],
   },
-};
+});
 
 const faqs = [
   {
     question: "Is this a resume prompt?",
     answer:
-      "No. The first prompt uses resume material as evidence, but the workflow is not trying to rewrite a resume. It creates a reusable capability profile that later prompts can use to find employers, evaluate fit, and plan action without exaggerating what the person can offer.",
+      "No. I would use resume material as evidence, not as something to polish first. The point is to create a reusable capability profile that later prompts can use to find employers, evaluate fit, and plan action without exaggerating what the person can offer.",
   },
   {
     question: "Should I use these prompts instead of applying to jobs?",
     answer:
-      "No. The workflow is meant to make applications and outreach more targeted. It helps decide where to spend attention, what proof to prepare, which roles or employers deserve effort, and when a company should be deprioritized.",
+      "No. I would use them to make applications and outreach more targeted. They help decide where to spend attention, what proof to prepare, which roles or employers deserve effort, and when a company should be deprioritized.",
   },
   {
     question: "Why does the company-finding prompt require sources?",
     answer:
-      "A company can sound plausible because it is famous, nearby, or has an attractive job title. The source requirement forces the recommendation to connect with current evidence about the employer instead of becoming a wish list.",
+      "Because I would not trust a company list just because the employers are famous, nearby, or attached to attractive job titles. Sources force the recommendation to connect with current evidence about the employer instead of becoming a wish list.",
   },
   {
     question: "What should I do if the overlap analysis says the fit is weak?",
     answer:
-      "Treat that as useful information. A weak fit may become a watchlist target, a learning conversation, or a reason to build proof first. It should not receive the same effort as an employer with a clear role path and credible overlap.",
+      "I would treat that as useful information. A weak fit may become a watchlist target, a learning conversation, or a reason to build proof first. I would not give it the same effort as an employer with a clear role path and credible overlap.",
   },
 ];
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Use AI to Find Work Where You Can Be Useful",
+  headline: articleTitle,
   description: aiJobSearchDescription,
   datePublished: published,
-  dateModified: published,
+  dateModified: contentDates.aiJobSearch.modified,
   mainEntityOfPage: `${siteConfig.siteUrl}${aiJobSearchPath}`,
   image: `${siteConfig.siteUrl}${siteConfig.ogImage}`,
   author: {
@@ -110,7 +114,7 @@ function PromptBlock({ label, text }) {
 function PromptExampleLinks({ prompt }) {
   return (
     <nav
-      aria-label={`Examples for prompt ${prompt.number}`}
+      aria-label={`Examples for ${prompt.title}`}
       className="job-search-section-examples"
     >
       <p className="type-label text-library-walnut">
@@ -121,11 +125,10 @@ function PromptExampleLinks({ prompt }) {
           <Link
             key={`${prompt.id}-${example.slug}`}
             href={`${aiJobSearchPath}/examples/${example.slug}#${prompt.id}`}
-            aria-label={`${example.label} example for prompt ${prompt.number}: ${prompt.title}`}
+            aria-label={`${example.label} example for ${prompt.title}`}
             className="no-underline"
           >
             <span>{example.label}</span>
-            <small>Prompt {prompt.number}</small>
           </Link>
         ))}
       </div>
@@ -159,18 +162,17 @@ export default function AiJobSearchPage() {
         <div className="reading-surface max-w-5xl">
           <p className="eyebrow text-library-walnut">Article / AI and work</p>
           <h1 className="mt-5 max-w-5xl text-4xl font-semibold leading-[0.98] sm:text-5xl md:text-7xl">
-            Use AI to Find Work Where You Can Be Useful
+            {articleTitle}
           </h1>
           <p className="mt-7 max-w-3xl text-xl leading-relaxed text-library-ink md:text-2xl">
-            Do not start by asking AI to find job titles. Start by giving it
-            enough context to help you find where your skills, interests, and
-            proof might matter.
+            If I was looking for a job right now, I would not start by asking
+            AI for job titles. I would give it enough context to help me see
+            where my skills, interests, and proof might matter.
           </p>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-library-muted">
-            This five-prompt workflow turns a job search into a learning loop:
-            understand what you can offer, find sourced employers, research one
-            employer at a time, test the overlap, and build a proportional plan
-            for action.
+            The prompts below are the sequence I would work through: figure out
+            what I can offer, find sourced companies, research one employer at
+            a time, test the overlap, and make a plan that matches the evidence.
           </p>
           <ContentMeta
             published={published}
@@ -183,7 +185,7 @@ export default function AiJobSearchPage() {
               download
               className="btn btn-primary no-underline"
             >
-              Download the five prompts
+              Download the prompts I would use
             </a>
             <Link
               href="#examples"
@@ -195,6 +197,8 @@ export default function AiJobSearchPage() {
         </div>
       </header>
 
+      <JobSearchPrivacyWarning />
+
       <TopicSectionNav sections={aiJobSearchSections} />
 
       <section
@@ -204,29 +208,29 @@ export default function AiJobSearchPage() {
       >
         <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
           <div>
-            <p className="type-label text-library-walnut">The workflow</p>
+            <p className="type-label text-library-walnut">The approach</p>
             <h2 id="overview-title" className="mt-3 text-3xl font-semibold">
-              A job search should produce better information
+              I would start by figuring out what I have to offer
             </h2>
           </div>
           <div className="reading-surface space-y-5 text-lg leading-relaxed text-library-muted">
             <p>
-              Most bad AI job-search advice starts too late. It asks for a
+              A lot of AI job-search advice starts too late. It jumps to a
               resume rewrite, a list of job titles, or a generic outreach
-              message before the person understands where they may actually be
-              useful.
+              message before the person has enough context about where they may
+              actually be useful.
             </p>
             <p>
-              The better starting point is context. What have you done? What can
-              you prove? What are you interested in? What constraints are real?
-              Which claims would be dishonest or premature? Once that is clear,
-              AI can help research employers and compare opportunities without
-              pretending every company is a fit.
+              If I was doing this, I would start with context. What have I done?
+              What can I prove? What am I interested in? What constraints are
+              real? Which claims would be dishonest or premature? Once that is
+              clear, AI can help research employers and compare opportunities
+              without pretending every company is a fit.
             </p>
             <p className="font-serif text-2xl font-medium leading-relaxed text-library-ink">
-              The goal is not to convince every employer to make room for you.
-              The goal is to find places where you can point at something that
-              matters to them and say, &quot;I can help with that.&quot;
+              I would not be trying to convince every employer to make room for
+              me. I would be looking for places where I can point at something
+              that matters to them and say, &quot;I can help with that.&quot;
             </p>
             <EvidenceNote note={evidenceNotes.fundamentalsContext} />
           </div>
@@ -255,7 +259,7 @@ export default function AiJobSearchPage() {
           <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
             <div>
               <p className="type-label text-library-walnut">
-                Prompt {prompt.number}
+                Copy/paste prompt
               </p>
               <h2
                 id={`${prompt.id}-title`}
@@ -279,7 +283,7 @@ export default function AiJobSearchPage() {
             </div>
           </div>
           <PromptBlock
-            label={`Prompt ${prompt.number}: ${prompt.title}`}
+            label={`Copy/paste: ${prompt.title}`}
             text={prompt.copyPrompt}
           />
           <PromptExampleLinks prompt={prompt} />
@@ -297,8 +301,8 @@ export default function AiJobSearchPage() {
             Five complete example runs
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-library-muted">
-            These examples use synthetic profiles to show what the workflow
-            should produce for different search situations: senior operators,
+            These examples use synthetic profiles to show what this approach
+            can look like in different search situations: senior operators,
             early-career candidates, career changers, broad generalists, and
             local small-employer searches.
           </p>
@@ -330,22 +334,22 @@ export default function AiJobSearchPage() {
           <div>
             <p className="type-label text-library-walnut">How to use it</p>
             <h2 id="how-to-use-it-title" className="mt-3 text-3xl font-semibold">
-              Keep the work proportional
+              Keep going and keep updating the context
             </h2>
           </div>
           <div className="reading-surface space-y-5 text-lg leading-relaxed text-library-muted">
             <p>
-              Do the prompts in order. Keep the reusable artifact from each
-              step, because the next step depends on it. When you learn
+              I would do the prompts in order and keep the reusable artifact
+              from each step, because the next step depends on it. When I learn
               something new from a posting, conversation, rejection, or company
-              research, put that information back into the relevant thread and
-              update the plan.
+              research, I would put that information back into the relevant
+              thread and update the plan.
             </p>
             <p>
-              The workflow should also tell you when to stop. A company can be
-              interesting without being worth active effort right now. If the
-              evidence is weak, the employment path is unclear, or the fit is
-              mostly aspirational, keep parallel targets moving.
+              Some people will not respond. Some conversations will show that
+              the problem, role, or fit is different than I thought. That is
+              still useful information. I would give it back to AI, ask what it
+              changes, and keep moving across more than one company.
             </p>
             <EvidenceNote note={evidenceNotes.thinkingConfidence} />
           </div>
@@ -376,11 +380,11 @@ export default function AiJobSearchPage() {
           <div>
             <p className="type-label text-library-walnut">Prompt pack</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-semibold md:text-4xl">
-              Download the five prompts and run the workflow on your own search.
+              Download the five prompts and try the same sequence on your search.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-library-muted">
-              Start with the capability profile. Save the artifact. Then move
-              through the company list, employer research, overlap analysis, and
+              Start with the capability profile. Save it. Then use it to build
+              the company list, employer research, overlap analysis, and
               approach plan.
             </p>
           </div>

@@ -82,9 +82,9 @@ const NAV_SECTIONS = [
       {
         href: "/articles/ai-job-search",
         label: "AI Job Search",
-        linkLabel: "Use the AI job-search workflow",
+        linkLabel: "See how I would use AI to look for work",
         description:
-          "A five-prompt workflow for understanding what you can offer, finding sourced employers, researching fit, identifying real overlap, and planning legitimate outreach.",
+          "The five prompts I would use to understand what you can offer, find sourced employers, research fit, identify real overlap, and decide what to do next.",
       },
       {
         href: "/articles/news-investigator",

@@ -8,7 +8,7 @@ export const aiJobSearchPromptDownloadPath =
   "/downloads/ai-job-search-prompts.txt";
 
 export const aiJobSearchDescription =
-  "A five-prompt AI job-search workflow for understanding what you can offer, finding sourced employers, researching fit, finding overlap, and planning legitimate outreach.";
+  "The five prompts I would use to understand what you can offer, find sourced employers, research fit, identify real overlap, and decide what to do next.";
 
 const promptFiles = [
   {
@@ -18,9 +18,9 @@ const promptFiles = [
     navTitle: "Profile",
     filename: "01-build-personal-capability-profile.md",
     summary:
-      "Turn your resume, notes, constraints, projects, and background into a reusable document about what you can credibly offer.",
+      "I would start by turning your resume, notes, constraints, projects, and background into a reusable document about what you can credibly offer.",
     outcome:
-      "A grounded profile with evidence, realistic lanes, constraints, claims to avoid, and proof assets to gather.",
+      "A grounded profile with evidence, realistic lanes, constraints, claims to avoid, and proof you may need to gather.",
     failure:
       "Generic praise, resume rewriting, unsupported claims, and inflated positioning.",
   },
@@ -31,7 +31,7 @@ const promptFiles = [
     navTitle: "Companies",
     filename: "02-find-companies.md",
     summary:
-      "Use the profile to find sourced employers whose work, market, customers, problems, or local context may create a need for what you can do.",
+      "Then I would use the profile to find sourced employers whose work, market, customers, problems, or local context may create a need for what you can do.",
     outcome:
       "A prioritized list of sourced employers, role keywords, red flags, hiring risk, and targets to research next.",
     failure:
@@ -44,7 +44,7 @@ const promptFiles = [
     navTitle: "Research",
     filename: "03-research-company.md",
     summary:
-      "Build a current employer brief that separates facts, claims, observations, inference, unanswered questions, and role signals.",
+      "Next, I would pick one employer and build a current brief that separates facts, claims, observations, inference, unanswered questions, and role signals.",
     outcome:
       "A sourced company brief with hiring signals, employment path types, source gaps, and action readiness.",
     failure:
@@ -57,7 +57,7 @@ const promptFiles = [
     navTitle: "Overlap",
     filename: "04-find-overlap.md",
     summary:
-      "Compare your capability profile with the employer brief and decide whether there is a real, evidence-based fit.",
+      "After that, I would compare your capability profile with the employer brief and decide whether there is a real, evidence-based fit.",
     outcome:
       "Skeptical overlap hypotheses with fit type, proof needs, positioning safeguards, effort budget, and application triggers.",
     failure:
@@ -70,7 +70,7 @@ const promptFiles = [
     navTitle: "Approach",
     filename: "05-build-approach-plan.md",
     summary:
-      "Turn the profile, employer research, and overlap analysis into a proportional plan for applying, learning, observing, or moving on.",
+      "Finally, I would turn the profile, employer research, and overlap analysis into a proportional plan for applying, learning, observing, or moving on.",
     outcome:
       "A practical approach brief with action intensity, message targets, ecosystem paths, proof needs, boundaries, and stop conditions.",
     failure:
@@ -106,7 +106,7 @@ export const aiJobSearchExampleCases = [
     title: "Career Changer With a Weak Immediate Match",
     label: "Career changer",
     description:
-      "A Spanish teacher drawn to Duolingo while the workflow keeps the fit narrow, cautious, and evidence-based.",
+      "A Spanish teacher drawn to Duolingo while the approach keeps the fit narrow, cautious, and evidence-based.",
     testCaseFile: "03-career-changer-weak-match.md",
     runDir: "03-career-changer-weak-match",
     target: "Duolingo",
@@ -207,7 +207,7 @@ export const aiJobSearchPrompts = promptFiles.map((prompt) => {
 });
 
 export const aiJobSearchSections = [
-  { id: "overview", title: "The workflow", navTitle: "Workflow" },
+  { id: "overview", title: "The approach", navTitle: "Start" },
   ...aiJobSearchPrompts.map(({ id, title, navTitle }) => ({
     id,
     title,
@@ -244,6 +244,7 @@ export function getAiJobSearchExample(slug) {
       id: prompt.id,
       number: prompt.number,
       title: prompt.title,
+      navTitle: prompt.navTitle,
       output: extractPromptOutput(markdown),
     };
   });
