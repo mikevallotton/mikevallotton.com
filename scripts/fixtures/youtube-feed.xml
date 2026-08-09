@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+  <title>Mike Vallotton</title>
+  <entry>
+    <id>yt:video:hysaUcYuXx4</id>
+    <yt:videoId>hysaUcYuXx4</yt:videoId>
+    <title>AI Redesigns Marketing Work Through Task Automation</title>
+    <link rel="alternate" href="https://www.youtube.com/shorts/hysaUcYuXx4"/>
+    <published>2026-08-06T12:31:15+00:00</published>
+    <media:group>
+      <media:title>AI Redesigns Marketing Work Through Task Automation</media:title>
+      <media:thumbnail url="https://i1.ytimg.com/vi/hysaUcYuXx4/hqdefault.jpg" width="480" height="360"/>
+      <media:description>AI shifts marketing from saving time to creating more value by enabling experimentation &amp; customer understanding.</media:description>
+    </media:group>
+  </entry>
+  <entry>
+    <id>yt:video:oonP6CURSDw</id>
+    <yt:videoId>oonP6CURSDw</yt:videoId>
+    <title>AI Expands the Scope of Modern Marketing Work</title>
+    <link rel="alternate" href="https://www.youtube.com/shorts/oonP6CURSDw"/>
+    <published>2026-08-05T12:30:52+00:00</published>
+    <media:group>
+      <media:title>AI Expands the Scope of Modern Marketing Work</media:title>
+      <media:description>AI shifts marketing beyond faster execution.</media:description>
+    </media:group>
+  </entry>
+</feed>

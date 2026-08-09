@@ -3,24 +3,25 @@ import Link from "next/link";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import TopicsSection from "../../components/TopicsSection";
 import SocialLinks from "../../components/SocialLinks";
+import LatestContent from "../../components/LatestContent";
+import { getLatestArticle } from "../../content/articles";
+import { getLatestYouTubeVideo } from "../../lib/youtubeFeed";
+import { withPageSocial } from "../../content/metadata";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "AI Topics and Social Links",
   description: "Practical AI guidance from Mike Vallotton—choose a topic or find Mike online.",
   alternates: {
     canonical: "/links",
   },
-};
+});
 
-function Arrow() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M5 19 19 5M8 5h11v11" />
-    </svg>
-  );
-}
+export const revalidate = 3600;
 
-export default function LinksPage() {
+export default async function LinksPage() {
+  const latestArticle = getLatestArticle();
+  const latestVideo = await getLatestYouTubeVideo();
+
   return (
     <div className="links-page">
       <div className="links-glow links-glow--one" aria-hidden="true" />
@@ -78,19 +79,14 @@ export default function LinksPage() {
         </div>
       </header>
 
-      <section className="links-featured" aria-labelledby="ai-job-search-title">
-        <p className="eyebrow">Featured article</p>
-        <Link href="/articles/ai-job-search" className="no-underline">
-          <span>
-            <span id="ai-job-search-title">AI Job Search Workflow</span>
-            <small>
-              Use five prompts to understand what you can offer, find sourced
-              employers, research fit, and plan legitimate outreach.
-            </small>
-          </span>
-          <Arrow />
-        </Link>
-      </section>
+      <LatestContent
+        article={latestArticle}
+        video={latestVideo}
+        heading="Latest from Mike"
+        headingId="links-latest-content-title"
+        headingLevel="h2"
+        variant="links"
+      />
 
       <TopicsSection />
     </div>

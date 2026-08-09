@@ -1,17 +1,24 @@
 import Link from "next/link";
 import { siteConfig } from "../content/siteConfig";
 import { principles } from "../content/principles";
+import { getLatestArticle } from "../content/articles";
+import { getLatestYouTubeVideo } from "../lib/youtubeFeed";
+import LatestContent from "../components/LatestContent";
 import PrinciplesGrid from "../components/PrinciplesGrid";
 import TopicsSection from "../components/TopicsSection";
+import VideoStructuredData from "../components/VideoStructuredData";
+import { withPageSocial } from "../content/metadata";
 
-export const metadata = {
+export const metadata = withPageSocial({
   title: "Practical AI Guidance for Work and Life",
   description:
     "Practical guidance from CTO Mike Vallotton to help you understand AI, use it effectively, and become more capable at work and in everyday life.",
   alternates: {
     canonical: "/",
   },
-};
+});
+
+export const revalidate = 3600;
 
 const audiences = [
   "Executives and business leaders modernizing their organizations",
@@ -62,64 +69,68 @@ const structuredData = {
   ],
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const latestArticle = getLatestArticle();
+  const latestVideo = await getLatestYouTubeVideo();
+
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <VideoStructuredData videos={latestVideo ? [latestVideo] : []} pagePath="/" />
 
-      <section className="home-hero relative flex min-h-[calc(100svh-7rem)] flex-col justify-between overflow-hidden border-b border-library-parchment pb-14 pt-2 md:pb-16 md:pt-8">
-        <div className="hero-orbit hero-orbit--one" aria-hidden="true" />
-        <div className="hero-orbit hero-orbit--two" aria-hidden="true" />
-        <p className="eyebrow relative z-10 text-library-walnut">
-          AI fluency, work, and human capability
-        </p>
-        <div className="relative z-10 mt-auto grid gap-10 pt-20 lg:grid-cols-[minmax(0,1.6fr)_minmax(17rem,0.4fr)] lg:items-end">
-          <div>
+      <div className="home-intro">
+        <section className="home-hero relative flex min-h-[calc(100svh-7rem)] flex-col justify-between overflow-hidden pb-14 pt-2 md:pb-16 md:pt-8">
+          <div className="hero-orbit hero-orbit--one" aria-hidden="true" />
+          <div className="hero-orbit hero-orbit--two" aria-hidden="true" />
+          <p className="eyebrow relative z-10 text-library-walnut">
+            AI fluency, work, and human capability
+          </p>
+          <div className="relative z-10 mt-auto pt-20">
             <h1 className="hero-title max-w-6xl font-semibold">
               Become more<br />capable <em>with AI.</em>
             </h1>
-            <p className="mt-7 max-w-3xl text-xl leading-relaxed text-library-ink md:text-2xl">
+            <p className="mt-7 max-w-3xl text-xl leading-relaxed text-library-ink md:text-2xl lg:max-w-[46rem] xl:max-w-3xl">
               Clear, grounded guidance to help you understand AI, use it well,
               and develop the thinking, habits, and hands-on skills that make it
               genuinely useful—at work and in everyday life.
             </p>
-            <p className="mt-6 max-w-2xl leading-relaxed text-library-muted">
+            <p className="mt-6 max-w-2xl leading-relaxed text-library-muted lg:max-w-[42rem] xl:max-w-2xl">
               I&apos;m Mike Vallotton, Chief Technology Officer at Sagepath Reply.
               I&apos;ve worked professionally in technology since 1996, progressing
               from hands-on software development and architecture into technology
               strategy, team leadership, and enterprise delivery.
             </p>
-            <p className="mt-5 max-w-2xl leading-relaxed text-library-muted">
+            <p className="mt-5 max-w-2xl leading-relaxed text-library-muted lg:max-w-[42rem] xl:max-w-2xl">
               This site answers practical questions about how AI works, how it
               changes professional work, where automation creates value, and
               where human judgment remains essential.
             </p>
           </div>
-          <div className="hero-aside border-l border-library-ink/40 pl-5">
-            <p className="font-serif text-xl font-medium leading-relaxed text-library-ink">
-              AI accelerates execution. People still choose the constraints,
-              weigh the tradeoffs, and decide what matters.
-            </p>
-            <Link
-              href="/about"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold no-underline"
-            >
-              More about my perspective <span aria-hidden="true">→</span>
+          <div className="relative z-10 mt-9 flex flex-wrap gap-3">
+            <Link href="/ai-fundamentals" className="topic-destination-link btn btn-primary no-underline">
+              Start building AI fluency
+            </Link>
+            <Link href="#topics" className="btn btn-secondary no-underline">
+              Explore all topics
             </Link>
           </div>
-        </div>
-        <div className="relative z-10 mt-9 flex flex-wrap gap-3">
-          <Link href="/ai-fundamentals" className="topic-destination-link btn btn-primary no-underline">
-            Start building AI fluency
-          </Link>
-          <Link href="#topics" className="btn btn-secondary no-underline">
-            Explore all topics
-          </Link>
-        </div>
-      </section>
+        </section>
+
+        <section className="home-latest-section" aria-label="Latest from Mike">
+          <LatestContent
+            article={latestArticle}
+            video={latestVideo}
+            heading="Latest from Mike"
+            headingId="home-latest-content-title"
+            headingLevel="h2"
+            variant="hero"
+            showHeading={false}
+          />
+        </section>
+      </div>
 
       <section
         aria-labelledby="audience-title"

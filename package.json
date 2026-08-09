@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "validate:content": "node scripts/verify-news-investigator-prompt.mjs && node scripts/validate-content.mjs",
+    "validate:content": "node scripts/verify-news-investigator-prompt.mjs && node scripts/validate-content.mjs && node scripts/verify-latest-content.mjs",
     "lint": "npm run validate:content && eslint . --max-warnings=0",
     "check": "npm run lint && npm run build",
     "smoke": "node scripts/smoke-release.mjs",
