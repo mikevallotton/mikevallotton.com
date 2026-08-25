@@ -136,6 +136,11 @@ Do not promise ranking or citation outcomes. `public/llms.txt` is a discovery ai
 
 Video titles and descriptions should tell readers what they will learn rather than merely restating a topic label. Video metadata must match the embedded or linked video.
 
+Do not add `VideoObject` structured data to pages that only show a thumbnail
+or link to a video on another platform. Reserve it for pages where the video is
+directly playable and the visible title, description, and other metadata match
+the markup.
+
 Published transcripts may be lightly edited for punctuation, paragraphing,
 capitalization, and unmistakable transcription errors without changing the
 speaker's meaning. Label that treatment for readers. Add evidence next to

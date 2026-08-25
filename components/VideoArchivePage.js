@@ -2,7 +2,6 @@ import Breadcrumbs from "./Breadcrumbs";
 import JsonLd from "./JsonLd";
 import VideoArchiveFilters from "./VideoArchiveFilters";
 import VideoArchiveList from "./VideoArchiveList";
-import VideoStructuredData from "./VideoStructuredData";
 import Pagination from "./Pagination";
 import {
   getVideoArchivePath,
@@ -45,7 +44,6 @@ export default function VideoArchivePage({
   return (
     <article className="article-page">
       <JsonLd data={pageSchema} />
-      <VideoStructuredData videos={videos} pagePath={path} />
       <Breadcrumbs
         current={currentPage > 1 ? `Page ${currentPage}` : title}
         path={path}

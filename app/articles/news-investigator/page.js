@@ -5,7 +5,6 @@ import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
 import JsonLd from "../../../components/JsonLd";
 import VideoShelf from "../../../components/VideoShelf";
-import VideoStructuredData from "../../../components/VideoStructuredData";
 import ContentContinuation from "../../../components/ContentContinuation";
 import ContentMeta from "../../../components/ContentMeta";
 import {
@@ -214,7 +213,6 @@ export default function NewsInvestigatorPage() {
     <article className="article-page">
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
-      <VideoStructuredData videos={videos} pagePath={path} />
       <Breadcrumbs current="News Investigator Agent" path={path} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">
