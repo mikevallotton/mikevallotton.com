@@ -25,7 +25,10 @@ export const videoTopics = [
           "organizational-readiness-for-ai-adoption",
           "how-ai-adoption-moves-predictably-through-organizations",
           "why-enterprise-ai-is-a-multi-year-organizational-rebuild",
-          "ai-governance-as-the-key-to-scalable-deployment"
+          "ai-governance-as-the-key-to-scalable-deployment",
+          "how-executives-are-responding-to-ai-shifts",
+          "personalization-as-a-governance-challenge",
+          "ai-exposed-missing-documentation"
         ]
       },
       {
@@ -40,7 +43,8 @@ export const videoTopics = [
           "learning-speed-as-the-ultimate-competitive-advantage",
           "mapping-workflows-before-applying-ai",
           "ai-expands-the-scope-of-modern-marketing-work",
-          "ai-redesigns-marketing-work-through-task-automation"
+          "ai-redesigns-marketing-work-through-task-automation",
+          "find-a-point-of-friction"
         ]
       },
       {
@@ -93,7 +97,8 @@ export const videoTopics = [
         "videoIds": [
           "you-are-building-a-context-window-when-you-talk-to-ai",
           "iteration-builds-reliable-results-by-expanding-context",
-          "why-bigger-context-windows-eventually-break-down"
+          "why-bigger-context-windows-eventually-break-down",
+          "ai-output-quality-depends-on-context-systems"
         ]
       },
       {
@@ -142,6 +147,7 @@ export const videoTopics = [
           "the-one-skill-ai-cannot-replace-good-judgment",
           "ai-accelerates-execution-but-not-human-judgment",
           "why-judgment-must-be-trained",
+          "attention-and-judgment-define-value-in-the-ai-era",
           "why-ai-confidence-should-not-replace-human-judgment"
         ]
       },
@@ -152,7 +158,9 @@ export const videoTopics = [
         "videoIds": [
           "ai-expands-exploration-humans-decide-what-matters",
           "cognitive-offloading-and-the-risk-to-mental-models",
-          "the-risk-of-ai-is-the-erosion-of-human-thinking-skills"
+          "the-risk-of-ai-is-the-erosion-of-human-thinking-skills",
+          "choosing-the-experiences-that-shape-who-you-become",
+          "you-can-do-anything-not-everything"
         ]
       },
       {
@@ -238,7 +246,8 @@ export const videoTopics = [
           "computer-science-in-three-years",
           "the-real-value-of-junior-developers",
           "how-ai-is-reshaping-how-developers-learn",
-          "building-early-career-advantage-in-an-ai-tight-job-market"
+          "building-early-career-advantage-in-an-ai-tight-job-market",
+          "domain-experts-becoming-software-founders"
         ]
       },
       {

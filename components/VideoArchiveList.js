@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { evidenceSources } from "../content/evidence";
 
 function formatPublishedDate(value) {
   if (!value) return "Date pending";
@@ -51,6 +52,39 @@ function Transcript({ text, note, title }) {
         ))}
       </div>
     </details>
+  );
+}
+
+function VideoSources({ sourceIds, title }) {
+  const sources = (sourceIds || [])
+    .map((id) => evidenceSources[id])
+    .filter(Boolean);
+
+  if (!sources.length) return null;
+
+  return (
+    <div className="mt-5 border-t border-library-parchment pt-4">
+      <p className="type-label text-library-walnut">Sources</p>
+      <ul className="mt-2 space-y-2 text-sm leading-relaxed">
+        {sources.map((source) => (
+          <li key={source.href}>
+            <a
+              href={source.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${source.title}, ${source.publisher} (opens in a new tab)`}
+              className="font-semibold text-library-walnut"
+            >
+              {source.title}
+            </a>{" "}
+            <span className="text-library-muted">
+              ({source.publisher}, {source.year})
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="sr-only">Sources for {title}</p>
+    </div>
   );
 }
 
@@ -126,6 +160,7 @@ export default function VideoArchiveList({ videos }) {
                 note={video.transcriptNote}
                 title={video.title}
               />
+              <VideoSources sourceIds={video.sourceIds} title={video.title} />
             </div>
           </article>
         );

@@ -3,12 +3,17 @@
   "title": "Personalization as a Governance Challenge",
   "published": "2026-03-09",
   "description": "AI driven personalization boosts revenue but creates tension around transparency and ethics. As inference grows more opaque, leaders must balance relevance with governance. Companies that resolve this early will outperform those that do not.",
-  "youtubeUrl": "",
-  "youtubeVideoId": "",
+  "youtubeUrl": "https://youtube.com/shorts/krpf-Di1FL0",
+  "youtubeVideoId": "krpf-Di1FL0",
   "tiktokUrl": "",
   "linkedinUrl": "",
   "xUrl": "",
   "transcriptPath": "content/videos/transcripts/personalization-as-a-governance-challenge.md",
+  "sourceIds": [
+    "mckinseyPersonalization",
+    "bcgPersonalization",
+    "personalizationParadox"
+  ],
   "aliasTitles": [
     "Personalization as a Governance Challenge"
   ]
