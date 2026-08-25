@@ -1,5 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
+import { evidenceSources } from "../content/evidence.js";
 import { videoTopics } from "../content/videos/associations.js";
 
 const appDirectory = path.resolve("app");
@@ -39,6 +40,14 @@ function extractYoutubeId(value) {
   } catch {
     return "";
   }
+}
+
+function withoutUrls(value) {
+  return String(value || "").replace(/https?:\/\/\S+|\b[a-z0-9.-]+\.[a-z]{2,}\/\S+/gi, "");
+}
+
+function hasBadAiCasingInProse(value) {
+  return /\b(?:ai|Ai)\b/.test(withoutUrls(value));
 }
 
 for (const file of (await filesUnder(appDirectory)).filter((name) => name.endsWith(".js"))) {
@@ -92,7 +101,7 @@ for (const file of (await readdir(videoItemsDirectory)).filter((name) => name.en
   if (!record.slug) errors.push(`${location}: missing slug`);
   if (!record.title) errors.push(`${location}: missing title`);
   if (!record.description) errors.push(`${location}: missing description`);
-  if (/\b(?:ai|Ai)\b/.test(`${record.title || ""} ${record.description || ""}`)) {
+  if (hasBadAiCasingInProse(`${record.title || ""} ${record.description || ""}`)) {
     errors.push(`${location}: title or description must capitalize AI`);
   }
   if (/\bThis video explains\b/i.test(record.description || "")) {
@@ -131,13 +140,22 @@ for (const file of (await readdir(videoItemsDirectory)).filter((name) => name.en
     youtubeIds.set(record.youtubeVideoId, record.slug);
   }
 
+  if (record.sourceIds && !Array.isArray(record.sourceIds)) {
+    errors.push(`${location}: sourceIds must be an array`);
+  }
+  for (const sourceId of record.sourceIds || []) {
+    if (!evidenceSources[sourceId]) {
+      errors.push(`${location}: references missing evidence source "${sourceId}"`);
+    }
+  }
+
   if (record.transcriptPath) {
     try {
       const transcript = await readFile(path.resolve(record.transcriptPath), "utf8");
       if (/[a-z][.!?][A-Z]/.test(transcript)) {
         errors.push(`${location}: transcript contains joined sentences without spacing`);
       }
-      if (/\b(?:ai|Ai)\b/.test(transcript)) {
+      if (hasBadAiCasingInProse(transcript)) {
         errors.push(`${location}: transcript must capitalize AI`);
       }
       if (/\b(?:15 to 20%|18 to 36 month|five plus years)\b/i.test(transcript) && !record.transcriptNote) {
@@ -163,7 +181,7 @@ for (const topic of videoTopics) {
         `content/videos/associations.js: ${topic.slug} has a section missing an id, title, or description`,
       );
     }
-    if (/\b(?:ai|Ai)\b/.test(`${section.title || ""} ${section.description || ""}`)) {
+    if (hasBadAiCasingInProse(`${section.title || ""} ${section.description || ""}`)) {
       errors.push(`content/videos/associations.js: ${topic.slug}/${section.id} must capitalize AI`);
     }
     if (/preserving .*relationships|connected to the .* guide|^Videos about\b/i.test(section.description || "")) {

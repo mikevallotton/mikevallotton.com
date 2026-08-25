@@ -257,6 +257,31 @@ export const evidenceSources = {
     description:
       "Official documentation describing privacy protections for business Workspace use.",
   },
+  mckinseyPersonalization: {
+    title: "The Value of Getting Personalization Right—or Wrong—is Multiplying",
+    publisher: "McKinsey & Company",
+    year: "2021",
+    href: "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying",
+    description:
+      "Research reporting typical personalization revenue lifts of 10 to 15 percent, with results varying by company, sector, and execution maturity.",
+  },
+  bcgPersonalization: {
+    title: "Retail Spotlight: Personalization in Action",
+    publisher: "Boston Consulting Group",
+    year: "2024",
+    href: "https://www.bcg.com/publications/2024/personalization-in-action",
+    description:
+      "Research associating personalization leadership with faster retail revenue growth and higher returns from personalized offers than mass promotions.",
+  },
+  personalizationParadox: {
+    title:
+      "Unraveling the Personalization Paradox: The Effect of Information Collection and Trust-Building Strategies on Online Advertisement Effectiveness",
+    publisher: "Aguirre and coauthors",
+    year: "2015",
+    href: "https://pure.uvt.nl/ws/portalfiles/portal/82612319/1-s2.0-S0022435914000669-main.pdf",
+    description:
+      "Field evidence and experiments finding that covert data collection can undermine personalized advertising, while transparency and trust cues can mitigate the effect.",
+  },
 };
 
 export const evidenceNotes = {

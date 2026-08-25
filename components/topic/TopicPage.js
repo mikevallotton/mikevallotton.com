@@ -5,6 +5,7 @@ import VideoStructuredData from "../VideoStructuredData";
 import ContentContinuation from "../ContentContinuation";
 import {
   compareVideosByPublishedDesc,
+  getVideoSection,
   getVideoTopicBySourcePath,
   getVideosByIds,
 } from "../../content/videos";
@@ -13,6 +14,14 @@ import TopicAudience from "./TopicAudience";
 import TopicSection from "./TopicSection";
 import TopicImage from "./TopicImage";
 import TopicSectionNav from "./TopicSectionNav";
+
+function getSectionVideos(section, archiveSection) {
+  const videos = archiveSection
+    ? getVideosByIds(archiveSection.videoIds)
+    : section.videos || getVideosByIds(section.videoIds);
+
+  return [...videos].sort(compareVideosByPublishedDesc);
+}
 
 export default function TopicPage({
   topicKey,
@@ -32,10 +41,14 @@ export default function TopicPage({
   sidebar,
 }) {
   const videoTopic = getVideoTopicBySourcePath(path);
-  const visibleVideos = sections.flatMap((section) =>
-    [...(section.videos || getVideosByIds(section.videoIds))]
-      .sort(compareVideosByPublishedDesc)
-      .slice(0, 3),
+  const sectionsWithVideos = sections.map((section) => {
+    const archiveSection = getVideoSection(videoTopic, section.id);
+    const videos = getSectionVideos(section, archiveSection);
+
+    return { section, archiveSection, videos };
+  });
+  const visibleVideos = sectionsWithVideos.flatMap(({ videos }) =>
+    videos.slice(0, 3),
   );
 
   return (
@@ -53,12 +66,14 @@ export default function TopicPage({
       <TopicSectionNav sections={sections} />
       <div className={sidebar ? "topic-sections-layout" : ""}>
         <div className="topic-sections-layout__content">
-          {sections.map((section) => (
+          {sectionsWithVideos.map(({ section, archiveSection, videos }) => (
             <TopicSection
               key={section.id}
               section={section}
               faqItems={getFaqItems?.(section)}
               videoTopic={videoTopic}
+              archiveSection={archiveSection}
+              videos={videos}
             />
           ))}
         </div>

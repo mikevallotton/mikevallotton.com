@@ -2,20 +2,16 @@ import EvidenceNote from "../EvidenceNote";
 import FaqList from "../FaqList";
 import RelatedConcepts from "../RelatedConcepts";
 import VideoShelf from "../VideoShelf";
-import {
-  compareVideosByPublishedDesc,
-  getVideoArchivePath,
-  getVideoSection,
-  getVideosByIds,
-} from "../../content/videos";
+import { getVideoArchivePath } from "../../content/videos";
 import TopicImage from "./TopicImage";
 
-export default function TopicSection({ section, faqItems, videoTopic }) {
-  const videos = [...(section.videos || getVideosByIds(section.videoIds))].sort(
-    compareVideosByPublishedDesc,
-  );
-  const archiveSection = getVideoSection(videoTopic, section.id);
-
+export default function TopicSection({
+  section,
+  faqItems,
+  videoTopic,
+  archiveSection,
+  videos,
+}) {
   return (
     <section
       id={section.id}
