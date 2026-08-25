@@ -1810,6 +1810,24 @@ main article a:hover [class*="h-8"][class*="w-8"][class*="rounded-full"] {
   border-top: 1px solid var(--parchment);
 }
 
+.job-search-section-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  max-width: 60rem;
+}
+
+.job-search-section-grid > :last-child {
+  min-width: 0;
+  max-width: 42rem;
+}
+
+@media (min-width: 1024px) {
+  .job-search-section-grid {
+    grid-template-columns: minmax(11rem, 15rem) minmax(0, 42rem);
+    gap: 3rem;
+  }
+}
 .job-search-section-examples {
   max-width: 58rem;
   margin-top: 1.65rem;

@@ -201,11 +201,61 @@ try {
 
   const videoArchivePageTwo = await assertStatus("/videos/page/2", 200);
   const videoArchivePageTwoHtml = await videoArchivePageTwo.text();
-  if (!videoArchivePageTwoHtml.includes("Showing 19–36 of 78 videos")) {
+  if (!videoArchivePageTwoHtml.includes("Showing 19–36 of 87 videos")) {
     throw new Error("/videos/page/2 did not describe its visible result range");
   }
   if (/href="\/videos"[^>]*aria-current="page"/i.test(videoArchivePageTwoHtml)) {
     throw new Error("/videos/page/2 incorrectly marks /videos as the current page");
+  }
+
+  const personalizationArchive = await assertStatus(
+    "/videos/ai-and-work/organizations",
+    200,
+  );
+  const personalizationArchiveHtml = await personalizationArchive.text();
+  const personalizationSourceUrls = [
+    "mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying",
+    "bcg.com/publications/2024/personalization-in-action",
+    "pure.uvt.nl/ws/portalfiles/portal/82612319/1-s2.0-S0022435914000669-main.pdf",
+  ];
+
+  for (const sourceUrl of personalizationSourceUrls) {
+    if (!personalizationArchiveHtml.includes(sourceUrl)) {
+      throw new Error(
+        `/videos/ai-and-work/organizations did not render source ${sourceUrl}`,
+      );
+    }
+  }
+
+  const jobSearchArticle = await assertStatus("/articles/ai-job-search", 200);
+  const jobSearchArticleHtml = await jobSearchArticle.text();
+  const getJobSearchSectionHtml = (sectionId) => {
+    const idIndex = jobSearchArticleHtml.indexOf(`id="${sectionId}"`);
+    const sectionStart = jobSearchArticleHtml.lastIndexOf("<section", idIndex);
+    const sectionEnd = jobSearchArticleHtml.indexOf("</section>", idIndex);
+
+    if (idIndex < 0 || sectionStart < 0 || sectionEnd < 0) {
+      throw new Error(`/articles/ai-job-search did not render #${sectionId}`);
+    }
+
+    return jobSearchArticleHtml.slice(sectionStart, sectionEnd);
+  };
+  const jobSearchVideoPlacements = [
+    ["capability-profile", "0HgRfLOw-vw"],
+    ["find-companies", "yUCHp24--pY"],
+    ["find-overlap", "3QaXNItdPPc"],
+    ["approach-plan", "DLeyl0M-zMg"],
+    ["how-to-use-it", "b3qdt-DAaak"],
+  ];
+
+  for (const [sectionId, videoId] of jobSearchVideoPlacements) {
+    if (!getJobSearchSectionHtml(sectionId).includes(videoId)) {
+      throw new Error(`/articles/ai-job-search did not place ${videoId} in #${sectionId}`);
+    }
+  }
+
+  if (/youtube\.com\/shorts\//i.test(getJobSearchSectionHtml("research-company"))) {
+    throw new Error("/articles/ai-job-search placed a video in #research-company");
   }
 
   const prompt = await assertStatus("/downloads/news-investigator-prompt.txt", 200);

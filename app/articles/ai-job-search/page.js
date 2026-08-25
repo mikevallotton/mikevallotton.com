@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Breadcrumbs from "../../../components/Breadcrumbs";
+import ArticleVideoLink from "../../../components/article/ArticleVideoLink";
 import ContentContinuation from "../../../components/ContentContinuation";
 import ContentMeta from "../../../components/ContentMeta";
 import EvidenceNote from "../../../components/EvidenceNote";
@@ -7,6 +8,7 @@ import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
 import JobSearchPrivacyWarning from "../../../components/JobSearchPrivacyWarning";
 import JsonLd from "../../../components/JsonLd";
+import VideoStructuredData from "../../../components/VideoStructuredData";
 import TopicSectionNav from "../../../components/topic/TopicSectionNav";
 import { evidenceNotes, sourcesFor } from "../../../content/evidence";
 import {
@@ -20,9 +22,51 @@ import {
 import { siteConfig } from "../../../content/siteConfig";
 import { withPageSocial } from "../../../content/metadata";
 import { contentDates } from "../../../content/dates";
+import { getVideosByIds } from "../../../content/videos";
 
 const published = contentDates.aiJobSearch.published;
 const articleTitle = "How I Would Use AI If I Was Looking for a Job";
+const jobSearchVideoPlacements = {
+  "capability-profile": {
+    slug: "how-i-would-find-a-job-part-1-know-what-you-offer",
+    part: 1,
+  },
+  "find-companies": {
+    slug: "how-i-would-find-a-job-part-2-find-where-you-fit",
+    part: 2,
+  },
+  "find-overlap": {
+    slug: "how-i-would-find-a-job-part-3-find-where-you-can-help",
+    part: 3,
+  },
+  "approach-plan": {
+    slug: "how-i-would-find-a-job-part-4-get-their-attention",
+    part: 4,
+  },
+  "how-to-use-it": {
+    slug: "how-i-would-find-a-job-part-5-learn-and-keep-going",
+    part: 5,
+  },
+};
+const jobSearchVideoIds = Object.values(jobSearchVideoPlacements).map(
+  ({ slug }) => slug,
+);
+const jobSearchVideos = getVideosByIds(jobSearchVideoIds);
+const jobSearchVideosBySlug = new Map(
+  jobSearchVideos.map((video) => [video.slug, video]),
+);
+const jobSearchVideoTotal = Object.keys(jobSearchVideoPlacements).length;
+
+function videoPlacementFor(sectionId) {
+  const placement = jobSearchVideoPlacements[sectionId];
+
+  if (!placement) return null;
+
+  return {
+    ...placement,
+    video: jobSearchVideosBySlug.get(placement.slug),
+  };
+}
 
 export const metadata = withPageSocial({
   title: {
@@ -152,10 +196,13 @@ function ExampleArrow() {
 }
 
 export default function AiJobSearchPage() {
+  const howToUseVideoPlacement = videoPlacementFor("how-to-use-it");
+
   return (
     <article className="article-page article-page--job-search">
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
+      <VideoStructuredData videos={jobSearchVideos} pagePath={aiJobSearchPath} />
       <Breadcrumbs current="AI Job Search" path={aiJobSearchPath} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">
@@ -206,7 +253,7 @@ export default function AiJobSearchPage() {
         aria-labelledby="overview-title"
         className="article-section border-b border-library-parchment py-14 md:py-20"
       >
-        <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
+        <div className="job-search-section-grid">
           <div>
             <p className="type-label text-library-walnut">The approach</p>
             <h2 id="overview-title" className="mt-3 text-3xl font-semibold">
@@ -249,46 +296,57 @@ export default function AiJobSearchPage() {
         </ol>
       </section>
 
-      {aiJobSearchPrompts.map((prompt) => (
-        <section
-          key={prompt.id}
-          id={prompt.id}
-          aria-labelledby={`${prompt.id}-title`}
-          className="article-section border-b border-library-parchment py-14 md:py-20"
-        >
-          <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
-            <div>
-              <p className="type-label text-library-walnut">
-                Copy/paste prompt
-              </p>
-              <h2
-                id={`${prompt.id}-title`}
-                className="mt-3 text-3xl font-semibold"
-              >
-                {prompt.title}
-              </h2>
-            </div>
-            <div className="reading-surface space-y-5 text-lg leading-relaxed text-library-muted">
-              <p>{prompt.summary}</p>
-              <div className="job-search-prompt-notes">
-                <div>
-                  <p className="type-label text-library-walnut">Output</p>
-                  <p>{prompt.outcome}</p>
+      {aiJobSearchPrompts.map((prompt) => {
+        const videoPlacement = videoPlacementFor(prompt.id);
+
+        return (
+          <section
+            key={prompt.id}
+            id={prompt.id}
+            aria-labelledby={`${prompt.id}-title`}
+            className="article-section border-b border-library-parchment py-14 md:py-20"
+          >
+            <div className="job-search-section-grid">
+              <div>
+                <p className="type-label text-library-walnut">
+                  Copy/paste prompt
+                </p>
+                <h2
+                  id={`${prompt.id}-title`}
+                  className="mt-3 text-3xl font-semibold"
+                >
+                  {prompt.title}
+                </h2>
+              </div>
+              <div className="reading-surface space-y-5 text-lg leading-relaxed text-library-muted">
+                <p>{prompt.summary}</p>
+                <div className="job-search-prompt-notes">
+                  <div>
+                    <p className="type-label text-library-walnut">Output</p>
+                    <p>{prompt.outcome}</p>
+                  </div>
+                  <div>
+                    <p className="type-label text-library-walnut">Avoid</p>
+                    <p>{prompt.failure}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="type-label text-library-walnut">Avoid</p>
-                  <p>{prompt.failure}</p>
-                </div>
+                {videoPlacement ? (
+                  <ArticleVideoLink
+                    video={videoPlacement.video}
+                    part={videoPlacement.part}
+                    total={jobSearchVideoTotal}
+                  />
+                ) : null}
               </div>
             </div>
-          </div>
-          <PromptBlock
-            label={`Copy/paste: ${prompt.title}`}
-            text={prompt.copyPrompt}
-          />
-          <PromptExampleLinks prompt={prompt} />
-        </section>
-      ))}
+            <PromptBlock
+              label={`Copy/paste: ${prompt.title}`}
+              text={prompt.copyPrompt}
+            />
+            <PromptExampleLinks prompt={prompt} />
+          </section>
+        );
+      })}
 
       <section
         id="examples"
@@ -330,7 +388,7 @@ export default function AiJobSearchPage() {
         aria-labelledby="how-to-use-it-title"
         className="article-section border-b border-library-parchment py-14 md:py-20"
       >
-        <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
+        <div className="job-search-section-grid">
           <div>
             <p className="type-label text-library-walnut">How to use it</p>
             <h2 id="how-to-use-it-title" className="mt-3 text-3xl font-semibold">
@@ -352,6 +410,13 @@ export default function AiJobSearchPage() {
               changes, and keep moving across more than one company.
             </p>
             <EvidenceNote note={evidenceNotes.thinkingConfidence} />
+            {howToUseVideoPlacement ? (
+              <ArticleVideoLink
+                video={howToUseVideoPlacement.video}
+                part={howToUseVideoPlacement.part}
+                total={jobSearchVideoTotal}
+              />
+            ) : null}
           </div>
         </div>
       </section>
@@ -361,7 +426,7 @@ export default function AiJobSearchPage() {
         aria-labelledby="frequently-asked-questions-title"
         className="article-section border-b border-library-parchment py-14 md:py-20"
       >
-        <div className="grid gap-8 md:grid-cols-[15rem_minmax(0,48rem)] md:gap-12">
+        <div className="job-search-section-grid">
           <div>
             <p className="type-label text-library-walnut">Practical guidance</p>
             <h2

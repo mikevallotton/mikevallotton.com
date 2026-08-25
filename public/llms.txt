@@ -61,7 +61,7 @@ Language: English
 
 ## Articles
 
-- [How I Would Use AI If I Was Looking for a Job](https://mikevallotton.com/articles/ai-job-search): The five prompts I would use to understand what you can offer, find sourced employers, research fit, identify real overlap, and decide what to do next.
+- [How I Would Use AI If I Was Looking for a Job](https://mikevallotton.com/articles/ai-job-search): The five prompts I would use to understand what you can offer, find sourced employers, research fit, identify real overlap, and decide what to do next. The page includes a five-part related video series.
   - [Experienced Professional Example](https://mikevallotton.com/articles/ai-job-search/examples/experienced-professional): Synthetic input and output for a senior B2B SaaS operations leader researching ServiceNow.
   - [Early-Career Candidate Example](https://mikevallotton.com/articles/ai-job-search/examples/early-career): Synthetic input and output for an IT support specialist exploring security compliance and customer trust paths.
   - [Career Changer Example](https://mikevallotton.com/articles/ai-job-search/examples/career-changer-weak-match): Synthetic input and output for a Spanish teacher evaluating a narrow, weak immediate fit with Duolingo.
