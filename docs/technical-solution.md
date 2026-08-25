@@ -60,7 +60,7 @@ Each route owns its page metadata and content. The long-form topic routes use a 
 - optional post-section content; and
 - the next recommended guide.
 
-`TopicPage` renders shared breadcrumbs, hero, audience block, section navigation, topic sections, evidence links, video structured data, and continuation navigation. This contract is the preferred extension point for new topic content.
+`TopicPage` renders shared breadcrumbs, hero, audience block, section navigation, topic sections, evidence links, related video shelves, and continuation navigation. This contract is the preferred extension point for new topic content.
 
 ### Content and evidence
 
@@ -74,6 +74,11 @@ results oldest first. Collections longer than 18 videos use static pagination
 at `/videos/page/<n>` or `/videos/<topic>/page/<n>`; section collections remain
 unpaginated. Article-only video associations remain on their articles and do
 not enter the topic archive.
+
+Pages that show video thumbnails and outbound platform links do not emit
+`VideoObject` structured data. Video structured data is reserved for a future
+page where the video is directly playable and its visible metadata matches the
+markup.
 
 `content/evidence.js` has two layers:
 
@@ -104,7 +109,7 @@ The solution exposes several discovery surfaces:
 
 - route-level metadata and canonical URLs;
 - Open Graph and Twitter images;
-- JSON-LD for site, person, articles, FAQs, breadcrumbs, and videos;
+- JSON-LD for site, person, articles, FAQs, breadcrumbs, and collection pages;
 - `app/robots.js`;
 - `app/sitemap.js`;
 - `public/llms.txt`; and

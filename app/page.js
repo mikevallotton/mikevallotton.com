@@ -6,7 +6,6 @@ import { getLatestYouTubeVideo } from "../lib/youtubeFeed";
 import LatestContent from "../components/LatestContent";
 import PrinciplesGrid from "../components/PrinciplesGrid";
 import TopicsSection from "../components/TopicsSection";
-import VideoStructuredData from "../components/VideoStructuredData";
 import { withPageSocial } from "../content/metadata";
 
 export const metadata = withPageSocial({
@@ -79,7 +78,6 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <VideoStructuredData videos={latestVideo ? [latestVideo] : []} pagePath="/" />
 
       <div className="home-intro">
         <section className="home-hero relative flex min-h-[calc(100svh-7rem)] flex-col justify-between overflow-hidden pb-14 pt-2 md:pb-16 md:pt-8">

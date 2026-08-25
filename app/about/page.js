@@ -4,7 +4,6 @@ import { siteConfig } from "../../content/siteConfig";
 import { principles } from "../../content/principles";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import PrinciplesGrid from "../../components/PrinciplesGrid";
-import VideoStructuredData from "../../components/VideoStructuredData";
 import VideoGrid from "../../components/VideoGrid";
 import { getVideosByIds } from "../../content/videos";
 import { withPageSocial } from "../../content/metadata";
@@ -64,7 +63,6 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <VideoStructuredData videos={videos} pagePath="/about" />
       <Breadcrumbs current="About" path="/about" />
       <section className="about-hero">
         <div className="about-hero__copy">

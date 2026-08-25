@@ -6,7 +6,6 @@ import FurtherReading from "../FurtherReading";
 import JsonLd from "../JsonLd";
 import RelatedConcepts from "../RelatedConcepts";
 import VideoShelf from "../VideoShelf";
-import VideoStructuredData from "../VideoStructuredData";
 import { evidenceNotes, sourcesFor } from "../../content/evidence";
 import { operatingPrinciples } from "../../content/operatingPrinciples";
 import { siteConfig } from "../../content/siteConfig";
@@ -84,7 +83,6 @@ export default function OperatingPrinciplePage({ slug }) {
     <article className={`article-page topic--${principle.topicKey}`}>
       <JsonLd data={schemaForOperatingPrinciple(principle, path)} />
       <JsonLd data={faqSchemaForOperatingPrinciple(principle.faqs)} />
-      <VideoStructuredData videos={videos} pagePath={path} />
       <Breadcrumbs current={principle.title} path={path} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">

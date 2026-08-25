@@ -107,10 +107,15 @@ function assertPageMetadata(path, html) {
   }
 
   for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+    let structuredData;
     try {
-      JSON.parse(match[1]);
+      structuredData = JSON.parse(match[1]);
     } catch {
       throw new Error(`${path} contains invalid JSON-LD`);
+    }
+
+    if (JSON.stringify(structuredData).includes('"@type":"VideoObject"')) {
+      throw new Error(`${path} emitted VideoObject structured data without an embedded player`);
     }
   }
 }

@@ -8,7 +8,6 @@ import FaqList from "../../../components/FaqList";
 import FurtherReading from "../../../components/FurtherReading";
 import JobSearchPrivacyWarning from "../../../components/JobSearchPrivacyWarning";
 import JsonLd from "../../../components/JsonLd";
-import VideoStructuredData from "../../../components/VideoStructuredData";
 import TopicSectionNav from "../../../components/topic/TopicSectionNav";
 import { evidenceNotes, sourcesFor } from "../../../content/evidence";
 import {
@@ -202,7 +201,6 @@ export default function AiJobSearchPage() {
     <article className="article-page article-page--job-search">
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
-      <VideoStructuredData videos={jobSearchVideos} pagePath={aiJobSearchPath} />
       <Breadcrumbs current="AI Job Search" path={aiJobSearchPath} />
 
       <header className="article-hero border-b border-library-parchment pb-14 pt-2 md:pb-20 md:pt-6">

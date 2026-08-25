@@ -1,7 +1,6 @@
 import Breadcrumbs from "../Breadcrumbs";
 import FurtherReading from "../FurtherReading";
 import JsonLd from "../JsonLd";
-import VideoStructuredData from "../VideoStructuredData";
 import ContentContinuation from "../ContentContinuation";
 import {
   compareVideosByPublishedDesc,
@@ -47,15 +46,11 @@ export default function TopicPage({
 
     return { section, archiveSection, videos };
   });
-  const visibleVideos = sectionsWithVideos.flatMap(({ videos }) =>
-    videos.slice(0, 3),
-  );
 
   return (
     <article className={`topic-page topic--${topicKey}`}>
       <JsonLd data={articleSchema} />
       <JsonLd data={faqSchema} />
-      <VideoStructuredData videos={visibleVideos} pagePath={path} />
       <Breadcrumbs current={breadcrumb} path={path} />
       <TopicHero {...hero} />
       <TopicAudience
